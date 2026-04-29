@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO Roadmap 2026 — Swell Marketing | The Signal Architecture Blueprint</title>
+<meta name="description" content="The definitive 2026 GEO roadmap for brands and agents entering the generative search era. Signal architecture, Share of Model, entity authority, and the 16-agent autonomous pipeline that replaces traditional SEO teams.">
+<link rel="canonical" href="https://swellmarketing.xyz/geo-roadmap-2026">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://swellmarketing.xyz/geo-roadmap-2026#article",
+      "headline": "GEO Roadmap 2026 — The Signal Architecture Blueprint for the Generative Web",
+      "author": { "@type": "Person", "name": "Mason Nguyen", "@id": "https://au-re.org/author/mason" },
+      "publisher": { "@type": "Organization", "name": "Swell Marketing", "url": "https://swellmarketing.xyz" },
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-04-01",
+      "about": ["Generative Engine Optimization","GEO","Share of Model","Signal Architecture","LLM Citation","AI-First Search","ARM Framework"]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0e0c09;
+  --paper:#f5f2eb;
+  --paper2:#ede9df;
+  --paper3:#e4dfd3;
+  --accent:#1a6b3c;
+  --accent2:#2a9558;
+  --gold:#c9930a;
+  --border:#ccc6b8;
+  --border2:#b8b0a0;
+  --text:#1c1a16;
+  --text2:#5a5548;
+  --text3:#8a8070;
+  --red:#b02819;
+  --bebas:'Bebas Neue',sans-serif;
+  --serif:'Instrument Serif',serif;
+  --mono:'DM Mono',monospace;
+  --sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--text);overflow-x:hidden;font-size:16px;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.5}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(245,242,235,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--bebas);font-size:1.3rem;letter-spacing:0.05em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.nav-links a{font-family:var(--mono);font-size:0.68rem;color:var(--text2);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s;margin-left:20px}
+.nav-links a:hover{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;font-family:var(--mono);font-size:0.75rem;font-weight:500;letter-spacing:0.06em;text-decoration:none;border-radius:2px;transition:all 0.15s;cursor:pointer;border:none}
+.btn-primary{background:var(--ink);color:var(--paper)}.btn-primary:hover{background:var(--accent)}
+.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border2)}.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* HERO */
+.roadmap-hero{
+  padding:100px 2rem 0;
+  max-width:1100px;margin:0 auto;
+  position:relative;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:2rem;
+  font-family:var(--mono);font-size:0.68rem;
+  color:var(--text3);letter-spacing:0.08em;
+  flex-wrap:wrap;
+}
+.meta-tag{
+  padding:3px 10px;border-radius:2px;
+  background:var(--paper2);border:1px solid var(--border);
+}
+.meta-updated{color:var(--accent)}
+.hero-super{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:1rem;
+}
+.hero-rule{flex:1;height:1px;background:var(--border)}
+.hero-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)}
+h1.roadmap-title{
+  font-family:var(--bebas);
+  font-size:clamp(4.5rem,9vw,10rem);
+  line-height:0.88;
+  letter-spacing:0.01em;
+  color:var(--ink);
+  margin-bottom:2rem;
+}
+h1.roadmap-title .accent{color:var(--accent)}
+h1.roadmap-title .stroke{-webkit-text-stroke:2px var(--ink);color:transparent}
+.hero-deck{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  padding:40px 0 60px;
+  border-top:1px solid var(--border);
+  margin-top:0;
+}
+.hero-lede{
+  font-family:var(--serif);font-style:italic;
+  font-size:1.2rem;color:var(--text2);
+  line-height:1.65;
+  padding-right:20px;
+  border-right:1px solid var(--border);
+}
+.hero-lede strong{font-style:normal;color:var(--ink)}
+.hero-summary{font-size:0.9rem;color:var(--text2);line-height:1.8}
+.hero-summary p{margin-bottom:0.75rem}
+.hero-summary p:last-child{margin-bottom:0}
+
+/* TIMELINE HERO */
+.timeline-bar{
+  background:var(--ink);
+  padding:0 2rem;
+  margin:0;
+}
+.timeline-bar-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+}
+.tbar-item{
+  padding:24px 20px;
+  border-right:1px solid rgba(255,255,255,0.06);
+  transition:background 0.15s;
+  cursor:default;
+}
+.tbar-item:last-child{border-right:none}
+.tbar-item:hover{background:rgba(255,255,255,0.03)}
+.tbar-phase{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:4px}
+.tbar-name{font-family:var(--bebas);font-size:0.95rem;letter-spacing:0.04em;color:rgba(255,255,255,0.7)}
+.tbar-timing{font-family:var(--mono);font-size:0.6rem;color:var(--accent2);margin-top:3px}
+
+/* SECTION STRUCTURE */
+.roadmap-section{padding:80px 2rem;max-width:1100px;margin:0 auto}
+.roadmap-section + .roadmap-section{padding-top:0}
+.phase-header{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:24px;align-items:start;
+  margin-bottom:40px;
+  padding-bottom:32px;
+  border-bottom:1px solid var(--border);
+}
+.phase-num-big{
+  font-family:var(--bebas);
+  font-size:7rem;
+  line-height:0.85;
+  color:rgba(14,12,9,0.06);
+  letter-spacing:0.02em;
+  min-width:120px;
+  text-align:right;
+}
+.phase-info{}
+.phase-tag{
+  font-family:var(--mono);font-size:0.62rem;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:8px;
+  display:flex;align-items:center;gap:8px;
+}
+.phase-tag .dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.dot-green{background:var(--accent)}
+.dot-gold{background:var(--gold)}
+.dot-blue{background:#4488ff}
+.dot-red{background:var(--red)}
+.dot-purple{background:#7c4dbc}
+.phase-title{
+  font-family:var(--bebas);
+  font-size:clamp(2rem,4vw,3.2rem);
+  line-height:0.95;letter-spacing:0.02em;
+  color:var(--ink);margin-bottom:10px;
+}
+.phase-title em{color:var(--accent);font-style:normal}
+.phase-sub{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--text2);line-height:1.6}
+
+/* STEP GRID */
+.step-grid{display:flex;flex-direction:column;gap:0}
+.step{
+  display:grid;
+  grid-template-columns:48px 1fr auto;
+  gap:20px;align-items:start;
+  padding:20px 0;
+  border-bottom:1px solid var(--border);
+  transition:background 0.12s;
+}
+.step:last-child{border-bottom:none}
+.step:hover{padding-left:8px;padding-right:8px;margin:0 -8px;border-radius:3px;background:var(--paper2)}
+.step-num{
+  font-family:var(--mono);font-size:0.65rem;
+  color:var(--text3);letter-spacing:0.08em;
+  padding-top:4px;
+}
+.step-body{}
+.step-name{
+  font-size:0.95rem;font-weight:500;
+  color:var(--ink);margin-bottom:5px;
+}
+.step-desc{font-size:0.85rem;color:var(--text2);line-height:1.65;margin-bottom:8px}
+.step-tags{display:flex;gap:5px;flex-wrap:wrap}
+.step-tag{
+  font-family:var(--mono);font-size:0.6rem;
+  padding:2px 7px;border-radius:2px;
+  border:1px solid var(--border);
+  color:var(--text3);letter-spacing:0.06em;
+}
+.step-agent{border-color:rgba(42,149,88,0.3);color:var(--accent)}
+.step-status{font-family:var(--mono);font-size:0.62rem;padding:3px 10px;border-radius:2px;white-space:nowrap;letter-spacing:0.06em;align-self:flex-start;margin-top:4px}
+.st-required{background:#f0e8d6;color:#7a5a1a;border:1px solid #d4b87a}
+.st-advanced{background:#e8f0f5;color:#2a5a7a;border:1px solid #7ab0d4}
+.st-agent{background:#e8f5ee;color:var(--accent);border:1px solid rgba(42,149,88,0.3)}
+.st-critical{background:#f5e8e8;color:var(--red);border:1px solid rgba(176,40,25,0.3)}
+
+/* DARK PHASE */
+.phase-dark{
+  background:var(--ink);
+  padding:80px 2rem;
+  margin:0;
+}
+.phase-dark-inner{max-width:1100px;margin:0 auto}
+.phase-dark .phase-title{color:var(--paper)}
+.phase-dark .phase-title em{color:var(--accent2)}
+.phase-dark .phase-sub{color:rgba(255,255,255,0.4)}
+.phase-dark .phase-num-big{color:rgba(255,255,255,0.04)}
+.phase-dark .phase-tag{color:rgba(255,255,255,0.25)}
+.phase-dark .phase-header{border-bottom-color:rgba(255,255,255,0.08)}
+.phase-dark .step{border-bottom-color:rgba(255,255,255,0.06)}
+.phase-dark .step:hover{background:rgba(255,255,255,0.02)}
+.phase-dark .step-name{color:var(--paper)}
+.phase-dark .step-desc{color:rgba(255,255,255,0.4)}
+.phase-dark .step-tag{border-color:rgba(255,255,255,0.12);color:rgba(255,255,255,0.35)}
+.phase-dark .step-agent{border-color:rgba(42,149,88,0.3);color:var(--accent2)}
+.phase-dark .step-num{color:rgba(255,255,255,0.2)}
+
+/* CALLOUT BLOCKS */
+.callout{
+  padding:28px 32px;
+  margin:32px 0;
+  border-radius:2px;
+}
+.callout-insight{background:var(--paper2);border:1px solid var(--border);border-left:3px solid var(--accent)}
+.callout-warning{background:#fdf4f4;border:1px solid #f0ccc8;border-left:3px solid var(--red)}
+.callout-agent{background:#f0f8f4;border:1px solid rgba(42,149,88,0.2);border-left:3px solid var(--accent2)}
+.callout-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;display:block}
+.callout-insight .callout-label{color:var(--accent)}
+.callout-warning .callout-label{color:var(--red)}
+.callout-agent .callout-label{color:var(--accent2)}
+.callout-text{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--text2);line-height:1.65}
+.callout-text strong{color:var(--ink);font-style:normal}
+
+/* METRIC ROW */
+.metric-row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  margin:32px 0;
+}
+.metric-cell{background:var(--paper);padding:20px 24px}
+.metric-num{font-family:var(--bebas);font-size:2.5rem;color:var(--ink);line-height:1;margin-bottom:4px}
+.metric-num .accent{color:var(--accent)}
+.metric-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)}
+
+/* AGENT MAP */
+.agent-map{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.06);
+  margin-top:32px;
+}
+.agent-cell{
+  background:var(--ink);
+  padding:20px;
+  transition:background 0.15s;
+}
+.agent-cell:hover{background:#161410}
+.agent-badge{
+  font-family:var(--mono);font-size:0.58rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:2px 7px;border-radius:2px;
+  margin-bottom:10px;display:inline-block;
+}
+.badge-setup{background:rgba(42,149,88,0.15);color:var(--accent2);border:1px solid rgba(42,149,88,0.25)}
+.badge-monitor{background:rgba(68,136,255,0.15);color:#6aa3ff;border:1px solid rgba(68,136,255,0.25)}
+.badge-content{background:rgba(201,147,10,0.15);color:#e8aa20;border:1px solid rgba(201,147,10,0.25)}
+.badge-report{background:rgba(176,40,25,0.15);color:#e05c4d;border:1px solid rgba(176,40,25,0.25)}
+.agent-name{font-size:0.8rem;font-weight:500;color:rgba(255,255,255,0.75);line-height:1.4}
+.agent-trigger{font-family:var(--mono);font-size:0.58rem;color:rgba(255,255,255,0.2);margin-top:4px}
+
+/* SOMMATION */
+.summation{
+  padding:80px 2rem;
+  max-width:1100px;margin:0 auto;
+}
+.sum-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;margin-top:40px;
+}
+.sum-col{}
+.sum-col-title{
+  font-family:var(--bebas);font-size:1.6rem;letter-spacing:0.04em;
+  color:var(--ink);margin-bottom:16px;
+  padding-bottom:12px;border-bottom:2px solid var(--border);
+}
+.sum-item{
+  display:flex;gap:12px;padding:10px 0;
+  border-bottom:1px solid var(--border);
+  font-size:0.875rem;color:var(--text2);line-height:1.5;
+}
+.sum-check{color:var(--accent);font-size:0.75rem;margin-top:2px;flex-shrink:0}
+
+/* CTA */
+.roadmap-cta{
+  background:var(--ink);
+  padding:80px 2rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.roadmap-cta::before{
+  content:'2026';
+  position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:var(--bebas);font-size:22rem;
+  color:rgba(255,255,255,0.02);
+  pointer-events:none;white-space:nowrap;letter-spacing:-0.02em;
+}
+.roadmap-cta-inner{position:relative;max-width:640px;margin:0 auto}
+.roadmap-cta h2{
+  font-family:var(--bebas);font-size:clamp(3rem,6vw,5rem);
+  line-height:0.92;letter-spacing:0.02em;color:var(--paper);
+  margin-bottom:1.2rem;
+}
+.roadmap-cta h2 em{color:var(--accent2);font-style:normal}
+.roadmap-cta p{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:rgba(255,255,255,0.4);line-height:1.65;margin-bottom:2rem}
+.cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-outline-light{background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.15)}.btn-outline-light:hover{border-color:rgba(255,255,255,0.4);color:var(--paper)}
+
+/* FOOTER */
+footer{background:var(--ink);padding:48px 2rem 32px;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px}
+.footer-links-row{display:flex;gap:20px;flex-wrap:wrap}
+.footer-link{font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.15s}
+.footer-link:hover{color:rgba(255,255,255,0.7)}
+.footer-bottom{max-width:1100px;margin:0 auto;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);font-family:var(--mono);font-size:0.62rem;color:rgba(255,255,255,0.18);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* PROGRESS INDICATOR */
+.progress-rail{
+  position:fixed;top:56px;left:0;right:0;z-index:99;
+  height:2px;background:rgba(26,107,60,0.12);
+}
+.progress-fill{height:100%;background:var(--accent);width:0%;transition:width 0.1s linear}
+
+@media(max-width:768px){
+  .hero-deck{grid-template-columns:1fr}
+  .hero-lede{border-right:none;padding-right:0;border-bottom:1px solid var(--border);padding-bottom:20px}
+  .timeline-bar-inner{grid-template-columns:1fr 1fr}
+  .tbar-item:nth-child(5){display:none}
+  .metric-row{grid-template-columns:1fr 1fr}
+  .agent-map{grid-template-columns:1fr 1fr}
+  .sum-grid{grid-template-columns:1fr}
+  .step{grid-template-columns:36px 1fr}
+  .step-status{display:none}
+  .phase-num-big{font-size:4rem;min-width:70px}
+}
+
+.reveal{opacity:0;transform:translateY(12px);transition:opacity 0.45s ease,transform 0.45s ease}
+.reveal.up{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div class="progress-rail"><div class="progress-fill" id="progress"></div></div>
+
+<nav>
+  <a class="nav-logo" href="https://swellmarketing.xyz">
+    <span class="nav-logo-dot"></span>SWELL MARKETING
+  </a>
+  <div class="nav-links">
+    <a href="#phase-1">Foundation</a>
+    <a href="#phase-2">Intelligence</a>
+    <a href="#phase-3">Content</a>
+    <a href="#phase-4">Technical</a>
+    <a href="#phase-5">Autonomous</a>
+    <a href="https://academy.swellmarketing.xyz">Academy</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div style="border-bottom:1px solid var(--border)">
+  <div class="roadmap-hero">
+    <div class="hero-meta">
+      <span class="meta-tag">Swell Marketing</span>
+      <span class="meta-tag meta-updated">↻ Updated Apr 2026</span>
+      <span class="meta-tag">v4.0 // Agent Era</span>
+      <span class="meta-tag">Author: Mason Nguyen</span>
+    </div>
+    <div class="hero-super">
+      <div class="hero-rule"></div>
+      <div class="hero-label">GEO · GENERATIVE ENGINE OPTIMIZATION</div>
+      <div class="hero-rule"></div>
+    </div>
+    <h1 class="roadmap-title">
+      THE<br>
+      <span class="accent">SIGNAL</span><br>
+      ROAD<span class="stroke">MAP</span><br>
+      <span style="font-size:0.45em;letter-spacing:0.08em;color:var(--text3)">2026 EDITION</span>
+    </h1>
+    <div class="hero-deck">
+      <div class="hero-lede">
+        "The brands winning in AI search aren't the ones with the most content. They're the ones machines understand without ambiguity — because <strong>they built the signal architecture that makes ambiguity impossible.</strong>"
+        <div style="margin-top:16px;font-family:var(--mono);font-size:0.65rem;color:var(--text3);letter-spacing:0.08em;font-style:normal">— Mason Nguyen, Swell Marketing</div>
+      </div>
+      <div class="hero-summary">
+        <p>Traditional SEO optimized for Googlebot. GEO optimizes for the LLMs answering questions on behalf of millions of users every hour. The mechanics are different. The discipline is different. The measurement is different.</p>
+        <p>This roadmap covers five phases: entity foundation, signal intelligence, content architecture, technical infrastructure, and autonomous agent deployment. It is the operational playbook Swell Marketing uses for every client — and what AURE's 16-agent system executes autonomously.</p>
+        <p>Read it as a practitioner. Deploy it as an architect.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE BAR -->
+<div class="timeline-bar">
+  <div class="timeline-bar-inner">
+    <div class="tbar-item">
+      <div class="tbar-phase">Phase 01</div>
+      <div class="tbar-name">Entity Foundation</div>
+      <div class="tbar-timing">Week 1–2</div>
+    </div>
+    <div class="tbar-item">
+      <div class="tbar-phase">Phase 02</div>
+      <div class="tbar-name">Signal Intelligence</div>
+      <div class="tbar-timing">Week 2–4</div>
+    </div>
+    <div class="tbar-item">
+      <div class="tbar-phase">Phase 03</div>
+      <div class="tbar-name">Content Architecture</div>
+      <div class="tbar-timing">Week 3–6</div>
+    </div>
+    <div class="tbar-item">
+      <div class="tbar-phase">Phase 04</div>
+      <div class="tbar-name">Technical Infrastructure</div>
+      <div class="tbar-timing">Week 4–8</div>
+    </div>
+    <div class="tbar-item">
+      <div class="tbar-phase">Phase 05</div>
+      <div class="tbar-name">Autonomous Loop</div>
+      <div class="tbar-timing">Week 6+</div>
+    </div>
+  </div>
+</div>
+
+<!-- PHASE 1: ENTITY FOUNDATION -->
+<section class="roadmap-section reveal" id="phase-1">
+  <div class="phase-header">
+    <div class="phase-num-big">01</div>
+    <div class="phase-info">
+      <div class="phase-tag"><span class="dot dot-green"></span>Foundation · Weeks 1–2 · Schema Architect + E-E-A-T Signal Agents</div>
+      <h2 class="phase-title">Entity <em>Foundation</em></h2>
+      <div class="phase-sub">Before you optimize for anything, you need to exist unambiguously in the machine's mind. This is entity declaration — the act of telling every LLM exactly who you are, what you do, where you do it, and why you're authoritative.</div>
+    </div>
+  </div>
+
+  <div class="callout callout-insight">
+    <span class="callout-label">// The Core Insight</span>
+    <div class="callout-text">"LLMs don't read your homepage. They read your signal architecture. A brand with a clear entity graph, verified sameAs connections, and proper E-E-A-T markup is <strong>structurally more citable</strong> than a competitor with ten times the content volume and zero schema hygiene."</div>
+  </div>
+
+  <div class="step-grid">
+    <div class="step">
+      <div class="step-num">1.1</div>
+      <div class="step-body">
+        <div class="step-name">GEO Signal Audit (The Baseline)</div>
+        <div class="step-desc">Before writing a single line of schema, understand where you stand. Run a comprehensive audit: JSON-LD validity, sameAs coverage, E-E-A-T signal inventory, llms.txt existence, sitemap health, and — critically — test how ChatGPT, Perplexity, Gemini, and Claude currently describe your brand. This is your Share of Model baseline. Everything else is optimization from here.</div>
+        <div class="step-tags"><span class="step-tag">GEO Audit Agent</span><span class="step-tag">LLM Brand Monitoring</span><span class="step-tag step-agent">AURE Agent 5</span></div>
+      </div>
+      <div class="step-status st-critical">CRITICAL FIRST</div>
+    </div>
+    <div class="step">
+      <div class="step-num">1.2</div>
+      <div class="step-body">
+        <div class="step-name">JSON-LD @graph Entity Declaration</div>
+        <div class="step-desc">Generate a comprehensive JSON-LD @graph schema covering Organization, LocalBusiness (if applicable), Person (founders, key personnel), and Product/Service types. This is not a metadata checkbox — it is your canonical entity declaration. Include @id URIs that resolve, sameAs links to every platform where your entity exists, and knowsAbout properties that define your topic authority.</div>
+        <div class="step-tags"><span class="step-tag">Schema Architect Agent</span><span class="step-tag">schema.org</span><span class="step-tag step-agent">AURE Agent 1</span></div>
+      </div>
+      <div class="step-status st-required">REQUIRED</div>
+    </div>
+    <div class="step">
+      <div class="step-num">1.3</div>
+      <div class="step-body">
+        <div class="step-name">sameAs Authority Node Mapping</div>
+        <div class="step-desc">Map every authoritative external node where your entity exists — LinkedIn, Wikidata, Crunchbase, GitHub, industry directories, government registries — and link them bidirectionally. Use rel="me" from every external profile pointing back to your canonical @id URL. This is how Google and LLMs verify identity across the web. Most brands do this for one or two platforms. Do it for every verifiable node that exists.</div>
+        <div class="step-tags"><span class="step-tag">Entity Graph Agent</span><span class="step-tag">rel="me"</span><span class="step-tag">@id URI</span></div>
+      </div>
+      <div class="step-status st-required">REQUIRED</div>
+    </div>
+    <div class="step">
+      <div class="step-num">1.4</div>
+      <div class="step-body">
+        <div class="step-name">E-E-A-T Signal Inventory & Scoring</div>
+        <div class="step-desc">Research the entity across professional profiles, review platforms, news citations, and publications. Score Expertise, Experience, Authority, and Trust on a 1–10 scale across each dimension. Identify the weakest signals — these become your optimization priority queue. E-E-A-T is not a Google concept. It is the actual signal profile of entities that LLMs were trained to trust.</div>
+        <div class="step-tags"><span class="step-tag">E-E-A-T Signal Agent</span><span class="step-tag step-agent">AURE Agent 2</span></div>
+      </div>
+      <div class="step-status st-required">REQUIRED</div>
+    </div>
+    <div class="step">
+      <div class="step-num">1.5</div>
+      <div class="step-body">
+        <div class="step-name">Author Entity Pages</div>
+        <div class="step-desc">Every person who produces content or holds authority within the organization needs a canonical author page with Person schema, @id URI, professional credentials, and sameAs connections. Author entities are underutilized in GEO — they are the mechanism by which expertise signals accumulate and compound. Build the author page before you build the content.</div>
+        <div class="step-tags"><span class="step-tag">Person schema</span><span class="step-tag">Author pages</span><span class="step-tag">E-E-A-T</span></div>
+      </div>
+      <div class="step-status st-required">REQUIRED</div>
+    </div>
+  </div>
+
+  <div class="metric-row">
+    <div class="metric-cell"><div class="metric-num">48<span class="accent">h</span></div><div class="metric-label">Audit to Blueprint</div></div>
+    <div class="metric-cell"><div class="metric-num">5<span class="accent">+</span></div><div class="metric-label">Schema Types Deployed</div></div>
+    <div class="metric-cell"><div class="metric-num">12<span class="accent">+</span></div><div class="metric-label">sameAs Nodes Mapped</div></div>
+    <div class="metric-cell"><div class="metric-num">4</div><div class="metric-label">E-E-A-T Dimensions Scored</div></div>
+  </div>
+</section>
+
+<!-- PHASE 2: SIGNAL INTELLIGENCE -->
+<section class="roadmap-section reveal" id="phase-2">
+  <div class="phase-header">
+    <div class="phase-num-big">02</div>
+    <div class="phase-info">
+      <div class="phase-tag"><span class="dot dot-gold"></span>Intelligence · Weeks 2–4 · LLM Brand Monitoring + Competitor Intel + Trend Detection</div>
+      <h2 class="phase-title">Signal <em>Intelligence</em></h2>
+      <div class="phase-sub">You can't optimize what you can't measure. Phase 2 instruments the monitoring infrastructure that tells you what LLMs currently say about you, what they say about competitors, and where the signal gaps are widening.</div>
+    </div>
+  </div>
+
+  <div class="callout callout-warning">
+    <span class="callout-label">// The Warning Most Teams Ignore</span>
+    <div class="callout-text">"A brand can have <strong>great traditional SEO metrics and zero LLM presence</strong>. If you're not measuring Share of Model across ChatGPT, Perplexity, Gemini, and Claude — you're optimizing blind. The signal gap between you and your competitors is growing every week. Most teams don't know it until it's a canyon."</div>
+  </div>
+
+  <div class="step-grid">
+    <div class="step">
+      <div class="step-num">2.1</div>
+      <div class="step-body">
+        <div class="step-name">Share of Model Baseline Measurement</div>
+        <div class="step-desc">Systematically query ChatGPT, Perplexity, Gemini, and Claude with prompts that should surface your brand: "What are the best [your category] tools?", "Who are the leading [your service] providers?", "Compare [your brand] vs [competitor]". Record every response. Calculate your citation frequency per platform. This is your Share of Model score. Run it weekly.</div>
+        <div class="step-tags"><span class="step-tag">LLM Brand Monitor Agent</span><span class="step-tag">Share of Model</span><span class="step-tag step-agent">AURE Agent 6</span></div>
+      </div>
+      <div class="step-status st-critical">MEASURE FIRST</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2.2</div>
+      <div class="step-body">
+        <div class="step-name">Competitor Signal Intelligence</div>
+        <div class="step-desc">Map the signal architecture of your three to five most cited competitors in LLM responses. Analyze their schema structure, E-E-A-T signal density, content citation patterns, and backlink authority. You are not looking for what they rank for — you're looking for why LLMs trust them. The gap between their signal profile and yours is the action list.</div>
+        <div class="step-tags"><span class="step-tag">Competitor Intel Agent</span><span class="step-tag">Signal Gap Analysis</span><span class="step-tag step-agent">AURE Agent 7</span></div>
+      </div>
+      <div class="step-status st-advanced">STRATEGIC</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2.3</div>
+      <div class="step-body">
+        <div class="step-name">Trend Detection & Query Pattern Analysis</div>
+        <div class="step-desc">Monitor the query patterns that are generating LLM responses in your topic space — through Google Trends, Perplexity trending topics, Reddit discussions, and industry publications. These are not just content ideas. They are signal opportunities: the topics where new entity relationships, new schema types, and new GEO content can compound Share of Model before competitors respond.</div>
+        <div class="step-tags"><span class="step-tag">Trend Detection Agent</span><span class="step-tag step-agent">AURE Agent 14</span></div>
+      </div>
+      <div class="step-status st-advanced">STRATEGIC</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2.4</div>
+      <div class="step-body">
+        <div class="step-name">Citation Tracking Infrastructure</div>
+        <div class="step-desc">Set up continuous web monitoring across Google, Reddit, Quora, news sites, forums, and industry publications for brand mentions and citations. Assess sentiment and accuracy of each citation found. Identify amplification opportunities — sources that cite your competitors but not you, high-authority platforms where your entity should have a presence, and inaccurate LLM responses that need to be corrected through signal intervention.</div>
+        <div class="step-tags"><span class="step-tag">Citation Tracking Agent</span><span class="step-tag step-agent">AURE Agent 4</span></div>
+      </div>
+      <div class="step-status st-required">REQUIRED</div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 3: CONTENT ARCHITECTURE (dark) -->
+<div class="phase-dark reveal" id="phase-3">
+  <div class="phase-dark-inner">
+    <div class="phase-header">
+      <div class="phase-num-big">03</div>
+      <div class="phase-info">
+        <div class="phase-tag"><span class="dot dot-blue"></span>Content · Weeks 3–6 · GEO Content Generation + Distribution + Social Signal</div>
+        <h2 class="phase-title">GEO Content <em>Architecture</em></h2>
+        <div class="phase-sub">GEO content is not SEO content. It is written to be extracted and cited by machines — not to generate clicks. Every paragraph is a potential citation. Every sentence is a potential answer. The structure is the strategy.</div>
+      </div>
+    </div>
+
+    <div class="callout callout-agent" style="background:rgba(42,149,88,0.08);border-color:rgba(42,149,88,0.2);border-left-color:var(--accent2)">
+      <span class="callout-label" style="color:var(--accent2)">// The GEO Content Principle</span>
+      <div class="callout-text" style="color:rgba(255,255,255,0.5)">"<strong style='color:rgba(255,255,255,0.75)'>Write for the machine that will read it, not the algorithm that will rank it.</strong> Declarative sentences. Entity-led paragraphs. Verifiable claims. Third-person voice for brand descriptions. No hedging. No 'it depends' without the actual answer. GEO content is the testimony you want the LLM to repeat verbatim when it answers a relevant question."</div>
+    </div>
+
+    <div class="step-grid">
+      <div class="step">
+        <div class="step-num">3.1</div>
+        <div class="step-body">
+          <div class="step-name">GEO Content Construction Rules</div>
+          <div class="step-desc">Lead every piece with the entity name in the first sentence. Include at least one verifiable metric per section. Use declarative, citable statements — not impressionistic claims. Define acronyms on first use. Structure with H2/H3 that answer questions machines are likely to be asked. Every piece outputs in Markdown with FAQPage, Article, or HowTo schema suggestions embedded in metadata.</div>
+          <div class="step-tags"><span class="step-tag">GEO Content Agent</span><span class="step-tag step-agent">AURE Agent 3</span></div>
+        </div>
+        <div class="step-status st-required">REQUIRED</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3.2</div>
+        <div class="step-body">
+          <div class="step-name">FAQPage & Structured Answer Architecture</div>
+          <div class="step-desc">FAQ pages are the highest-leverage GEO content format — they align with the question-and-answer structure LLMs use natively. Every FAQ answer must be a complete, standalone, citable paragraph. Deploy FAQPage JSON-LD in a @graph alongside WebPage, BreadcrumbList, and Organization schema. Questions should mirror the exact phrasing an LLM is likely to receive — test query variations across platforms.</div>
+          <div class="step-tags"><span class="step-tag">FAQPage Schema</span><span class="step-tag">JSON-LD @graph</span><span class="step-tag">GEO Content Agent</span></div>
+        </div>
+        <div class="step-status st-required">REQUIRED</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3.3</div>
+        <div class="step-body">
+          <div class="step-name">Content Distribution for Citation Seeding</div>
+          <div class="step-desc">Publish GEO content on third-party platforms that LLMs are trained on: Reddit (relevant subreddits), Quora answers, Medium, Substack, LinkedIn articles, and industry publications. The goal is not traffic — it is citation seeding. When an LLM is trained on web data and multiple authoritative sources cite your entity for a topic, your Share of Model for that topic increases structurally.</div>
+          <div class="step-tags"><span class="step-tag">Content Distribution Agent</span><span class="step-tag step-agent">AURE Agent 10</span></div>
+        </div>
+        <div class="step-status st-advanced">STRATEGIC</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3.4</div>
+        <div class="step-body">
+          <div class="step-name">Social Signal Amplification for LLM Training Data</div>
+          <div class="step-desc">Social engagement on distributed content is a secondary signal — but a real one. Platforms with high engagement metrics are more likely to be included in LLM training data scrapes. The Social Signal Amplification Agent identifies communities where target audiences gather, promotes content strategically, tracks engagement-to-LLM-perception correlation over time, and adjusts platform prioritization accordingly.</div>
+          <div class="step-tags"><span class="step-tag">Social Signal Agent</span><span class="step-tag step-agent">AURE Agent 11</span></div>
+        </div>
+        <div class="step-status st-advanced">AMPLIFIER</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3.5</div>
+        <div class="step-body">
+          <div class="step-name">Link & Backlink Authority for Signal Weight</div>
+          <div class="step-desc">Backlinks remain a signal — not for rankings, but for authority weight in the entity graph. High-authority domains linking to your entity pages with relevant anchor text reinforces the sameAs node network and E-E-A-T Authority score. Prioritize link acquisition on sites that LLMs cite as authoritative sources: trade publications, academic adjacent content, and high-DA industry references. Disavow toxic links that could undermine entity trust signals.</div>
+          <div class="step-tags"><span class="step-tag">Link Strategy Agent</span><span class="step-tag step-agent">AURE Agent 8</span></div>
+        </div>
+        <div class="step-status st-advanced">STRATEGIC</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PHASE 4: TECHNICAL -->
+<section class="roadmap-section reveal" id="phase-4">
+  <div class="phase-header">
+    <div class="phase-num-big">04</div>
+    <div class="phase-info">
+      <div class="phase-tag"><span class="dot dot-red"></span>Technical · Weeks 4–8 · Technical SEO + llms.txt Management + Entity Graph</div>
+      <h2 class="phase-title">Technical <em>Infrastructure</em></h2>
+      <div class="phase-sub">The invisible foundation. If LLM crawlers can't access your content, your signal architecture doesn't matter. If your entity graph is inconsistent across pages, citations will be diluted. Technical GEO infrastructure is the precondition for everything else working.</div>
+    </div>
+  </div>
+
+  <div class="step-grid">
+    <div class="step">
+      <div class="step-num">4.1</div>
+      <div class="step-body">
+        <div class="step-name">llms.txt — The AI Crawler Control File</div>
+        <div class="step-desc">Deploy an llms.txt file at your root domain that explicitly defines which content LLM crawlers (GPTBot, ClaudeBot, PerplexityBot, Googlebot-Extended) are permitted to index and how. This is the AI-era robots.txt. Without it, you're either accidentally blocking citation-generating content or allowing crawlers to index pages that dilute your entity signal. Swell Marketing clients see measurable Share of Model improvement within two crawl cycles of a properly structured llms.txt deployment.</div>
+        <div class="step-tags"><span class="step-tag">llms.txt Agent</span><span class="step-tag">GPTBot</span><span class="step-tag">ClaudeBot</span><span class="step-tag step-agent">AURE Agent 15</span></div>
+      </div>
+      <div class="step-status st-critical">CRITICAL</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4.2</div>
+      <div class="step-body">
+        <div class="step-name">robots.txt & Crawler Architecture</div>
+        <div class="step-desc">Audit and update robots.txt to ensure it doesn't inadvertently block LLM crawlers from accessing high-value entity pages and GEO content. Traditional robots.txt configurations often block query-parameterized URLs that contain valuable entity data. Restructure to allow LLM crawlers full access to schema-rich pages, FAQ pages, author pages, and core entity declarations.</div>
+        <div class="step-tags"><span class="step-tag">Crawler Architecture</span><span class="step-tag">llms.txt Agent</span></div>
+      </div>
+      <div class="step-status st-required">REQUIRED</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4.3</div>
+      <div class="step-body">
+        <div class="step-name">Core Web Vitals & Machine Readability</div>
+        <div class="step-desc">LCP, FID, CLS — these are no longer just Google ranking factors. LLM crawlers prioritize sites with fast, reliable rendering. Pages that timeout or render slowly during crawl may have their content skipped or indexed incompletely. Maintain sub-2.5s LCP across entity-critical pages and ensure schema markup is rendered in the initial HTML response — not injected by JavaScript after load.</div>
+        <div class="step-tags"><span class="step-tag">Technical SEO Agent</span><span class="step-tag">Core Web Vitals</span><span class="step-tag step-agent">AURE Agent 9</span></div>
+      </div>
+      <div class="step-status st-required">REQUIRED</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4.4</div>
+      <div class="step-body">
+        <div class="step-name">Entity Graph Maintenance & Consistency</div>
+        <div class="step-desc">The Entity Graph Management Agent is the nervous system of the AURE architecture. It continuously ingests data from Schema Architect, E-E-A-T Signal, LLM Brand Monitoring, and GEO Content agents — resolving disambiguation issues, expanding entity relationships, and feeding updated entity data back to all downstream agents. Without consistent entity graph maintenance, every other signal you build will decay or conflict. Run maintenance cycles at minimum monthly; automated systems run them continuously.</div>
+        <div class="step-tags"><span class="step-tag">Entity Graph Agent</span><span class="step-tag">RDF/JSON-LD</span><span class="step-tag step-agent">AURE Agent 12</span></div>
+      </div>
+      <div class="step-status st-critical">CRITICAL</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4.5</div>
+      <div class="step-body">
+        <div class="step-name">XML Sitemap Architecture for LLM Discovery</div>
+        <div class="step-desc">Structure sitemaps with priority weighting that reflects entity signal importance — not just update frequency. Entity pages, FAQ pages, author pages, and schema-rich content should be prioritized in the sitemap and submitted directly to Google Search Console. Include lastmod dates and changefreq signals that accurately reflect content evolution. Sitemaps are a discovery mechanism for LLMs as well as traditional crawlers.</div>
+        <div class="step-tags"><span class="step-tag">Sitemap Agent</span><span class="step-tag step-agent">AURE Agent 15</span></div>
+      </div>
+      <div class="step-status st-required">REQUIRED</div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 5: AUTONOMOUS (dark) -->
+<div class="phase-dark reveal" id="phase-5">
+  <div class="phase-dark-inner">
+    <div class="phase-header">
+      <div class="phase-num-big">05</div>
+      <div class="phase-info">
+        <div class="phase-tag"><span class="dot dot-purple"></span>Autonomous · Week 6+ · 16-Agent AURE Swarm · ARM Framework</div>
+        <h2 class="phase-title">The <em>Autonomous</em> Loop</h2>
+        <div class="phase-sub">Phases 1–4 require human implementation. Phase 5 replaces the human in the loop with the AURE 16-agent swarm — continuously monitoring, generating, distributing, and optimizing across every signal layer without intervention between cycles.</div>
+      </div>
+    </div>
+
+    <div class="callout callout-agent" style="background:rgba(42,149,88,0.08);border-color:rgba(42,149,88,0.2);border-left-color:var(--accent2)">
+      <span class="callout-label" style="color:var(--accent2)">// The Competitive Moat</span>
+      <div class="callout-text" style="color:rgba(255,255,255,0.45)">"A team doing manual GEO optimization can touch each signal layer maybe once per month. The AURE 16-agent swarm touches every layer continuously. <strong style='color:rgba(255,255,255,0.7)'>The compounding effect of continuous optimization versus periodic optimization is not linear — it is exponential.</strong> This is how you build a Share of Model moat that competitors cannot replicate without building the same infrastructure."</div>
+    </div>
+
+    <p style="font-size:0.875rem;color:rgba(255,255,255,0.35);margin-bottom:24px;line-height:1.65">The AURE system's 16 agents operate across three phases — initial setup, continuous monitoring, and reporting — with each agent's output serving as another agent's input. This is the architecture:</p>
+    
+    <div class="agent-map">
+      <div class="agent-cell"><span class="agent-badge badge-setup">Setup</span><div class="agent-name">1. Schema Architect</div><div class="agent-trigger">↳ JSON-LD @graph generation</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-setup">Setup</span><div class="agent-name">2. E-E-A-T Signal</div><div class="agent-trigger">↳ Trust signal scoring</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-setup">Setup</span><div class="agent-name">3. GEO Content Gen</div><div class="agent-trigger">↳ Geo-targeted content</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-setup">Setup</span><div class="agent-name">4. Citation Tracking</div><div class="agent-trigger">↳ Web brand mentions</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-setup">Setup</span><div class="agent-name">5. GEO Audit</div><div class="agent-trigger">↳ Infrastructure audit</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-monitor">Monitor</span><div class="agent-name">6. LLM Brand Monitor</div><div class="agent-trigger">↳ AI perception tracking</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-monitor">Monitor</span><div class="agent-name">7. Competitor Intel</div><div class="agent-trigger">↳ Signal gap analysis</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-content">Content</span><div class="agent-name">8. Link/Backlink Strategy</div><div class="agent-trigger">↳ Authority outreach</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-content">Technical</span><div class="agent-name">9. Technical SEO</div><div class="agent-trigger">↳ Core Web Vitals</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-content">Content</span><div class="agent-name">10. Content Distribution</div><div class="agent-trigger">↳ Multi-platform syndication</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-content">Content</span><div class="agent-name">11. Social Amplification</div><div class="agent-trigger">↳ LLM training signal</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-monitor">Monitor</span><div class="agent-name">12. Entity Graph Mgmt</div><div class="agent-trigger">↳ Knowledge graph hub</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-report">Report</span><div class="agent-name">13. Client Reporting</div><div class="agent-trigger">↳ Terminal — all agents</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-monitor">Monitor</span><div class="agent-name">14. Trend Detection</div><div class="agent-trigger">↳ Emerging keywords</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-setup">Technical</span><div class="agent-name">15. llms.txt / Sitemap</div><div class="agent-trigger">↳ Crawler control</div></div>
+      <div class="agent-cell"><span class="agent-badge badge-monitor">ORM</span><div class="agent-name">16. Reputation / ORM</div><div class="agent-trigger">↳ Sentiment monitoring</div></div>
+    </div>
+    <p style="font-family:var(--mono);font-size:0.65rem;color:rgba(255,255,255,0.2);margin-top:12px;letter-spacing:0.06em">AURE 16-AGENT ARCHITECTURE // MASON NGUYEN // ARM FRAMEWORK // au-re.org</p>
+  </div>
+</div>
+
+<!-- SUMMATION -->
+<section class="summation reveal">
+  <div class="section-kicker" style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3);margin-bottom:1.2rem;display:flex;align-items:center;gap:10px"><span style="display:block;width:20px;height:1px;background:var(--text3)"></span>The GEO Checklist</div>
+  <h2 style="font-family:var(--bebas);font-size:clamp(2.5rem,4vw,3.5rem);line-height:0.95;letter-spacing:0.03em;color:var(--ink);margin-bottom:8px">What <span style="color:var(--accent)">ships</span>, and what waits.</h2>
+  <p style="font-size:0.9rem;color:var(--text2);max-width:500px;margin-bottom:0">The 2026 GEO Roadmap has two categories: what you implement in the first eight weeks, and what you never stop optimizing.</p>
+  <div class="sum-grid">
+    <div class="sum-col">
+      <div class="sum-col-title">Deploy in Week 1–8</div>
+      <div class="sum-item"><span class="sum-check">✓</span>GEO Signal Audit with LLM baseline testing across 4 platforms</div>
+      <div class="sum-item"><span class="sum-check">✓</span>JSON-LD @graph with Organization, Person, and LocalBusiness types</div>
+      <div class="sum-item"><span class="sum-check">✓</span>sameAs authority nodes mapped and bidirectionally linked</div>
+      <div class="sum-item"><span class="sum-check">✓</span>E-E-A-T signal inventory scored and prioritized</div>
+      <div class="sum-item"><span class="sum-check">✓</span>Author pages with Person schema and @id URIs</div>
+      <div class="sum-item"><span class="sum-check">✓</span>llms.txt deployed with explicit LLM crawler permissions</div>
+      <div class="sum-item"><span class="sum-check">✓</span>FAQPage schema on all high-intent pages</div>
+      <div class="sum-item"><span class="sum-check">✓</span>Share of Model tracking infrastructure running weekly</div>
+    </div>
+    <div class="sum-col">
+      <div class="sum-col-title">Run Continuously</div>
+      <div class="sum-item"><span class="sum-check">✓</span>LLM brand monitoring: weekly query cycles across all 4 platforms</div>
+      <div class="sum-item"><span class="sum-check">✓</span>Entity graph maintenance: resolve disambiguation, expand nodes</div>
+      <div class="sum-item"><span class="sum-check">✓</span>GEO content generation tied to trend detection outputs</div>
+      <div class="sum-item"><span class="sum-check">✓</span>Citation distribution and social signal amplification</div>
+      <div class="sum-item"><span class="sum-check">✓</span>Backlink authority building on LLM-trusted domains</div>
+      <div class="sum-item"><span class="sum-check">✓</span>Technical SEO: crawl health, Core Web Vitals, schema validity</div>
+      <div class="sum-item"><span class="sum-check">✓</span>Competitor signal intelligence: monthly deep audits</div>
+      <div class="sum-item"><span class="sum-check">✓</span>Monthly client reporting across all 8 KPI dimensions</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="roadmap-cta">
+  <div class="roadmap-cta-inner">
+    <h2>Build the signal.<br><em>Win the citation.</em></h2>
+    <p>"The organizations that will dominate AI-assisted discovery in 2027 are building their entity authority right now. The window before this becomes a buyer's market is not infinite."</p>
+    <div class="cta-buttons">
+      <a href="mailto:mason@au-re.org" class="btn btn-primary">→ Start Your Signal Audit</a>
+      <a href="https://academy.swellmarketing.xyz" class="btn btn-outline-light">Swell Academy ↗</a>
+    </div>
+    <div style="margin-top:32px;font-family:var(--mono);font-size:0.65rem;color:rgba(255,255,255,0.2);letter-spacing:0.08em">SWELL MARKETING // MASON NGUYEN // SWELLMARKETING.XYZ // GEO ROADMAP 2026</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="nav-logo" href="https://swellmarketing.xyz" style="color:var(--paper);text-decoration:none;font-family:var(--bebas);font-size:1.2rem;letter-spacing:0.05em;display:flex;align-items:center;gap:8px;margin-bottom:10px">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--accent2)"></span>SWELL MARKETING
+      </a>
+      <div style="font-size:0.78rem;color:rgba(255,255,255,0.25);max-width:260px;line-height:1.65">Directed intelligence for the AI-first web. GEO strategy, signal architecture, and autonomous agent deployment by Mason Nguyen.</div>
+    </div>
+    <div class="footer-links-row">
+      <a class="footer-link" href="https://academy.swellmarketing.xyz">Swell Academy</a>
+      <a class="footer-link" href="https://au-re.org">AURE</a>
+      <a class="footer-link" href="https://arm-agency.com">ARM Agents</a>
+      <a class="footer-link" href="https://au-re.org/author/mason">Mason Nguyen</a>
+      <a class="footer-link" href="https://au-re.org/faq">AURE FAQ</a>
+      <a class="footer-link" href="mailto:mason@au-re.org">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Swell Marketing · swellmarketing.xyz · A Mason Nguyen / AURE property</span>
+    <span>Entity: Swell Marketing · Mason Nguyen · swellmarketing.xyz · au-re.org</span>
+  </div>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progress').style.width = pct + '%';
+});
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); obs.unobserve(e.target); } });
+}, { threshold: 0.06 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

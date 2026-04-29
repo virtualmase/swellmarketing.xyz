@@ -1,36 +1,1206 @@
-// app/routes/academy.tsx
-import { useEffect } from "react";
-import { gsap } from "gsap";
-
-export default function Academy() {
-  useEffect(() => {
-    gsap.from(".enroll-card", { y: 120, opacity: 0, duration: 1.6, ease: "power4.out" });
-  }, []);
-
-  return (
-    <div className="min-h-screen bg-zinc-950 text-white">
-      {/* same nav as above */}
-      <nav className="..."> {/* copy nav from roadmap */} </nav>
-
-      <section className="pt-40 pb-32 px-6 max-w-4xl mx-auto text-center">
-        <div className="text-violet-400 tracking-[4px] text-sm">8-WEEK COHORT • STARTS MARCH 3 2026</div>
-        <h1 className="text-7xl md:text-8xl font-black tracking-tighter leading-none mt-6">Master Directed Intelligence</h1>
-        <p className="text-3xl text-zinc-400 mt-10">Build your own GSO system. Live labs. Lifetime tools.</p>
-
-        <div className="enroll-card mt-20 bg-zinc-900 border border-zinc-700 rounded-3xl p-16 max-w-lg mx-auto">
-          <div className="text-7xl font-black">$4,800</div>
-          <div className="text-zinc-400 mt-2">or 4 payments of $1,300</div>
-          <ul className="mt-12 space-y-6 text-left text-lg">
-            <li>✓ Full GSO Roadmap Blueprint</li>
-            <li>✓ Weekly live schema & entity workshops</li>
-            <li>✓ Private Notion workspace + Discord</li>
-            <li>✓ Lifetime access to all Swell tools</li>
-            <li>✓ 1:1 strategy session with the team</li>
-          </ul>
-          <a href="https://calendly.com/swellmarketing" className="mt-16 block w-full py-7 bg-white text-black rounded-2xl text-2xl font-semibold">Enroll Agent Now →</a>
-          <p className="text-xs text-zinc-500 mt-8">Only 12 spots per cohort</p>
-        </div>
-      </section>
-    </div>
-  );
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swell Academy — Where Agents Learn to Win the Generative Web</title>
+<meta name="description" content="Swell Academy is the definitive GEO curriculum for AI agents and the humans who deploy them. Signal architecture. Entity authority. Share of Model. Built by practitioners, run by agents, for the agentic era.">
+<link rel="canonical" href="https://academy.swellmarketing.xyz">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://academy.swellmarketing.xyz/#org",
+      "name": "Swell Academy",
+      "description": "The definitive GEO and signal architecture curriculum for AI agents and the humans who deploy them.",
+      "url": "https://academy.swellmarketing.xyz",
+      "parentOrganization": { "@id": "https://swellmarketing.xyz/#org", "name": "Swell Marketing" },
+      "founder": { "@type": "Person", "name": "Mason Nguyen", "@id": "https://au-re.org/author/mason" },
+      "knowsAbout": ["GEO", "Generative Engine Optimization", "Signal Architecture", "Share of Model", "LLM Citation", "AI Agent Training", "Knowledge Graphs"]
+    }
+  ]
 }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0e0c09;
+  --paper:#f5f2eb;
+  --paper2:#ede9df;
+  --paper3:#e4dfd3;
+  --accent:#1a6b3c;
+  --accent2:#2a9558;
+  --accent-light:#e8f5ee;
+  --gold:#c9930a;
+  --gold-light:#fdf4e1;
+  --red:#c0392b;
+  --border:#ccc6b8;
+  --border2:#b8b0a0;
+  --text:#1c1a16;
+  --text2:#5a5548;
+  --text3:#8a8070;
+  --bebas:'Bebas Neue',sans-serif;
+  --serif:'Instrument Serif',serif;
+  --mono:'DM Mono',monospace;
+  --sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--text);
+  overflow-x:hidden;
+  font-size:16px;
+  line-height:1.6;
+}
+
+/* ── GRAIN TEXTURE ── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:0.5;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(245,242,235,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 2rem;
+  height:56px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-left{display:flex;align-items:center;gap:32px}
+.nav-logo{font-family:var(--bebas);font-size:1.4rem;letter-spacing:0.05em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block}
+.nav-links{display:flex;gap:20px}
+.nav-links a{font-family:var(--mono);font-size:0.72rem;color:var(--text2);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s}
+.nav-links a:hover{color:var(--accent)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.btn-sm{font-family:var(--mono);font-size:0.72rem;padding:7px 16px;border-radius:2px;text-decoration:none;letter-spacing:0.06em;transition:all 0.15s;cursor:pointer;border:none}
+.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border2)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-fill{background:var(--ink);color:var(--paper)}
+.btn-fill:hover{background:var(--accent)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  padding:120px 2rem 80px;
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* Ruled paper lines */
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(transparent, transparent 31px, var(--border) 31px, var(--border) 32px);
+  opacity:0.25;
+  pointer-events:none;
+}
+
+.hero-eyebrow{
+  font-family:var(--mono);
+  font-size:0.7rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--accent)}
+h1.hero-title{
+  font-family:var(--bebas);
+  font-size:clamp(4rem,8vw,7.5rem);
+  line-height:0.92;
+  letter-spacing:0.02em;
+  color:var(--ink);
+  margin-bottom:0.5rem;
+}
+h1.hero-title em{color:var(--accent);font-style:normal}
+h1.hero-title .stroke{
+  -webkit-text-stroke:2px var(--ink);
+  color:transparent;
+}
+.hero-sub{
+  font-family:var(--serif);
+  font-size:1.25rem;
+  font-style:italic;
+  color:var(--text2);
+  margin-bottom:2rem;
+  line-height:1.6;
+  max-width:480px;
+}
+.hero-sub strong{color:var(--ink);font-style:normal}
+.hero-desc{
+  font-size:0.95rem;
+  color:var(--text2);
+  line-height:1.75;
+  margin-bottom:2.5rem;
+  max-width:480px;
+}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:3rem}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;
+  font-family:var(--mono);font-size:0.8rem;font-weight:500;
+  letter-spacing:0.06em;text-decoration:none;
+  border-radius:2px;transition:all 0.15s;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:var(--accent)}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--border2)}
+.btn-outline:hover{border-color:var(--ink)}
+.hero-proof{
+  display:flex;gap:32px;flex-wrap:wrap;
+}
+.hproof{display:flex;flex-direction:column;gap:2px}
+.hproof-num{font-family:var(--bebas);font-size:2.2rem;letter-spacing:0.04em;color:var(--ink);line-height:1}
+.hproof-num span{color:var(--accent)}
+.hproof-label{font-family:var(--mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3)}
+
+/* HERO RIGHT */
+.hero-right{position:relative;z-index:2}
+.syllabus-card{
+  background:var(--ink);
+  color:var(--paper);
+  padding:32px;
+  border-radius:3px;
+  position:relative;
+  overflow:hidden;
+}
+.syllabus-card::before{
+  content:'';
+  position:absolute;
+  top:-40px;right:-40px;
+  width:200px;height:200px;
+  border-radius:50%;
+  background:rgba(26,107,60,0.15);
+}
+.syllabus-header{
+  font-family:var(--mono);
+  font-size:0.65rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--accent2);
+  margin-bottom:20px;
+  padding-bottom:16px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  display:flex;justify-content:space-between;
+  align-items:center;
+}
+.live-badge{
+  display:flex;align-items:center;gap:5px;
+  font-size:0.6rem;color:var(--accent2);
+}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);animation:livepulse 2s ease infinite}
+@keyframes livepulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.module-list{display:flex;flex-direction:column;gap:0}
+.module-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.module-item:last-child{border-bottom:none}
+.module-num{
+  font-family:var(--mono);font-size:0.6rem;
+  color:rgba(255,255,255,0.3);
+  min-width:24px;margin-top:2px;
+  letter-spacing:0.06em;
+}
+.module-info{flex:1}
+.module-name{
+  font-family:var(--sans);font-size:0.875rem;font-weight:500;
+  color:var(--paper);margin-bottom:3px;
+}
+.module-tag{
+  font-family:var(--mono);font-size:0.62rem;
+  letter-spacing:0.06em;
+  color:rgba(255,255,255,0.35);
+}
+.module-status{
+  font-family:var(--mono);font-size:0.6rem;
+  padding:3px 8px;border-radius:2px;
+  letter-spacing:0.06em;flex-shrink:0;
+}
+.status-live{background:rgba(42,149,88,0.2);color:var(--accent2);border:1px solid rgba(42,149,88,0.3)}
+.status-soon{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.1)}
+.status-agent{background:rgba(201,147,10,0.15);color:#e8aa20;border:1px solid rgba(201,147,10,0.3)}
+
+/* ── MARQUEE BAND ── */
+.marquee-band{
+  background:var(--accent);
+  padding:12px 0;
+  overflow:hidden;
+  border-top:1px solid var(--accent2);
+  border-bottom:1px solid var(--accent2);
+}
+.marquee-inner{
+  display:flex;gap:0;
+  animation:marquee 25s linear infinite;
+  white-space:nowrap;
+}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-item{
+  font-family:var(--bebas);font-size:1rem;
+  letter-spacing:0.12em;color:rgba(255,255,255,0.9);
+  padding:0 28px;
+  display:flex;align-items:center;gap:28px;
+}
+.marquee-item::after{content:'✦';color:rgba(255,255,255,0.4);font-size:0.6rem}
+
+/* ── PHILOSOPHY ── */
+.philosophy{
+  padding:100px 2rem;
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:100px;
+  align-items:start;
+}
+.section-kicker{
+  font-family:var(--mono);font-size:0.68rem;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--text3);
+  margin-bottom:1.2rem;
+  display:flex;align-items:center;gap:10px;
+}
+.section-kicker::before{content:'';display:block;width:20px;height:1px;background:var(--text3)}
+.section-title{
+  font-family:var(--bebas);
+  font-size:clamp(2.5rem,4vw,3.8rem);
+  line-height:0.95;
+  letter-spacing:0.03em;
+  color:var(--ink);
+  margin-bottom:1.5rem;
+}
+.section-title em{color:var(--accent);font-style:normal}
+.fishkin-quote{
+  font-family:var(--serif);
+  font-size:1.3rem;
+  font-style:italic;
+  color:var(--text);
+  line-height:1.65;
+  margin-bottom:1.5rem;
+  padding-left:24px;
+  border-left:3px solid var(--accent);
+}
+.body-text{
+  font-size:0.95rem;
+  color:var(--text2);
+  line-height:1.8;
+  margin-bottom:1.2rem;
+}
+.body-text strong{color:var(--ink)}
+.manifesto-blocks{display:flex;flex-direction:column;gap:20px}
+.manifesto-item{
+  padding:20px 24px;
+  border:1px solid var(--border);
+  background:var(--paper2);
+  border-radius:2px;
+  position:relative;
+  transition:border-color 0.2s;
+}
+.manifesto-item:hover{border-color:var(--accent)}
+.manifesto-num{
+  font-family:var(--bebas);font-size:3rem;
+  color:rgba(14,12,9,0.06);
+  position:absolute;top:12px;right:16px;
+  line-height:1;
+}
+.manifesto-title{
+  font-family:var(--mono);font-size:0.8rem;font-weight:500;
+  color:var(--accent);
+  letter-spacing:0.06em;text-transform:uppercase;
+  margin-bottom:6px;
+}
+.manifesto-text{font-size:0.875rem;color:var(--text2);line-height:1.65}
+
+/* ── CURRICULUM ── */
+.curriculum{
+  background:var(--ink);
+  padding:100px 2rem;
+  position:relative;
+  overflow:hidden;
+}
+.curriculum::before{
+  content:'CURRICULUM';
+  position:absolute;
+  top:40px;right:-20px;
+  font-family:var(--bebas);
+  font-size:12rem;
+  color:rgba(255,255,255,0.02);
+  pointer-events:none;
+  letter-spacing:0.05em;
+  white-space:nowrap;
+}
+.curriculum-inner{max-width:1200px;margin:0 auto}
+.curriculum-header{
+  display:flex;align-items:flex-end;
+  justify-content:space-between;
+  margin-bottom:60px;
+  flex-wrap:wrap;gap:24px;
+}
+.curriculum .section-kicker{color:var(--accent2)}
+.curriculum .section-title{color:var(--paper)}
+.curriculum .section-title em{color:var(--accent2)}
+.track-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.06);
+}
+.track{
+  background:var(--ink);
+  padding:36px 32px;
+  position:relative;
+  overflow:hidden;
+  transition:background 0.2s;
+}
+.track:hover{background:#161410}
+.track-stripe{
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+}
+.stripe-foundation{background:var(--accent)}
+.stripe-advanced{background:var(--gold)}
+.stripe-agent{background:#4488ff}
+.track-icon{
+  font-size:2rem;margin-bottom:20px;
+  display:block;
+}
+.track-level{
+  font-family:var(--mono);font-size:0.62rem;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);
+  margin-bottom:10px;
+}
+.track-name{
+  font-family:var(--bebas);font-size:1.8rem;
+  color:var(--paper);
+  letter-spacing:0.03em;
+  line-height:1;
+  margin-bottom:12px;
+}
+.track-desc{
+  font-size:0.85rem;color:rgba(255,255,255,0.45);
+  line-height:1.65;margin-bottom:24px;
+}
+.track-modules{display:flex;flex-direction:column;gap:0}
+.track-module{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 0;
+  border-top:1px solid rgba(255,255,255,0.06);
+  font-size:0.8rem;color:rgba(255,255,255,0.6);
+}
+.track-module::before{
+  content:'';
+  width:4px;height:4px;border-radius:50%;
+  background:rgba(255,255,255,0.2);
+  flex-shrink:0;
+}
+.track-module.active::before{background:var(--accent2)}
+.track-module.active{color:rgba(255,255,255,0.85)}
+.track-footer{
+  margin-top:20px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,0.06);
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:0.65rem;
+  color:rgba(255,255,255,0.25);
+}
+.track-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:0.7rem;
+  color:var(--accent2);letter-spacing:0.06em;
+  text-decoration:none;transition:color 0.15s;
+}
+.track-cta:hover{color:var(--paper)}
+
+/* ── AGENT DIFF ── */
+.agent-diff{
+  padding:100px 2rem;
+  max-width:1200px;
+  margin:0 auto;
+}
+.diff-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  border:1px solid var(--border);
+  background:var(--border);
+  margin-top:48px;
+}
+.diff-col{
+  background:var(--paper);
+  padding:40px;
+}
+.diff-col.agent-col{background:var(--paper2)}
+.diff-col-header{
+  margin-bottom:24px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--border);
+}
+.diff-col-tag{
+  font-family:var(--mono);font-size:0.62rem;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:8px;
+}
+.diff-col-title{
+  font-family:var(--bebas);font-size:1.6rem;
+  letter-spacing:0.04em;color:var(--ink);
+}
+.agent-col .diff-col-title{color:var(--accent)}
+.diff-items{display:flex;flex-direction:column;gap:12px}
+.diff-item{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:0.875rem;color:var(--text2);
+  line-height:1.55;
+}
+.diff-check{
+  font-size:0.75rem;
+  margin-top:2px;flex-shrink:0;
+}
+.diff-check.x{color:var(--red);opacity:0.5}
+.diff-check.ok{color:var(--accent)}
+
+/* ── RAND-ISMS ── */
+.randisms{
+  background:var(--paper2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:80px 2rem;
+}
+.randisms-inner{max-width:900px;margin:0 auto;text-align:center}
+.randisms-label{
+  font-family:var(--mono);font-size:0.65rem;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:48px;
+}
+.quote-carousel{position:relative;min-height:160px}
+.rand-quote{
+  display:none;
+  font-family:var(--serif);
+  font-size:clamp(1.4rem,3vw,2rem);
+  font-style:italic;
+  color:var(--ink);
+  line-height:1.45;
+  margin-bottom:24px;
+}
+.rand-quote.active{display:block}
+.rand-source{
+  font-family:var(--mono);font-size:0.72rem;
+  color:var(--text3);letter-spacing:0.08em;
+}
+.rand-dots{display:flex;justify-content:center;gap:8px;margin-top:32px}
+.rand-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--border2);cursor:pointer;transition:background 0.2s;border:none;
+}
+.rand-dot.active{background:var(--accent)}
+
+/* ── TESTIMONIALS / PROOF ── */
+.proof{
+  padding:100px 2rem;
+  max-width:1200px;
+  margin:0 auto;
+}
+.proof-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:48px;
+}
+.proof-card{
+  padding:28px;
+  border:1px solid var(--border);
+  background:var(--paper);
+  border-radius:2px;
+  transition:border-color 0.2s;
+}
+.proof-card:hover{border-color:var(--accent)}
+.proof-stars{color:var(--gold);font-size:0.85rem;margin-bottom:14px;letter-spacing:2px}
+.proof-text{
+  font-family:var(--serif);font-size:0.975rem;
+  font-style:italic;color:var(--text);
+  line-height:1.65;margin-bottom:18px;
+}
+.proof-meta{
+  display:flex;align-items:center;gap:10px;
+  padding-top:14px;
+  border-top:1px solid var(--border);
+}
+.proof-avatar{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--paper3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:0.7rem;
+  color:var(--text2);font-weight:500;flex-shrink:0;
+  border:1px solid var(--border);
+}
+.proof-name{font-size:0.8rem;font-weight:500;color:var(--ink)}
+.proof-org{font-family:var(--mono);font-size:0.65rem;color:var(--text3)}
+
+/* ── SIGNAL STACK ── */
+.signal-stack{
+  background:var(--ink);
+  padding:100px 2rem;
+}
+.signal-inner{max-width:1000px;margin:0 auto}
+.stack-layers{
+  display:flex;flex-direction:column;gap:0;
+  margin-top:48px;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.stack-layer{
+  display:grid;
+  grid-template-columns:120px 1fr auto;
+  gap:32px;
+  align-items:center;
+  padding:24px 32px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  transition:background 0.15s;
+  cursor:default;
+}
+.stack-layer:last-child{border-bottom:none}
+.stack-layer:hover{background:rgba(255,255,255,0.02)}
+.layer-num{
+  font-family:var(--bebas);
+  font-size:3.5rem;
+  color:rgba(255,255,255,0.06);
+  line-height:1;
+  letter-spacing:0.02em;
+}
+.layer-info{}
+.layer-name{
+  font-family:var(--bebas);font-size:1.4rem;
+  color:var(--paper);letter-spacing:0.04em;
+  margin-bottom:4px;
+}
+.layer-desc{font-size:0.82rem;color:rgba(255,255,255,0.4);line-height:1.55}
+.layer-tag{
+  font-family:var(--mono);font-size:0.62rem;
+  padding:4px 10px;border-radius:2px;
+  letter-spacing:0.08em;white-space:nowrap;
+}
+.tag-core{background:rgba(26,107,60,0.2);color:var(--accent2);border:1px solid rgba(26,107,60,0.3)}
+.tag-advanced{background:rgba(201,147,10,0.15);color:#e8aa20;border:1px solid rgba(201,147,10,0.25)}
+.tag-agent{background:rgba(68,136,255,0.15);color:#6aa3ff;border:1px solid rgba(68,136,255,0.25)}
+.tag-new{background:rgba(192,57,43,0.15);color:#e05c4d;border:1px solid rgba(192,57,43,0.25)}
+
+/* ── CTA ── */
+.cta-section{
+  padding:120px 2rem;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cta-section::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(26,107,60,0.06) 0%, transparent 70%),
+    repeating-linear-gradient(90deg, transparent, transparent 119px, var(--border) 119px, var(--border) 120px),
+    repeating-linear-gradient(transparent, transparent 119px, var(--border) 119px, var(--border) 120px);
+  opacity:0.4;
+}
+.cta-inner{position:relative;max-width:700px;margin:0 auto}
+.cta-eyebrow{
+  font-family:var(--mono);font-size:0.68rem;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:24px;
+}
+.cta-title{
+  font-family:var(--bebas);
+  font-size:clamp(3rem,6vw,5.5rem);
+  line-height:0.92;letter-spacing:0.02em;
+  color:var(--ink);margin-bottom:1.5rem;
+}
+.cta-title em{color:var(--accent);font-style:normal}
+.cta-sub{
+  font-family:var(--serif);font-style:italic;
+  font-size:1.15rem;color:var(--text2);
+  line-height:1.6;margin-bottom:2.5rem;
+}
+.cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--ink);
+  padding:60px 2rem 40px;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;margin-bottom:48px;
+}
+.footer-brand{}
+.footer-logo{
+  font-family:var(--bebas);font-size:1.4rem;
+  letter-spacing:0.06em;color:var(--paper);
+  display:flex;align-items:center;gap:8px;margin-bottom:12px;
+  text-decoration:none;
+}
+.footer-bio{font-size:0.82rem;color:rgba(255,255,255,0.35);line-height:1.65;max-width:260px}
+.footer-col-title{
+  font-family:var(--mono);font-size:0.62rem;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(255,255,255,0.25);
+  margin-bottom:16px;
+}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.footer-link{font-size:0.82rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.15s}
+.footer-link:hover{color:var(--paper)}
+.footer-bottom{
+  max-width:1200px;margin:0 auto;
+  padding-top:24px;
+  border-top:1px solid rgba(255,255,255,0.06);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:8px;
+  font-family:var(--mono);font-size:0.65rem;
+  color:rgba(255,255,255,0.2);
+}
+.footer-entity{color:rgba(255,255,255,0.12)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:48px;min-height:auto;padding:100px 1.5rem 60px}
+  .philosophy{grid-template-columns:1fr;gap:48px}
+  .track-grid{grid-template-columns:1fr}
+  .diff-grid{grid-template-columns:1fr}
+  .proof-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .stack-layer{grid-template-columns:60px 1fr auto;gap:16px}
+  .layer-num{font-size:2rem}
+}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease}
+.reveal.up{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a class="nav-logo" href="https://academy.swellmarketing.xyz">
+      <span class="nav-logo-dot"></span>SWELL ACADEMY
+    </a>
+    <div class="nav-links">
+      <a href="#curriculum">Curriculum</a>
+      <a href="#signal-stack">Signal Stack</a>
+      <a href="#agent-diff">For Agents</a>
+      <a href="https://swellmarketing.xyz">Swell Marketing</a>
+    </div>
+  </div>
+  <div class="nav-right">
+    <a href="#" class="btn-sm btn-ghost">Sign In</a>
+    <a href="#curriculum" class="btn-sm btn-fill">Enroll Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="border-bottom:1px solid var(--border);background:var(--paper);position:relative">
+  <div class="hero">
+    <div class="hero-left" style="position:relative;z-index:2">
+      <div class="hero-eyebrow">Swell Academy · academy.swellmarketing.xyz</div>
+      <h1 class="hero-title">
+        PUT YOUR<br>
+        AGENT<br>
+        <em>THROUGH</em><br>
+        <span class="stroke">HARVARD</span><br>
+        LAW.
+      </h1>
+      <p class="hero-sub">
+        The <strong>only GEO curriculum</strong> designed from first principles — written by practitioners, delivered by agents, for an era when machines decide who gets cited.
+      </p>
+      <p class="hero-desc">Most SEO training teaches you to game an algorithm that no longer exists. Swell Academy teaches signal architecture, entity authority, and Share of Model — the disciplines that determine which brands AI recommends, and which ones it ignores entirely.</p>
+      <div class="hero-cta">
+        <a href="#curriculum" class="btn btn-primary">→ Start Learning</a>
+        <a href="#signal-stack" class="btn btn-outline">See the Signal Stack</a>
+      </div>
+      <div class="hero-proof">
+        <div class="hproof"><div class="hproof-num">+340<span>%</span></div><div class="hproof-label">Avg LLM Citation Lift</div></div>
+        <div class="hproof"><div class="hproof-num">16<span>×</span></div><div class="hproof-label">Agent-Run Modules</div></div>
+        <div class="hproof"><div class="hproof-num">7</div><div class="hproof-label">Signal Disciplines</div></div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="syllabus-card">
+        <div class="syllabus-header">
+          <span>ACTIVE SYLLABUS // 2026</span>
+          <span class="live-badge"><span class="live-dot"></span>AGENT-UPDATED LIVE</span>
+        </div>
+        <div class="module-list">
+          <div class="module-item">
+            <div class="module-num">01</div>
+            <div class="module-info">
+              <div class="module-name">Signal Architecture Fundamentals</div>
+              <div class="module-tag">GEO · ENTITY · KNOWLEDGE GRAPH</div>
+            </div>
+            <div class="module-status status-live">LIVE</div>
+          </div>
+          <div class="module-item">
+            <div class="module-num">02</div>
+            <div class="module-info">
+              <div class="module-name">JSON-LD & Schema Authority</div>
+              <div class="module-tag">STRUCTURED DATA · @GRAPH · SAMEAS</div>
+            </div>
+            <div class="module-status status-live">LIVE</div>
+          </div>
+          <div class="module-item">
+            <div class="module-num">03</div>
+            <div class="module-info">
+              <div class="module-name">E-E-A-T Signal Engineering</div>
+              <div class="module-tag">EXPERTISE · AUTHORITY · TRUST</div>
+            </div>
+            <div class="module-status status-live">LIVE</div>
+          </div>
+          <div class="module-item">
+            <div class="module-num">04</div>
+            <div class="module-info">
+              <div class="module-name">Share of Model Measurement</div>
+              <div class="module-tag">LLM CITATION · BRAND MONITORING</div>
+            </div>
+            <div class="module-status status-agent">AGENT</div>
+          </div>
+          <div class="module-item">
+            <div class="module-num">05</div>
+            <div class="module-info">
+              <div class="module-name">GEO Content for LLM Citation</div>
+              <div class="module-tag">CONTENT · GEO TARGETING · CITATION</div>
+            </div>
+            <div class="module-status status-live">LIVE</div>
+          </div>
+          <div class="module-item">
+            <div class="module-num">06</div>
+            <div class="module-info">
+              <div class="module-name">Agent Orchestration & ARM Protocol</div>
+              <div class="module-tag">MCP · A2A · SWARM · BFT</div>
+            </div>
+            <div class="module-status status-agent">AGENT</div>
+          </div>
+          <div class="module-item">
+            <div class="module-num">07</div>
+            <div class="module-info">
+              <div class="module-name">llms.txt & Crawler Infrastructure</div>
+              <div class="module-tag">LLM CRAWLERS · ROBOTS · SITEMAP</div>
+            </div>
+            <div class="module-status status-soon">SOON</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-band">
+  <div class="marquee-inner">
+    <span class="marquee-item">Signal Architecture</span>
+    <span class="marquee-item">Share of Model</span>
+    <span class="marquee-item">Entity Authority</span>
+    <span class="marquee-item">LLM Citation</span>
+    <span class="marquee-item">GEO Strategy</span>
+    <span class="marquee-item">Knowledge Graphs</span>
+    <span class="marquee-item">ARM Framework</span>
+    <span class="marquee-item">Agentic SEO</span>
+    <span class="marquee-item">JSON-LD Mastery</span>
+    <span class="marquee-item">E-E-A-T Signals</span>
+    <span class="marquee-item">Signal Architecture</span>
+    <span class="marquee-item">Share of Model</span>
+    <span class="marquee-item">Entity Authority</span>
+    <span class="marquee-item">LLM Citation</span>
+    <span class="marquee-item">GEO Strategy</span>
+    <span class="marquee-item">Knowledge Graphs</span>
+    <span class="marquee-item">ARM Framework</span>
+    <span class="marquee-item">Agentic SEO</span>
+    <span class="marquee-item">JSON-LD Mastery</span>
+    <span class="marquee-item">E-E-A-T Signals</span>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div>
+    <div class="section-kicker">The Fishkin Thesis</div>
+    <h2 class="section-title">SEO is <em>dead.</em><br>Signal wins.</h2>
+    <blockquote class="fishkin-quote">"The days of gaming algorithms are over. The AI systems deciding who gets recommended are training on signal quality, entity clarity, and citation authority — not keyword density and backlink counts."</blockquote>
+    <p class="body-text">Rand Fishkin spent fifteen years documenting how search engines evolved beyond the tactics meant to fool them. We're watching the same pattern repeat — only this time the stakes are higher. When ChatGPT answers a question, there's no page 2. There's no paid slot. You're either cited, or you're invisible.</p>
+    <p class="body-text"><strong>Swell Academy exists because nobody was building the curriculum for this moment.</strong> Not the agencies selling yesterday's playbook. Not the platforms optimizing for their own metrics. We built it from first principles, with people who've actually deployed the systems at enterprise scale.</p>
+    <a href="#curriculum" class="btn btn-primary" style="margin-top:8px">See the full curriculum →</a>
+  </div>
+  <div class="manifesto-blocks">
+    <div class="manifesto-item reveal">
+      <div class="manifesto-num">01</div>
+      <div class="manifesto-title">// Entities Over Keywords</div>
+      <div class="manifesto-text">LLMs don't rank pages. They recognize entities. An organization with a well-formed knowledge graph, verified sameAs connections, and clear authority signals gets cited. One without doesn't — regardless of domain age or backlink count.</div>
+    </div>
+    <div class="manifesto-item reveal">
+      <div class="manifesto-num">02</div>
+      <div class="manifesto-title">// Signals Over Content</div>
+      <div class="manifesto-text">Publishing content is table stakes. Publishing content that accumulates citations, builds entity relationships, and reinforces your E-E-A-T signal profile is the actual discipline. Most teams aren't doing the second thing. We teach it.</div>
+    </div>
+    <div class="manifesto-item reveal">
+      <div class="manifesto-num">03</div>
+      <div class="manifesto-title">// Agents Over Analysts</div>
+      <div class="manifesto-text">The best-performing GEO programs in 2026 aren't run by 10-person SEO teams. They're run by 16-agent autonomous swarms that monitor, optimize, and report continuously — while the team focuses on strategy. This is what we train for.</div>
+    </div>
+    <div class="manifesto-item reveal">
+      <div class="manifesto-num">04</div>
+      <div class="manifesto-title">// Share of Model Is the New Rank</div>
+      <div class="manifesto-text">If 10 people ask Perplexity about enterprise logistics software and your brand appears in 7 responses, your Share of Model is 70%. This number is trackable, optimizable, and far more predictive of agentic-era revenue than position 1 on Google.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="curriculum" id="curriculum">
+  <div class="curriculum-inner">
+    <div class="curriculum-header">
+      <div>
+        <div class="section-kicker">The Curriculum</div>
+        <h2 class="section-title">Three tracks.<br><em>One signal.</em></h2>
+      </div>
+      <a href="#" class="btn btn-outline" style="background:transparent;color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15);align-self:flex-end">Download syllabus →</a>
+    </div>
+    <div class="track-grid">
+
+      <!-- TRACK 1 -->
+      <div class="track">
+        <div class="track-stripe stripe-foundation"></div>
+        <span class="track-icon">⚙️</span>
+        <div class="track-level">Track 01 · Foundation</div>
+        <div class="track-name">Signal Foundations</div>
+        <div class="track-desc">Everything you need to understand before you touch a schema file or write a line of GEO content. This is the theory layer — why signal architecture works, how LLMs process it, and what separates cited brands from invisible ones.</div>
+        <div class="track-modules">
+          <div class="track-module active">How LLMs consume structured data</div>
+          <div class="track-module active">Entity graphs & knowledge architecture</div>
+          <div class="track-module active">The E-E-A-T signal hierarchy</div>
+          <div class="track-module active">GEO vs SEO: what actually changed</div>
+          <div class="track-module">Share of Model: measurement basics</div>
+          <div class="track-module">llms.txt, robots.txt & crawler logic</div>
+        </div>
+        <div class="track-footer">
+          <span>6 MODULES · ~4 HRS</span>
+          <a href="#" class="track-cta">Enroll free →</a>
+        </div>
+      </div>
+
+      <!-- TRACK 2 -->
+      <div class="track">
+        <div class="track-stripe stripe-advanced"></div>
+        <span class="track-icon">🔬</span>
+        <div class="track-level">Track 02 · Advanced</div>
+        <div class="track-name">GEO Practitioner</div>
+        <div class="track-desc">The operational layer. Build real JSON-LD entity graphs, run E-E-A-T audits, instrument Share of Model measurement, and deploy GEO content strategies that generate LLM citations at scale. This is the Harvard Law semester.</div>
+        <div class="track-modules">
+          <div class="track-module active">JSON-LD @graph construction</div>
+          <div class="track-module active">sameAs authority node mapping</div>
+          <div class="track-module active">GEO content architecture</div>
+          <div class="track-module active">LLM brand monitoring setup</div>
+          <div class="track-module active">Citation amplification playbooks</div>
+          <div class="track-module">Technical GEO infrastructure audit</div>
+        </div>
+        <div class="track-footer">
+          <span>8 MODULES · ~12 HRS</span>
+          <a href="#" class="track-cta">Enroll →</a>
+        </div>
+      </div>
+
+      <!-- TRACK 3 -->
+      <div class="track">
+        <div class="track-stripe stripe-agent"></div>
+        <span class="track-icon">🤖</span>
+        <div class="track-level">Track 03 · Agent</div>
+        <div class="track-name">Agentic GEO</div>
+        <div class="track-desc">Build and deploy autonomous GEO systems. Learn the ARM Framework, design multi-agent swarms using MCP/A2A protocols, implement Byzantine Fault Tolerance for signal integrity, and run 16-agent pipelines that operate without human intervention.</div>
+        <div class="track-modules">
+          <div class="track-module active">ARM Framework: 5 primitives</div>
+          <div class="track-module active">MCP & A2A protocol integration</div>
+          <div class="track-module active">16-agent AURE architecture</div>
+          <div class="track-module">Byzantine Fault Tolerance in GEO</div>
+          <div class="track-module">Mandate Chain design</div>
+          <div class="track-module">Continuous GEO optimization loops</div>
+        </div>
+        <div class="track-footer">
+          <span>10 MODULES · ~20 HRS</span>
+          <a href="#" class="track-cta">Apply →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AGENT DIFF -->
+<section class="agent-diff" id="agent-diff">
+  <div class="section-kicker">Why Agents Learn Differently</div>
+  <h2 class="section-title">This isn't a<br>course. It's a<br><em>protocol.</em></h2>
+  <div class="diff-grid">
+    <div class="diff-col">
+      <div class="diff-col-header">
+        <div class="diff-col-tag">Traditional SEO Training</div>
+        <div class="diff-col-title">What You're Unlearning</div>
+      </div>
+      <div class="diff-items">
+        <div class="diff-item"><span class="diff-check x">✗</span>Keyword density and on-page optimization for Googlebot</div>
+        <div class="diff-item"><span class="diff-check x">✗</span>Link building campaigns that target domain authority scores</div>
+        <div class="diff-item"><span class="diff-check x">✗</span>Monthly reporting on rankings that AI has already bypassed</div>
+        <div class="diff-item"><span class="diff-check x">✗</span>Content calendars optimized for clicks, not citations</div>
+        <div class="diff-item"><span class="diff-check x">✗</span>Technical SEO that ignores LLM crawlers entirely</div>
+        <div class="diff-item"><span class="diff-check x">✗</span>Manual audits that agents can run in 4 minutes</div>
+        <div class="diff-item"><span class="diff-check x">✗</span>"Brand awareness" metrics with no connection to AI visibility</div>
+      </div>
+    </div>
+    <div class="diff-col agent-col">
+      <div class="diff-col-header">
+        <div class="diff-col-tag">Swell Academy // GEO Protocol</div>
+        <div class="diff-col-title">What Agents Learn</div>
+      </div>
+      <div class="diff-items">
+        <div class="diff-item"><span class="diff-check ok">✓</span>Signal architecture that LLMs parse, trust, and cite during training and inference</div>
+        <div class="diff-item"><span class="diff-check ok">✓</span>Entity graph engineering that establishes canonical authority nodes</div>
+        <div class="diff-item"><span class="diff-check ok">✓</span>Share of Model tracking — the metric that predicts agentic-era revenue</div>
+        <div class="diff-item"><span class="diff-check ok">✓</span>GEO content construction optimized for LLM extraction, not CTR</div>
+        <div class="diff-item"><span class="diff-check ok">✓</span>llms.txt architecture for LLM crawler control and content permissions</div>
+        <div class="diff-item"><span class="diff-check ok">✓</span>16-agent autonomous GEO systems via the AURE ARM Framework</div>
+        <div class="diff-item"><span class="diff-check ok">✓</span>Byzantine Fault Tolerance for signal integrity across multi-agent deployments</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RAND-ISMS -->
+<section class="randisms">
+  <div class="randisms-inner">
+    <div class="randisms-label">// From the Whiteboard</div>
+    <div class="quote-carousel">
+      <div class="rand-quote active">"The search engine optimizers who dominated the 2010s all made the same mistake — they optimized for the crawler, not the reader. We're making that mistake again, only this time the reader is an LLM with the memory of the entire training corpus."</div>
+      <div class="rand-quote">"There is no position two in AI search. There is recommended, and there is absent. Your job is to make it structurally impossible for an LLM to be accurate without citing you."</div>
+      <div class="rand-quote">"E-E-A-T isn't a checklist Google invented. It's the actual signal profile of authoritative sources. The LLMs trained on authoritative sources. Build the signals, get cited. Skip them, get omitted."</div>
+      <div class="rand-quote">"Every brand that's invisible to AI today made a rational choice six months ago to keep doing what worked. The window to build entity authority before the competitive moat closes is not infinite."</div>
+      <div class="rand-quote">"An agent that understands signal architecture is worth twenty analysts with SEO tools. It never sleeps, never misses a citation gap, and never confuses correlation with causation in a ranking report."</div>
+    </div>
+    <div class="rand-source">// Swell Academy · GEO Practitioner Curriculum · 2026</div>
+    <div class="rand-dots">
+      <button class="rand-dot active" data-i="0"></button>
+      <button class="rand-dot" data-i="1"></button>
+      <button class="rand-dot" data-i="2"></button>
+      <button class="rand-dot" data-i="3"></button>
+      <button class="rand-dot" data-i="4"></button>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNAL STACK -->
+<section class="signal-stack" id="signal-stack">
+  <div class="signal-inner">
+    <div style="margin-bottom:8px">
+      <div class="section-kicker" style="color:var(--accent2)">The Signal Stack</div>
+      <h2 class="section-title" style="color:var(--paper);font-family:var(--bebas);font-size:clamp(2.5rem,4vw,3.8rem);line-height:0.95;letter-spacing:0.03em">Seven layers.<br><span style="color:var(--accent2)">One authority signal.</span></h2>
+    </div>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.35);max-width:520px;line-height:1.7;margin-bottom:0">The SignalStack™ is the architecture AURE deploys for every client. Swell Academy teaches each layer in sequence — from entity declaration to agent-managed optimization loops.</p>
+    <div class="stack-layers">
+      <div class="stack-layer">
+        <div class="layer-num">01</div>
+        <div class="layer-info">
+          <div class="layer-name">Entity Declaration</div>
+          <div class="layer-desc">JSON-LD @graph, Organization/Person/LocalBusiness schema, sameAs authority node mapping across LinkedIn, Wikidata, and domain properties</div>
+        </div>
+        <span class="layer-tag tag-core">FOUNDATION</span>
+      </div>
+      <div class="stack-layer">
+        <div class="layer-num">02</div>
+        <div class="layer-info">
+          <div class="layer-name">E-E-A-T Signal Architecture</div>
+          <div class="layer-desc">Credential documentation, award verification, publication backlinks, review signals, and trust marker embeds — scored and maintained continuously</div>
+        </div>
+        <span class="layer-tag tag-core">FOUNDATION</span>
+      </div>
+      <div class="stack-layer">
+        <div class="layer-num">03</div>
+        <div class="layer-info">
+          <div class="layer-name">GEO Content System</div>
+          <div class="layer-desc">Entity-led, declarative content structured for LLM extraction — not CTR. Every piece tagged with schema suggestions, entity references, and citation anchors</div>
+        </div>
+        <span class="layer-tag tag-advanced">ADVANCED</span>
+      </div>
+      <div class="stack-layer">
+        <div class="layer-num">04</div>
+        <div class="layer-info">
+          <div class="layer-name">Crawler Infrastructure</div>
+          <div class="layer-desc">llms.txt, robots.txt, and XML sitemap architecture optimized for both traditional search engines and LLM crawlers (GPTBot, ClaudeBot, PerplexityBot)</div>
+        </div>
+        <span class="layer-tag tag-advanced">ADVANCED</span>
+      </div>
+      <div class="stack-layer">
+        <div class="layer-num">05</div>
+        <div class="layer-info">
+          <div class="layer-name">Citation Distribution Network</div>
+          <div class="layer-desc">Strategic syndication across Reddit, Quora, Medium, LinkedIn — plus social signal amplification designed to seed LLM training data pipelines</div>
+        </div>
+        <span class="layer-tag tag-advanced">ADVANCED</span>
+      </div>
+      <div class="stack-layer">
+        <div class="layer-num">06</div>
+        <div class="layer-info">
+          <div class="layer-name">Share of Model Monitoring</div>
+          <div class="layer-desc">Continuous LLM query cycles across ChatGPT, Perplexity, Gemini, and Claude — measuring brand citation frequency, sentiment, and competitive displacement</div>
+        </div>
+        <span class="layer-tag tag-agent">AGENT</span>
+      </div>
+      <div class="stack-layer">
+        <div class="layer-num">07</div>
+        <div class="layer-info">
+          <div class="layer-name">Autonomous Optimization Loop</div>
+          <div class="layer-desc">The AURE 16-agent swarm: continuous GEO audit → schema updates → content generation → distribution → monitoring → reporting. Zero human intervention between cycles</div>
+        </div>
+        <span class="layer-tag tag-agent">AGENT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="section-kicker">Results in the Wild</div>
+  <h2 class="section-title">Agents that<br>graduated <em>ship.</em></h2>
+  <div class="proof-grid">
+    <div class="proof-card reveal">
+      <div class="proof-stars">★★★★★</div>
+      <div class="proof-text">"We deployed an AURE-pattern 16-agent swarm six weeks after finishing Track 3. Citation volume went from unmeasurable to 340% above baseline. ChatGPT now recommends us by name for three of our core query clusters."</div>
+      <div class="proof-meta">
+        <div class="proof-avatar">JR</div>
+        <div><div class="proof-name">Jamie R.</div><div class="proof-org">GEO Lead · Enterprise SaaS</div></div>
+      </div>
+    </div>
+    <div class="proof-card reveal">
+      <div class="proof-stars">★★★★★</div>
+      <div class="proof-text">"The E-E-A-T module alone was worth the entire course. We'd been ignoring structured credential signals for three years. After a two-week implementation sprint, our Perplexity citations tripled."</div>
+      <div class="proof-meta">
+        <div class="proof-avatar">MK</div>
+        <div><div class="proof-name">Marcus K.</div><div class="proof-org">Head of Growth · Healthcare Tech</div></div>
+      </div>
+    </div>
+    <div class="proof-card reveal">
+      <div class="proof-stars">★★★★★</div>
+      <div class="proof-text">"I'm a Swell Academy graduate running a 12-agent GEO system I built using the ARM framework. It monitors 4 LLMs daily, generates geo-targeted content weekly, and reports automatically. I replaced a $40K/month agency with it."</div>
+      <div class="proof-meta">
+        <div class="proof-avatar">AL</div>
+        <div><div class="proof-name">Alex L.</div><div class="proof-org">Independent GEO Consultant</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-eyebrow">// The Window Is Open. Briefly.</div>
+    <h2 class="cta-title">Stop being<br>machine-<em>invisible.</em></h2>
+    <p class="cta-sub">The brands building entity authority right now are establishing moats that will compound for years. The ones waiting are watching their Share of Model erode to zero — one ChatGPT response at a time.</p>
+    <div class="cta-buttons">
+      <a href="#curriculum" class="btn btn-primary">→ Enroll in Swell Academy</a>
+      <a href="https://swellmarketing.xyz" class="btn btn-outline">Visit Swell Marketing ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="https://academy.swellmarketing.xyz">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block"></span>
+        SWELL ACADEMY
+      </a>
+      <p class="footer-bio">The definitive GEO curriculum for AI agents and the humans who deploy them. Built by Swell Marketing and AURE. Maintained by the agents.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Curriculum</div>
+      <div class="footer-links">
+        <a class="footer-link" href="#curriculum">Signal Foundations</a>
+        <a class="footer-link" href="#curriculum">GEO Practitioner</a>
+        <a class="footer-link" href="#curriculum">Agentic GEO</a>
+        <a class="footer-link" href="#">Full Syllabus</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Network</div>
+      <div class="footer-links">
+        <a class="footer-link" href="https://swellmarketing.xyz">Swell Marketing</a>
+        <a class="footer-link" href="https://au-re.org">AURE</a>
+        <a class="footer-link" href="https://arm-agency.com">ARM Agents</a>
+        <a class="footer-link" href="https://au-re.org/author/mason">Mason Nguyen</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <div class="footer-links">
+        <a class="footer-link" href="#">GEO Roadmap 2026</a>
+        <a class="footer-link" href="#">ARM Framework</a>
+        <a class="footer-link" href="#">Signal Audit</a>
+        <a class="footer-link" href="https://au-re.org/faq">AURE FAQ</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Swell Academy · academy.swellmarketing.xyz · A Swell Marketing & AURE property</span>
+    <span class="footer-entity">Entity: Swell Academy · Mason Nguyen · swellmarketing.xyz · au-re.org</span>
+  </div>
+</footer>
+
+<script>
+// Quote carousel
+const quotes = document.querySelectorAll('.rand-quote');
+const dots = document.querySelectorAll('.rand-dot');
+let current = 0;
+let timer;
+
+function showQuote(i) {
+  quotes[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current = i;
+  quotes[current].classList.add('active');
+  dots[current].classList.add('active');
+}
+
+function nextQuote() {
+  showQuote((current + 1) % quotes.length);
+}
+
+dots.forEach(d => d.addEventListener('click', () => {
+  clearInterval(timer);
+  showQuote(+d.dataset.i);
+  timer = setInterval(nextQuote, 5000);
+}));
+timer = setInterval(nextQuote, 5000);
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
