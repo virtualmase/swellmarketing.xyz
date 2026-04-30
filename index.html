@@ -54,6 +54,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
+<!-- Vercel Web Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
 <style>
 :root {
   --void:           #03061a;
@@ -848,7 +854,7 @@ footer { border-top: 1px solid var(--line); padding: 60px 0 36px; background: rg
               <p><code>llms.txt</code> is a plain-text file served at the root of your domain (like <code>robots.txt</code>) that provides LLM crawlers and AI agents with a structured, machine-readable summary of your organization — entity assertions, service descriptions, key personnel, and citation guidance.</p>
               <p>The convention is relatively new and not yet universally adopted by LLM providers. But it's low-cost to implement and signals GEO-awareness to both AI systems and the practitioners auditing your AI readiness. We include it in every deployment.</p>
               <p>More important than <code>llms.txt</code> itself: the entity data <em>in</em> your <code>llms.txt</code> should be consistent with your JSON-LD schema, your Wikidata entry, your LinkedIn profile, and every other structured signal source. <strong>The file is an expression of your entity graph, not a replacement for it.</strong></p>
-              <div class="qa-callout"><strong>Swell includes</strong> <code>llms.txt</code>, <code>schema.json</code>, <code>sitemap.xml</code>, and <code>robots.txt</code> in every deployment — all kept in sync as entity records are updated.</div>
+              <div class="qa-callout"><strong>Swell includes</strong> <code>llms.txt</code>, <code>schema.json</code>, <code>sitemap.xml</code>, and <code>robots.txt</code> in every deployment �� all kept in sync as entity records are updated.</div>
             </div>
           </details>
         </div>
