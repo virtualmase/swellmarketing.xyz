@@ -1,7 +1,0 @@
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": "main",
-  "env": {
-    "NODE_ENV": "production"
-  }
-}
