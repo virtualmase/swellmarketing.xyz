@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="color-scheme" content="dark"/>
+<meta name="theme-color" content="#020409"/>
+<meta name="robots" content="noindex, nofollow">
+<meta name="base:app_id" content="6a1834c7660a3f727dea7030" />
+<meta name="base:app_id" content="6a0ada777abfff0aca7b16f5" />
+<title>Checkout — GEO Mastery Course · Swell Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist+Mono:wght@300;400;500;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet"/>
+
+<style>
+:root {
+  --forge:        #020409;
+  --forge-2:      #060b14;
+  --forge-3:      #0b1220;
+  --forge-card:   rgba(11,18,32,0.65);
+  --forge-card2:  rgba(11,18,32,0.92);
+  --wire:         #111c30;
+  --wire-bright:  #1a2a45;
+  --core:         #ff9f0a;
+  --core-soft:    #ffbb4a;
+  --core-glow:    rgba(255,159,10,0.35);
+  --signal:       #00d4aa;
+  --signal-soft:  #33e5c0;
+  --signal-glow:  rgba(0,212,170,0.25);
+  --light:        #e8edf8;
+  --light-dim:    #a8b2cc;
+  --muted:        #5a6a8a;
+  --dim:          #344560;
+  --display: 'Bebas Neue', system-ui, sans-serif;
+  --mono:    'Geist Mono', ui-monospace, monospace;
+  --body:    'DM Sans', system-ui, sans-serif;
+  --r-sm: 6px; --r: 10px; --r-lg: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--body);
+  background: var(--forge);
+  color: var(--light-dim);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.bg-layer { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.bg-forge {
+  background:
+    radial-gradient(ellipse 1000px 500px at 80% 0%, rgba(0,212,170,0.07), transparent 60%),
+    radial-gradient(ellipse 700px 600px at 8% 55%, rgba(255,159,10,0.08), transparent 55%);
+}
+
+.checkout-card {
+  background: var(--forge-card2);
+  border: 1px solid var(--wire-bright);
+  border-radius: var(--r-lg);
+  max-width: 900px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.5);
+}
+
+.left { padding: 3rem; border-right: 1px solid var(--wire); }
+.right { padding: 3rem; background: rgba(255,255,255,0.02); }
+
+.brand { display: flex; align-items: center; gap: 8px; margin-bottom: 2rem; }
+.brand-mark {
+  width: 28px; height: 28px;
+  background: linear-gradient(135deg, var(--signal) 0%, var(--core) 100%);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display); font-size: 16px; color: var(--forge);
+}
+.brand-text { font-family: var(--mono); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--signal); }
+
+.offer-title { font-family: var(--display); font-size: 42px; color: var(--light); line-height: 1; margin-bottom: 0.5rem; }
+.offer-sub { font-size: 14px; color: var(--muted); margin-bottom: 2rem; }
+
+.price-block { background: rgba(255,255,255,0.03); border: 1px solid var(--wire); border-radius: var(--r); padding: 1.5rem; margin-bottom: 2rem; }
+.price-row { display: flex; justify-content: space-between; align-items: baseline; }
+.price-main { font-family: var(--display); font-size: 36px; color: var(--core-soft); }
+.price-cadence { font-family: var(--mono); font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+.includes-title { font-family: var(--mono); font-size: 10px; color: var(--signal); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
+.includes-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.includes-list li { font-size: 13px; color: var(--light-dim); display: flex; align-items: flex-start; gap: 10px; }
+.includes-list li::before { content: '→'; color: var(--signal); font-family: var(--mono); }
+
+.section-label { font-family: var(--mono); font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; }
+.form-group { margin-bottom: 1.25rem; }
+.form-group label { display: block; font-family: var(--mono); font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
+.form-group input {
+  width: 100%; height: 40px; padding: 0 12px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--wire-bright);
+  border-radius: var(--r-sm); color: var(--light); font-size: 14px; outline: none;
+}
+.form-group input:focus { border-color: var(--signal); }
+
+.card-mock {
+  background: rgba(0,0,0,0.2); border: 1px solid var(--wire-bright);
+  border-radius: var(--r-sm); padding: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;
+}
+.card-mock span { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 2px; }
+
+.cta-btn {
+  width: 100%; padding: 1rem;
+  background: var(--signal); color: var(--forge);
+  border: none; border-radius: var(--r-sm);
+  font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; cursor: pointer; transition: all 0.2s;
+  box-shadow: 0 8px 24px var(--signal-glow);
+}
+.cta-btn:hover { background: var(--signal-soft); transform: translateY(-2px); box-shadow: 0 12px 32px var(--signal-glow); }
+
+.fine-print { font-size: 10px; color: var(--muted); text-align: center; margin-top: 1.5rem; line-height: 1.5; }
+
+@media (max-width: 800px) {
+  .checkout-card { grid-template-columns: 1fr; }
+  .left { border-right: none; border-bottom: 1px solid var(--wire); }
+}
+</style>
+</head>
+<body>
+<div class="bg-layer bg-forge"></div>
+
+<div class="checkout-card">
+  <div class="left">
+    <div class="brand">
+      <div class="brand-mark">S</div>
+      <div class="brand-text">swellmarketing.xyz</div>
+    </div>
+
+    <h1 class="offer-title">GEO Mastery Course</h1>
+    <p class="offer-sub">The definitive framework for Generative Engine Optimization. Master the agentic web.</p>
+
+    <div class="price-block">
+      <div class="price-row">
+        <span class="price-main">$997</span>
+        <span class="price-cadence">One-time investment</span>
+      </div>
+    </div>
+
+    <p class="includes-title">Curriculum</p>
+    <ul class="includes-list">
+      <li>Entity Architecture & Knowledge Graphs</li>
+      <li>JSON-LD Orchestration & Extensions</li>
+      <li>LLM Crawler Control (llms.txt)</li>
+      <li>Share of Model (SoM) Measurement</li>
+      <li>ARM Framework Deployment</li>
+    </ul>
+  </div>
+
+  <div class="right">
+    <p class="section-label">Payment Details</p>
+    
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" placeholder="Mason Nguyen" />
+    </div>
+
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" placeholder="mason@au-re.org" />
+    </div>
+
+    <div class="card-mock">
+      <span>•••• •••• •••• 4242</span>
+      <div style="display:flex; gap:5px;">
+        <div style="width:20px; height:12px; background:#1A1F71; border-radius:2px;"></div>
+        <div style="width:20px; height:12px; background:#EB001B; border-radius:2px;"></div>
+      </div>
+    </div>
+
+    <button class="cta-btn">Enroll Now — $997</button>
+
+    <p class="fine-print">
+      Instant access granted upon payment.<br>
+      Secure checkout powered by Stripe.
+    </p>
+  </div>
+</div>
+</body>
+</html>
