@@ -1,0 +1,182 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-08-08",
+  "owner": "Mason Nguyen",
+  "positioning": {
+    "category": "Representation Operations",
+    "problem": "The gap between what a brand can prove and what AI products say about it.",
+    "promise": "Establish an evidence-backed representation baseline, resolve the earliest constraint, and measure observed answers over time.",
+    "nonPromises": [
+      "Guaranteed rankings, citations, inclusion, traffic, revenue, or AI answers",
+      "Fabricated authority, reviews, sources, or evidence",
+      "Bulk spam, deceptive outreach, or manipulation"
+    ]
+  },
+  "segments": [
+    {
+      "id": "b2b_complex_offer",
+      "priority": 1,
+      "description": "B2B software, professional services, or technical companies whose buyers research vendors through search and AI products.",
+      "signals": [
+        "Outdated or inaccurate AI descriptions",
+        "Missing from category or recommendation answers",
+        "Entity confusion after a rebrand, launch, merger, or market expansion",
+        "Material claims exist but are fragmented or weakly corroborated",
+        "A decision-maker can provide evidence and sponsor corrective work"
+      ]
+    },
+    {
+      "id": "multi_entity_brand",
+      "priority": 2,
+      "description": "Organizations with products, executives, locations, or sibling brands whose identities are conflated or inconsistently represented.",
+      "signals": [
+        "Multiple canonical domains or descriptions",
+        "Conflicting structured data or third-party profiles",
+        "Expansion into additional markets or entity types"
+      ]
+    }
+  ],
+  "disqualifiers": [
+    "No identifiable commercial consequence",
+    "Requests a guaranteed ranking or recommendation",
+    "Requests fake reviews, fabricated sources, spam, or deceptive tactics",
+    "Will not provide or validate evidence",
+    "Needs an unrelated general marketing service",
+    "Budget and timing cannot support the recommended next step"
+  ],
+  "offers": [
+    {
+      "id": "self_guided_gap_check",
+      "name": "Representation Gap diagnostic",
+      "type": "self_service",
+      "price": 0,
+      "entryCriteria": "Buyer wants orientation and is not ready for a commissioned baseline.",
+      "exitCriteria": "Buyer identifies the earliest layer to verify and receives the relevant operating template.",
+      "canonicalUrl": "https://swellmarketing.xyz/geo-audit/"
+    },
+    {
+      "id": "commissioned_baseline",
+      "name": "Representation Baseline",
+      "type": "paid_diagnostic",
+      "startingPriceUsd": 2500,
+      "entryCriteria": "A material representation problem exists and the buyer can supply evidence and priority questions.",
+      "exitCriteria": "Versioned query set, observed-answer baseline, evidence gaps, first constraint, and prioritized roadmap are approved.",
+      "canonicalUrl": "https://swellmarketing.xyz/geo-audit/"
+    },
+    {
+      "id": "managed_foundation",
+      "name": "GEO Starter",
+      "type": "recurring",
+      "startingPriceUsdMonthly": 1500,
+      "entryCriteria": "A focused entity and technical foundation scope has been defined.",
+      "exitCriteria": "Foundation acceptance criteria are met or the engagement is expanded through documented change control."
+    },
+    {
+      "id": "managed_growth",
+      "name": "GEO Growth",
+      "type": "recurring",
+      "startingPriceUsdMonthly": 2500,
+      "entryCriteria": "A baseline exists and the buyer is ready to operate technical, evidence, content, authority, and measurement work together.",
+      "exitCriteria": "The agreed query portfolio and operating objectives are complete, renewed, or intentionally closed."
+    },
+    {
+      "id": "managed_scale",
+      "name": "GEO Scale",
+      "type": "recurring",
+      "startingPriceUsdMonthly": 3500,
+      "entryCriteria": "The program spans multiple entities, markets, or stakeholder reporting needs.",
+      "exitCriteria": "The scoped portfolio is operational, transferred, renewed, or intentionally closed."
+    }
+  ],
+  "lifecycleStages": [
+    {"id": "visitor", "order": 10, "definition": "Anonymous person interacting with an owned Swell surface.", "requiredExit": ["identified_conversion"]},
+    {"id": "lead", "order": 20, "definition": "Identified person who requested contact or supplied valid follow-up consent.", "requiredExit": ["owner", "source", "consent_status", "next_action_at"]},
+    {"id": "connected", "order": 30, "definition": "Two-way human or agent-assisted conversation occurred.", "requiredExit": ["trigger", "commercial_consequence", "first_constraint"]},
+    {"id": "qualified", "order": 40, "definition": "Problem, consequence, authority, evidence access, timing, and next step meet the qualification threshold.", "requiredExit": ["fit", "recommended_offer", "discovery_outcome"]},
+    {"id": "discovery_complete", "order": 50, "definition": "Human discovery produced an agreed problem statement and buying process.", "requiredExit": ["scope_hypothesis", "decision_process", "proposal_due_at"]},
+    {"id": "proposal", "order": 60, "definition": "A dated, versioned commercial proposal is with the buyer.", "requiredExit": ["amount", "offer_id", "decision_date", "next_action_at"]},
+    {"id": "verbal_commit", "order": 70, "definition": "Buyer communicated intent subject to contract, invoice, or procurement.", "requiredExit": ["close_plan", "commercial_owner"]},
+    {"id": "closed_won", "order": 80, "definition": "Agreement and required initial payment are complete.", "requiredExit": ["handoff_complete", "kickoff_at"]},
+    {"id": "closed_lost", "order": 90, "definition": "Buyer declined, became ineligible, or exceeded the close plan without a viable next action.", "requiredExit": ["loss_reason", "loss_notes"]},
+    {"id": "nurture", "order": 100, "definition": "Fit may exist later and the person has consented to an appropriate follow-up cadence.", "requiredExit": ["nurture_reason", "next_action_at"]},
+    {"id": "disqualified", "order": 110, "definition": "The account violates a fit, safety, scope, or consent boundary.", "requiredExit": ["disqualification_reason"]}
+  ],
+  "qualification": {
+    "dimensions": [
+      {"id": "problem", "weight": 20, "pass": "A specific observed representation problem is stated."},
+      {"id": "commercial_consequence", "weight": 20, "pass": "The problem affects a buyer decision, launch, pipeline, reputation, or operating priority."},
+      {"id": "authority", "weight": 15, "pass": "The contact can decide, sponsor, or provide a named path to the decision-maker."},
+      {"id": "evidence_access", "weight": 15, "pass": "The company can supply and validate the claims and source material in scope."},
+      {"id": "timing", "weight": 10, "pass": "A reason to act within 90 days is stated."},
+      {"id": "investment", "weight": 10, "pass": "The buyer acknowledges the relevant public starting price or an approved diagnostic path."},
+      {"id": "method_fit", "weight": 10, "pass": "The buyer accepts baseline-first, evidence-led work without guarantees."}
+    ],
+    "thresholds": {
+      "qualified": 75,
+      "nurture": 50,
+      "disqualifyBelow": 50
+    },
+    "override": "Any safety, consent, deception, or explicit disqualifier overrides the numeric score."
+  },
+  "serviceLevels": {
+    "inboundLeadFirstResponseMinutes": 10,
+    "missedCallResponseMinutes": 15,
+    "discoveryFollowUpHours": 4,
+    "proposalDeliveryBusinessDays": 2,
+    "proposalNoNextActionAlertDays": 3,
+    "wonHandoffHours": 24,
+    "explicitOptOutProcessingMinutes": 0
+  },
+  "lossReasons": [
+    "no_priority",
+    "no_commercial_consequence",
+    "no_authority",
+    "no_evidence_access",
+    "timing",
+    "budget",
+    "method_mismatch",
+    "competitor",
+    "internal_solution",
+    "no_decision",
+    "unresponsive",
+    "disqualified_safety_or_scope"
+  ],
+  "sourceTaxonomy": [
+    "direct",
+    "organic_search",
+    "organic_ai",
+    "referral",
+    "partner",
+    "mason_research",
+    "linkedin",
+    "email",
+    "event",
+    "paid",
+    "outbound",
+    "unknown"
+  ],
+  "northStarMetrics": [
+    "qualified_pipeline_value",
+    "qualified_opportunities_created",
+    "paid_baselines_sold",
+    "closed_won_revenue",
+    "sales_cycle_days",
+    "lead_to_connected_rate",
+    "connected_to_qualified_rate",
+    "qualified_to_won_rate",
+    "show_rate",
+    "proposal_acceptance_rate",
+    "first_response_sla_rate",
+    "source_to_revenue",
+    "agent_assisted_pipeline",
+    "opt_out_rate"
+  ],
+  "governance": {
+    "systemOfRecord": "CRM selected during implementation",
+    "humanCommercialOwner": "Mason Nguyen",
+    "agentMay": ["Respond", "qualify", "summarize", "classify", "recommend an approved next step after tool confirmation"],
+    "agentMayNot": ["Consent on behalf of a prospect", "change prices", "negotiate", "promise results", "mark revenue won", "send unapproved outreach", "claim an unconfirmed action"],
+    "closedWonRule": "Only a human or verified billing-and-contract automation may mark an opportunity closed won.",
+    "deletionRule": "Lead and conversation data follows the selected CRM retention policy and applicable consent requirements."
+  }
+}

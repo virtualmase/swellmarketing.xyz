@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#07100f">
-  <title>Free GEO Audit — Swell Marketing</title>
-  <meta name="description" content="Use Swell Marketing's free GEO self-audit to review entity clarity, crawler access, content evidence, authority signals, and AI visibility measurement.">
+  <title>Free Representation Gap Diagnostic — Swell Marketing</title>
+  <meta name="description" content="Find the first constraint affecting how AI systems represent your brand across entity clarity, access, evidence, authority, and answer measurement.">
   <link rel="canonical" href="https://swellmarketing.xyz/geo-audit/">
   <link rel="stylesheet" href="/assets/site.css">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","@id":"https://swellmarketing.xyz/geo-audit/#page","name":"Free GEO Self-Audit","url":"https://swellmarketing.xyz/geo-audit/","description":"A self-guided audit for reviewing the technical, content, authority, and measurement signals that support AI visibility.","isPartOf":{"@id":"https://swellmarketing.xyz/#website"},"about":{"@id":"https://swellmarketing.xyz/#organization"}}
+  {"@context":"https://schema.org","@type":"WebPage","@id":"https://swellmarketing.xyz/geo-audit/#page","name":"Free Representation Gap Diagnostic","url":"https://swellmarketing.xyz/geo-audit/","description":"A five-question diagnostic that identifies the first constraint affecting how AI systems represent a brand, without creating a composite vanity score.","isPartOf":{"@id":"https://swellmarketing.xyz/#website"},"about":{"@id":"https://swellmarketing.xyz/#organization"}}
   </script>
+  <script defer src="/assets/attribution.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -18,7 +19,7 @@
     <div class="shell nav">
       <a class="brand" href="/" aria-label="Swell Marketing home"><span class="brand-mark">S</span><span class="brand-copy"><span class="brand-name">Swell Marketing</span><span class="brand-tag">GEO growth systems</span></span></a>
       <nav class="desktop-nav" aria-label="Primary navigation"><a href="/services/">Services</a><a href="/method/">Method</a><a href="/pricing/">Plans</a><a href="/about/">About</a><a href="/academy/">Academy</a></nav>
-      <div class="nav-actions"><a class="btn btn-primary" href="/geo-audit/" aria-current="page">Start with an audit</a><details class="mobile-nav"><summary>Menu</summary><nav class="mobile-nav-menu" aria-label="Mobile navigation"><a href="/services/">Services</a><a href="/method/">Method</a><a href="/pricing/">Plans</a><a href="/about/">About</a><a href="/academy/">Academy</a><a href="/geo-audit/">Start with an audit</a></nav></details></div>
+      <div class="nav-actions"><a class="btn btn-primary" href="#gap-check" aria-current="page">Find your first constraint</a><details class="mobile-nav"><summary>Menu</summary><nav class="mobile-nav-menu" aria-label="Mobile navigation"><a href="/services/">Services</a><a href="/method/">Method</a><a href="/pricing/">Plans</a><a href="/about/">About</a><a href="/academy/">Academy</a><a href="#gap-check">Find your first constraint</a></nav></details></div>
     </div>
   </header>
 
@@ -26,10 +27,25 @@
     <section class="page-hero">
       <div class="shell">
         <div class="page-hero-grid">
-          <div><div class="eyebrow">Free GEO self-audit</div><h1 class="page-title">Find the signal <em>gaps first.</em></h1></div>
-          <div><p class="page-lede">Review the five systems that influence whether an AI product can access, understand, verify, and accurately represent your brand. The template opens directly—no pretend email gate.</p><div class="hero-actions"><a class="btn btn-primary" href="https://www.notion.so/364db2c4244c81f9aeaac6eaedaf7faa">Open the audit template</a><a class="btn" href="#dimensions">See what it covers</a></div></div>
+          <div><div class="eyebrow">Free Representation Gap diagnostic</div><h1 class="page-title">Find the signal <em>gaps first.</em></h1></div>
+          <div><p class="page-lede">Review the five systems that influence whether an AI product can access, understand, verify, and accurately represent your brand. Find the first constraint directly—no email gate and no vanity score.</p><div class="hero-actions"><a class="btn btn-primary" href="#gap-check">Find your first constraint</a><a class="btn" href="https://www.notion.so/364db2c4244c81f9aeaac6eaedaf7faa">Open the full audit template</a></div></div>
         </div>
-        <div class="hero-meta"><div class="hero-meta-item"><div class="meta-kicker">Format</div><div class="meta-value">Self-guided Notion template</div></div><div class="hero-meta-item"><div class="meta-kicker">Cost</div><div class="meta-value">Free</div></div><div class="hero-meta-item"><div class="meta-kicker">Outcome</div><div class="meta-value">Prioritized gap list</div></div></div>
+        <div class="hero-meta"><div class="hero-meta-item"><div class="meta-kicker">Format</div><div class="meta-value">Five-question diagnostic</div></div><div class="hero-meta-item"><div class="meta-kicker">Cost</div><div class="meta-value">Free · no email</div></div><div class="hero-meta-item"><div class="meta-kicker">Outcome</div><div class="meta-value">First constraint to verify</div></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="gap-check" aria-labelledby="gap-check-title">
+      <div class="shell">
+        <div class="section-head"><div><div class="eyebrow">Representation gap check</div><h2 class="section-title" id="gap-check-title">Find the first <em>broken link.</em></h2></div><p class="section-intro">Answer from evidence, not instinct. The diagnostic returns the earliest uncertain layer because downstream work cannot compensate for an unclear identity or inaccessible source.</p></div>
+        <form class="gap-check" id="representation-gap-form">
+          <fieldset class="gap-question"><legend>1. Can you point to one canonical identifier and a consistent description of the organization, its people, and its offers?</legend><div class="gap-options"><label><input type="radio" name="entity" value="yes" required><span>Yes</span></label><label><input type="radio" name="entity" value="unsure"><span>Unsure</span></label><label><input type="radio" name="entity" value="no"><span>No</span></label></div></fieldset>
+          <fieldset class="gap-question"><legend>2. Can relevant crawlers retrieve the important facts and evidence from indexable, initial HTML?</legend><div class="gap-options"><label><input type="radio" name="access" value="yes" required><span>Yes</span></label><label><input type="radio" name="access" value="unsure"><span>Unsure</span></label><label><input type="radio" name="access" value="no"><span>No</span></label></div></fieldset>
+          <fieldset class="gap-question"><legend>3. Do your priority claims have specific first-party proof on pages that answer commercially relevant questions?</legend><div class="gap-options"><label><input type="radio" name="evidence" value="yes" required><span>Yes</span></label><label><input type="radio" name="evidence" value="unsure"><span>Unsure</span></label><label><input type="radio" name="evidence" value="no"><span>No</span></label></div></fieldset>
+          <fieldset class="gap-question"><legend>4. Do independent, relevant sources corroborate the claims and expertise you want associated with the brand?</legend><div class="gap-options"><label><input type="radio" name="authority" value="yes" required><span>Yes</span></label><label><input type="radio" name="authority" value="unsure"><span>Unsure</span></label><label><input type="radio" name="authority" value="no"><span>No</span></label></div></fieldset>
+          <fieldset class="gap-question"><legend>5. Do you capture answers, citations, accuracy, and competitors against the same versioned query set over time?</legend><div class="gap-options"><label><input type="radio" name="measurement" value="yes" required><span>Yes</span></label><label><input type="radio" name="measurement" value="unsure"><span>Unsure</span></label><label><input type="radio" name="measurement" value="no"><span>No</span></label></div></fieldset>
+          <button class="btn btn-primary" type="submit">Identify the first constraint</button>
+        </form>
+        <div class="gap-result" id="gap-result" role="status" aria-live="polite" tabindex="-1"><div class="gap-result-label">First constraint to verify</div><h3 id="gap-result-title"></h3><p id="gap-result-copy"></p><div class="hero-actions"><a class="btn btn-primary" id="gap-result-action" href="/docs/REPRESENTATION_BASELINE_TEMPLATE.md">Open the evidence template</a><a class="btn" href="https://meetings-na2.hubspot.com/mason-nguyen">Book a discovery call</a></div></div>
       </div>
     </section>
 
@@ -50,20 +66,49 @@
     <section class="section" aria-labelledby="paths-title">
       <div class="shell">
         <div class="section-head"><div><div class="eyebrow">Two ways forward</div><h2 class="section-title" id="paths-title">Self-guided or <em>done with you.</em></h2></div><p class="section-intro">The free template and Swell's paid diagnostic are different products. Choose based on how much research and interpretation your team can own.</p></div>
-        <div class="grid-2"><article class="card"><div class="card-kicker">Free · self-guided</div><h3>Use the template</h3><p>Your team gathers the evidence, evaluates each dimension, and creates the roadmap.</p><ul class="check-list"><li>Immediate template access</li><li>No email required</li><li>Your team owns research and scoring</li></ul><div style="margin-top:28px"><a class="btn btn-primary" href="https://www.notion.so/364db2c4244c81f9aeaac6eaedaf7faa">Open in Notion</a></div></article><article class="card"><div class="card-kicker">$2,500 · Swell diagnostic</div><h3>Commission the baseline</h3><p>Swell performs the research, documents findings, prioritizes the roadmap, and walks your team through it.</p><ul class="check-list"><li>Brand-specific technical review</li><li>Defined query and competitor baseline</li><li>Prioritized implementation readout</li></ul><div style="margin-top:28px"><a class="btn" href="https://calendly.com/swellmarketing">Discuss the diagnostic</a></div></article></div>
+        <div class="grid-2"><article class="card"><div class="card-kicker">Free · self-guided</div><h3>Use the template</h3><p>Your team gathers the evidence, evaluates each dimension, and creates the roadmap.</p><ul class="check-list"><li>Immediate template access</li><li>No email required</li><li>Your team owns research and scoring</li></ul><div style="margin-top:28px"><a class="btn btn-primary" href="https://www.notion.so/364db2c4244c81f9aeaac6eaedaf7faa">Open the full audit template</a></div></article><article class="card"><div class="card-kicker">$2,500 · Swell diagnostic</div><h3>Commission the baseline</h3><p>Swell performs the research, documents findings, prioritizes the roadmap, and walks your team through it.</p><ul class="check-list"><li>Brand-specific technical review</li><li>Defined query and competitor baseline</li><li>Prioritized implementation readout</li></ul><div style="margin-top:28px"><a class="btn" href="https://meetings-na2.hubspot.com/mason-nguyen">Book a discovery call</a></div></article></div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="faq-title"><div class="shell"><div class="section-head"><div><div class="eyebrow">Audit questions</div><h2 class="section-title" id="faq-title">What this <em>is—and is not.</em></h2></div></div><div class="faq"><details><summary>Does the audit guarantee AI visibility?</summary><p>No. It helps you find and prioritize factors that influence access, understanding, corroboration, and measurement. Third-party AI outputs remain outside Swell's control.</p></details><details><summary>Do I need to enter my email?</summary><p>No. The self-audit opens directly in Notion. If you want help interpreting the results, email Mason or book a discovery call separately.</p></details><details><summary>Is the paid diagnostic required before a monthly plan?</summary><p>Not always. If your team already has a credible baseline, Swell can review it during scoping. Otherwise, the diagnostic prevents an ongoing program from starting with assumptions.</p></details><details><summary>Is AURE part of this audit?</summary><p>No. This is a Swell Marketing resource. AURE, at au-re.org, is a separate ecosystem organization and is not an alternate name or legal identity for Swell.</p></details></div></div></section>
+    <section class="section" aria-labelledby="faq-title"><div class="shell"><div class="section-head"><div><div class="eyebrow">Audit questions</div><h2 class="section-title" id="faq-title">What this <em>is—and is not.</em></h2></div></div><div class="faq"><details><summary>Does the audit guarantee AI visibility?</summary><p>No. It helps you find and prioritize factors that influence access, understanding, corroboration, and measurement. Third-party AI outputs remain outside Swell's control.</p></details><details><summary>Do I need to enter my email?</summary><p>No. The self-audit opens directly in Notion. If you want help interpreting the results, email Mason or book a discovery call separately.</p></details><details><summary>Is the paid diagnostic required before a monthly plan?</summary><p>Not always. If your team already has a credible baseline, Swell can review it during scoping. Otherwise, the diagnostic prevents an ongoing program from starting with assumptions.</p></details></div></div></section>
 
-    <section class="cta"><div class="shell"><div class="cta-panel"><h2>Make the next move evidence-led.</h2><div class="cta-row"><p>Open the template now. If the findings need expert research or prioritization, contact Swell at masonnguyengeo@gmail.com.</p><a class="btn" href="https://www.notion.so/364db2c4244c81f9aeaac6eaedaf7faa">Open the free audit</a></div></div></div></section>
+    <section class="cta"><div class="shell"><div class="cta-panel"><h2>Build the full evidence record.</h2><div class="cta-row"><p>Use the full audit template to document findings after the five-question diagnostic.</p><a class="btn" href="https://www.notion.so/364db2c4244c81f9aeaac6eaedaf7faa">Open the full audit template</a></div></div></div></section>
   </main>
 
   <footer class="site-footer"><div class="shell"><div class="footer-grid">
     <div class="footer-intro"><a class="brand" href="/"><span class="brand-mark">S</span><span class="brand-copy"><span class="brand-name">Swell Marketing</span><span class="brand-tag">GEO growth systems</span></span></a><p>Technical foundations, citable content, authority signals, and measurable AI visibility.</p><a class="footer-contact" href="mailto:masonnguyengeo@gmail.com">masonnguyengeo@gmail.com</a></div>
     <div><h2 class="footer-title">Explore</h2><nav class="footer-links" aria-label="Footer site navigation"><a href="/services/">Services</a><a href="/method/">Method</a><a href="/pricing/">Plans</a><a href="/about/">About</a></nav></div>
-    <div><h2 class="footer-title">Resources</h2><nav class="footer-links" aria-label="Footer resource navigation"><a href="/resources/">Research &amp; tools</a><a href="/geo-audit/">Free GEO audit</a><a href="/academy/">Swell Academy</a><a href="/roadmap.html">2026 roadmap</a></nav></div>
-    <div><h2 class="footer-title">Ecosystem</h2><nav class="footer-links" aria-label="Footer ecosystem navigation"><a href="https://coreweaverlabs.com">Coreweaver Labs ↗</a><a href="https://arctura.network">Arctura ↗</a><a href="https://au-re.org">AURE ↗</a><a href="https://arm-agency.com">ARM Agency ↗</a></nav></div>
-  </div><div class="footer-bottom"><span>© 2026 Swell Marketing</span><span>AURE is a separate ecosystem organization</span></div></div></footer>
+    <div><h2 class="footer-title">Resources</h2><nav class="footer-links" aria-label="Footer resource navigation"><a href="/resources/">Research &amp; tools</a><a href="/geo-audit/">Representation Gap diagnostic</a><a href="/academy/">Swell Academy</a><a href="/roadmap.html">2026 roadmap</a></nav></div>
+    <div><h2 class="footer-title">Entity sources</h2><nav class="footer-links" aria-label="Entity source navigation"><a href="https://masonnguyengeo.com/">Mason's research ↗</a><a href="/about/">About Swell</a></nav></div>
+  </div><div class="footer-bottom"><span>© 2026 Swell Marketing</span><span>Serviced by Mason Nguyen</span></div></div></footer>
+<script>
+(() => {
+  const form = document.querySelector('#representation-gap-form');
+  const result = document.querySelector('#gap-result');
+  const title = document.querySelector('#gap-result-title');
+  const copy = document.querySelector('#gap-result-copy');
+  const action = document.querySelector('#gap-result-action');
+  const layers = [
+    ['entity', 'Entity clarity', 'Verify names, canonical identifiers, structured data, people, offers, and relationships before creating more content.', '#dimensions'],
+    ['access', 'Crawler access', 'Confirm that relevant systems can retrieve the pages and evidence that define the brand. Fix blocked or client-only facts before downstream optimization.', '#dimensions'],
+    ['evidence', 'Content evidence', 'Map priority buyer questions to specific, supportable claims and publish the missing proof in clear, extractable passages.', '/docs/REPRESENTATION_BASELINE_TEMPLATE.md'],
+    ['authority', 'Independent corroboration', 'Identify which important claims exist only on owned channels, then pursue relevant third-party verification and distribution.', '/docs/REPRESENTATION_BASELINE_TEMPLATE.md'],
+    ['measurement', 'Answer measurement', 'Establish a stable query portfolio and record accuracy, inclusion, citations, and competitors before choosing interventions.', '/docs/REPRESENTATION_BASELINE_TEMPLATE.md']
+  ];
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const firstGap = layers.find(([key]) => data.get(key) !== 'yes');
+    const finding = firstGap || ['ready', 'No upstream gap reported', 'Your answers suggest the foundation is present. Verify it with captured evidence, then rank query-level representation gaps by business impact.', '/docs/REPRESENTATION_BASELINE_TEMPLATE.md'];
+    title.textContent = finding[1];
+    copy.textContent = finding[2];
+    action.href = finding[3];
+    action.textContent = firstGap ? 'Open the evidence template' : 'Build the representation baseline';
+    sessionStorage.setItem('swell_first_constraint', firstGap ? ({ entity: 'entity_definition', access: 'crawler_access', evidence: 'evidence', authority: 'corroboration', measurement: 'measurement' }[firstGap[0]]) : 'unclear');
+    result.dataset.visible = 'true';
+    result.focus();
+  });
+})();
+</script>
 </body>
 </html>

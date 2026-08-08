@@ -1,23 +1,26 @@
 # Mason × Swell Entity Growth Compass
 
-This document adapts the GEO Compass and Blue Ocean Content Strategy into an operating standard for Swell Marketing. It protects two distinct entities while making their relationship useful.
+This document adapts the GEO Compass and Blue Ocean Content Strategy into an operating standard for Swell Marketing. It protects the identities in the Arcturus Analytics Group while making their relationships useful. The machine-readable source of truth is `data/entity-registry.json`.
 
 ## 1. Entity model
 
 | Entity | Canonical ID | Role | Must not become |
 |---|---|---|---|
-| Mason Nguyen | `https://masonnguyengeo.com/#mason-nguyen` | Founder, researcher, category strategist, and canonical author of original concepts and frameworks | An alternate name or `sameAs` identity for Swell |
+| Arcturus Analytics Group | None; no public website | Group and container for Swell Marketing and AURE | A fabricated URL, an alias for either member, or a container for ARM or Arctura |
+| Mason Nguyen | `https://masonnguyengeo.com/#mason-nguyen` | Service provider, researcher, category strategist, and canonical author of original concepts and frameworks | An alternate name or `sameAs` identity for Swell |
 | Swell Marketing | `https://swellmarketing.xyz/#organization` | Distinct GEO agency applying research through diagnostics, implementation, managed programs, tools, and education | A personal blog, a duplicate of Mason's site, or an alternate name for AURE |
-| AURE | `https://au-re.org/` | Separate ecosystem organization and optional advanced case-study subject | A parent, legal identity, or alternate name for Swell |
+| Swell agent cohort | `https://swellmarketing.agency/` | A Swell cohort designed for agents | Swell's human-facing canonical website or a `sameAs` identity |
+| AURE | `https://au-re.org/` | Swell's distinct sibling organization within Arcturus Analytics Group and an optional advanced case-study subject | A parent, legal identity, or alternate name for Swell |
 
 Allowed relationship language:
 
-- “Swell Marketing was founded by Mason Nguyen.”
+- “Swell Marketing is serviced by Mason Nguyen.”
 - “Mason's research informs Swell's operating standards.”
 - “Swell applies the concepts through client work, tools, and education.”
-- “AURE is a separate ecosystem organization.”
+- “Swell Marketing and AURE are distinct sibling organizations within Arcturus Analytics Group.”
+- “swellmarketing.xyz is Swell's human-facing website; swellmarketing.agency is its cohort designed for agents.”
 
-Do not use `sameAs` between Mason and Swell. Use `founder`, `author`, `creator`, `subjectOf`, or a plain editorial link when that is the real relationship.
+Do not use `sameAs` between Mason and Swell, between Swell and AURE, or between Swell's human site and its agent cohort. Use `author`, `creator`, `memberOf`, `subOrganization`, `subjectOf`, or a plain editorial statement only when it expresses the verified relationship.
 
 ## 2. Clear ownership
 
@@ -75,8 +78,9 @@ Do not link to an unpublished future slug.
 3. Use descriptive anchor text. Do not use generic “learn more.”
 4. Do not copy full definitions or framework sections between sites.
 5. One canonical source per concept. Swell summarizes only enough to support an applied decision.
-6. Keep `swellmarketing.xyz` as Swell's canonical domain in Swell-controlled schema and files.
-7. Review both sites after any entity, domain, founder, or ecosystem relationship changes.
+6. Keep `swellmarketing.xyz` as Swell's human-facing canonical domain in Swell-controlled schema and files.
+7. Label `swellmarketing.agency` as the agent cohort; never include it in Swell's `sameAs` array.
+8. Review both sites after any entity, domain, service-provider, or group relationship changes.
 
 ## 6. Swell anti-slop gate
 
@@ -89,9 +93,21 @@ Before publishing:
 - [ ] The page includes acceptance criteria or a concrete next step.
 - [ ] The page does not repeat an article already owned by Mason.
 - [ ] Mason and Swell use distinct schema identifiers.
-- [ ] AURE is not represented as Swell's parent, alias, or legal identity.
-- [ ] Internal and external links pass validation.
+- [ ] Arcturus Analytics Group is the container and is not assigned an unapproved URL.
+- [ ] Only Swell and AURE are represented as members of Arcturus Analytics Group.
+- [ ] AURE is represented as Swell's sibling, not its parent, alias, or legal identity.
+- [ ] `.agency` is represented as Swell's agent cohort, not as a `sameAs` identity.
+- [ ] Local routes and fragments pass validation; material external sources are reviewed separately.
 - [ ] The page adds signal rather than publishing for volume.
+
+Run both local publishing gates from the site root:
+
+```bash
+node scripts/check-links.mjs
+node scripts/check-signal-quality.mjs
+```
+
+`check-links.mjs` validates page structure, local routes, fragments, duplicate IDs, and JSON-LD syntax. `check-signal-quality.mjs` validates the CTA contract, entity boundaries, public operating artifacts, visible/schema FAQ parity, embedded scripts, retired claim patterns, and crawler-policy decisions.
 
 ## 7. Measurement
 
@@ -103,7 +119,49 @@ Measure each entity separately, then measure the bridge:
 
 Shared growth is healthy only when attribution remains accurate.
 
-## 8. Known cross-site reconciliation item
+## 8. Blue-ocean operating strategy
 
-As of 2026-08-08, Mason's live `llms.txt` and homepage schema refer to Swell using `swellmarketing.agency` and group Swell inside the AURE ecosystem. Swell-controlled files use `swellmarketing.xyz` and explicitly identify AURE as separate. The Mason repository should receive a coordinated entity update so both sites describe the same domain and relationship model.
+Swell does not compete on content volume, schema installation, or generic “AI SEO” retainers. Its category wedge is **representation operations**: continuously reducing the gap between what a brand can prove and how answer systems represent it.
 
+The operating unit is a **representation gap**, not a keyword. A representation gap has four parts:
+
+1. A commercially relevant question.
+2. The answer the brand can support with evidence.
+3. The answer an AI system currently gives.
+4. The smallest verified intervention that can reduce the difference.
+
+### Eliminate–reduce–raise–create
+
+| Eliminate | Reduce | Raise | Create |
+|---|---|---|---|
+| Unsupported citation promises | Undirected content volume | Evidence and provenance standards | Representation-gap maps |
+| Entity-mixing “ecosystem” language | Repeated GEO definitions | Query-level answer measurement | Constraint-ranked intervention queues |
+| Decorative metrics and synthetic proof | Tool-first prescriptions | Acceptance criteria and verification | Evidence-to-answer operating loops |
+| Retainers without a baseline | Generic service menus | Clear ownership of concepts and artifacts | Governance for human-and-agent publishing |
+
+### Swell-owned applied artifacts
+
+These are the defensible application layer. Each must be a usable deliverable, not merely a named idea:
+
+- **Representation Baseline:** a versioned record of answer accuracy, inclusion, citations, and competitors across a stable query portfolio.
+- **Entity Boundary Map:** canonical identifiers, verified relationships, prohibited equivalences, and cross-site ownership.
+- **Evidence Ledger:** important claims mapped to first-party proof, independent corroboration, page locations, owners, and review dates.
+- **Constraint Queue:** gaps ranked by business relevance, causal impact, effort, dependency, and acceptance criteria.
+- **Answer Change Log:** interventions connected to later observed answer changes without claiming unsupported causality.
+
+### Publishing rule
+
+Every new Swell resource must contribute a reusable diagnostic, template, acceptance test, benchmark method, or governed workflow to one of those artifacts. If it only restates what GEO is, predicts the future, or repeats a Mason-owned concept, do not publish it on Swell.
+
+### Commercial sequence
+
+The offer architecture should follow the work:
+
+1. Free self-audit: helps a team recognize a likely representation gap.
+2. Paid diagnostic: produces the Representation Baseline, Entity Boundary Map, and ranked Constraint Queue.
+3. Managed program: closes selected gaps and maintains the Evidence Ledger and Answer Change Log.
+4. Academy: teaches teams and agents to operate the same system with explicit quality gates.
+
+## 9. Known cross-site reconciliation item
+
+As of 2026-08-08, Mason's live `llms.txt` and homepage schema refer to `swellmarketing.agency` as if it were Swell's primary identity and group Swell inside the AURE ecosystem. The approved model is different: Arcturus Analytics Group is the container; Swell and AURE are distinct siblings; `swellmarketing.xyz` serves humans; and `swellmarketing.agency` is Swell's cohort designed for agents. The Mason repository needs a coordinated update before the cross-site entity lock is complete.

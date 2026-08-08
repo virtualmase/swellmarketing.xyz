@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
 <title>Swell Academy — Agent Portal</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -826,7 +827,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
           <div class="phase-num">04</div>
           <div class="phase-info-inner">
             <div class="phase-name">Technical Infrastructure</div>
-            <div class="phase-desc">llms.txt deployment, robots.txt LLM crawler access, Core Web Vitals for machine readability, entity graph maintenance, sitemap architecture.</div>
+            <div class="phase-desc">Documented robots.txt controls, crawler-response tests, optional llms.txt content guidance, entity graph maintenance, and sitemap architecture.</div>
           </div>
           <div class="phase-timing">WEEK 4–8</div>
         </div>
@@ -844,12 +845,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <!-- SIGNAL STACK -->
     <div class="signal-stack-section">
       <div class="section-kicker" style="color:rgba(255,255,255,0.2)">The SignalStack™</div>
-      <h2 class="section-title" style="color:var(--paper)">Seven layers.<br><em style="color:var(--accent2)">One authority signal.</em></h2>
+      <h2 class="section-title" style="color:var(--paper)">Seven layers.<br><em style="color:var(--accent2)">One governed system.</em></h2>
       <div class="stack-grid">
         <div class="stack-item"><div class="stack-num">01</div><div class="stack-info"><div class="stack-name">Entity Declaration</div><div class="stack-desc">JSON-LD @graph, Organization/Person schema, sameAs authority node mapping</div></div><span class="stack-badge badge-core">FOUNDATION</span></div>
         <div class="stack-item"><div class="stack-num">02</div><div class="stack-info"><div class="stack-name">E-E-A-T Signal Architecture</div><div class="stack-desc">Credential documentation, award verification, publication backlinks, trust markers</div></div><span class="stack-badge badge-core">FOUNDATION</span></div>
         <div class="stack-item"><div class="stack-num">03</div><div class="stack-info"><div class="stack-name">GEO Content System</div><div class="stack-desc">Entity-led, declarative content structured for LLM extraction — not CTR</div></div><span class="stack-badge badge-adv">ADVANCED</span></div>
-        <div class="stack-item"><div class="stack-num">04</div><div class="stack-info"><div class="stack-name">Crawler Infrastructure</div><div class="stack-desc">llms.txt, robots.txt, and XML sitemap optimized for LLM crawlers</div></div><span class="stack-badge badge-adv">ADVANCED</span></div>
+        <div class="stack-item"><div class="stack-num">04</div><div class="stack-info"><div class="stack-name">Crawler Infrastructure</div><div class="stack-desc">Documented robots.txt policy, response testing, sitemaps, and optional llms.txt guidance</div></div><span class="stack-badge badge-adv">ADVANCED</span></div>
         <div class="stack-item"><div class="stack-num">05</div><div class="stack-info"><div class="stack-name">Citation Distribution Network</div><div class="stack-desc">Strategic syndication across Reddit, Quora, Medium, LinkedIn — seeding LLM training data</div></div><span class="stack-badge badge-adv">ADVANCED</span></div>
         <div class="stack-item"><div class="stack-num">06</div><div class="stack-info"><div class="stack-name">Share of Model Monitoring</div><div class="stack-desc">Continuous LLM query cycles across ChatGPT, Perplexity, Gemini, and Claude</div></div><span class="stack-badge badge-agt">AGENT</span></div>
         <div class="stack-item"><div class="stack-num">07</div><div class="stack-info"><div class="stack-name">Autonomous Optimization Loop</div><div class="stack-desc">The AURE 16-agent swarm: continuous GEO audit → schema → content → distribution → monitoring</div></div><span class="stack-badge badge-agt">AGENT</span></div>
@@ -860,7 +861,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="aure-section">
       <div class="section-kicker">AURE Architecture</div>
       <h2 class="section-title">The 16-agent <em>swarm.</em></h2>
-      <p style="max-width:720px;margin:0 0 28px;color:rgba(255,255,255,0.38);font-size:0.86rem;line-height:1.7">AURE is a separate ecosystem organization and architecture studied in this curriculum. It is not an alternate name, parent organization, or legal identity for Swell Marketing or Swell Academy.</p>
+      <p style="max-width:720px;margin:0 0 28px;color:rgba(255,255,255,0.38);font-size:0.86rem;line-height:1.7">AURE is Swell's sibling organization within Arcturus Analytics Group and an architecture studied in this curriculum. It is not an alternate name, parent organization, or legal identity for Swell Marketing or Swell Academy.</p>
       <div class="agent-grid" id="agent-grid"></div>
     </div>
 
@@ -913,11 +914,11 @@ const TRACKS = {
           eyebrow: 'TRACK 01 · MODULE 1 · FOUNDATION',
           body: `<h3>The Fundamental Shift</h3>
 <p>Traditional search engines index pages and rank them by relevance signals. LLMs work differently — they were trained on the web, absorbed its signal architecture, and now reconstruct knowledge from that training when answering questions.</p>
-<p>This distinction matters enormously. When ChatGPT recommends a brand, it isn't crawling the web in real-time. It's surfacing what it learned during training — and what it learned is shaped by signal density, not content volume.</p>
-<div class="callout">"LLMs don't read your homepage. They read your signal architecture. A brand with a clear entity graph, verified sameAs connections, and proper E-E-A-T markup is <strong>structurally more citable</strong> than a competitor with ten times the content volume and zero schema hygiene."</div>
+<p>Answer systems can combine model knowledge with retrieved web sources, depending on the product and mode. Because those conditions vary, record whether browsing was enabled and inspect the sources actually cited instead of assuming how an answer was produced.</p>
+<div class="callout">"More pages do not resolve an unclear identity. Establish canonical entities, accessible evidence, and consistent relationships first; then test whether answer accuracy and citation coverage change."</div>
 <h3>How Structured Data Gets Parsed</h3>
 <p>JSON-LD is parsed before page text in modern LLM crawl pipelines. The @graph declaration anchors an entity's identity — it tells the crawler who this page is about, what type of entity it represents, and how that entity connects to other verified nodes across the web.</p>
-<p>The key insight: structured data creates machine-readable authority, not just crawlability. When your JSON-LD links to a Wikidata entity, a LinkedIn profile, and a domain @id — and those platforms link back — you have created a verifiable identity loop that LLMs trust.</p>
+<p>Structured data makes explicit claims about identity and relationships in a machine-readable format. It can reduce ambiguity, but it does not create authority by itself. Every relationship must match visible content and verifiable external evidence.</p>
 <h3>Tasks for This Module</h3>`,
           checks: [
             'Understand the difference between how Googlebot and LLM crawlers process pages',
@@ -935,15 +936,15 @@ const TRACKS = {
         content: {
           eyebrow: 'TRACK 01 · MODULE 2 · FOUNDATION',
           body: `<h3>What Is an Entity Graph?</h3>
-<p>An entity graph is a structured network of relationships between named things — people, organizations, places, topics. Google's Knowledge Graph is the most famous example. LLMs were trained on web data that included entity-rich knowledge structures, which is why clear entity declaration directly influences citation frequency.</p>
+<p>An entity graph is a structured network of relationships between named things—people, organizations, places, and topics. Clear entity declarations can reduce ambiguity for systems that parse them. Whether they affect a particular answer must be measured rather than assumed.</p>
 <p>Your entity graph starts with your organization's JSON-LD @graph declaration and expands outward to every platform where your entity verifiably exists: LinkedIn, Wikidata, Crunchbase, GitHub, industry directories, government registries.</p>
 <h3>The sameAs Network</h3>
-<p>The sameAs property is GEO's most powerful tool. By declaring <code>sameAs: ["https://linkedin.com/company/you", "https://www.wikidata.org/wiki/Q..."]</code> in your JSON-LD, you're creating machine-verifiable identity confirmation. LLMs trained on data from both your domain and your LinkedIn profile learn that these are the same entity — compounding trust signals.</p>
-<div class="callout">"Map every authoritative external node where your entity exists — and link them bidirectionally. Use rel='me' from every external profile pointing back to your canonical @id URL. <strong>This is how LLMs verify identity across the web.</strong>"</div>
+<p>The sameAs property asserts that two identifiers refer to the same entity. Use it only for verified profiles of that exact person or organization; never use it to connect related but distinct entities. A correct, smaller set is more useful than an inflated list.</p>
+<div class="callout">"Map verified external identifiers and document why each one represents the same entity. Where a platform provides a website or identity field, point it to the canonical domain and retain the evidence."</div>
 <h3>Tasks for This Module</h3>`,
           checks: [
             'Draft your organization\'s JSON-LD @graph with Organization type',
-            'List 8+ platforms where your entity exists for sameAs mapping',
+            'List only verified platforms where the same entity has a real profile',
             'Identify your canonical @id URI (your primary domain URL)',
             'Understand bidirectional linking: rel="me" from external profiles back to @id',
           ]
@@ -951,13 +952,13 @@ const TRACKS = {
       },
       {
         id: 'f3', num: '03',
-        title: 'The E-E-A-T Signal Hierarchy',
+        title: 'Experience, Expertise & Trust Evidence',
         tags: ['EXPERTISE · AUTHORITY · TRUST · E-E-A-T'],
         xp: 130,
         content: {
           eyebrow: 'TRACK 01 · MODULE 3 · FOUNDATION',
-          body: `<h3>E-E-A-T Is Not a Google Concept</h3>
-<p>Google codified E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) in their Quality Rater Guidelines — but the underlying principle predates Google's articulation. LLMs were trained on the same authoritative sources that exhibit high E-E-A-T signals, which is why these signals directly influence which entities get cited.</p>
+          body: `<h3>Use E-E-A-T as an Evidence Review</h3>
+<p>Google discusses experience, expertise, authoritativeness, and trust in its quality-rater guidance. Treat those ideas as editorial review questions, not as a universal LLM score or proof of what causes a citation.</p>
 <p>The four dimensions:</p>
 <ul>
 <li><strong>Experience</strong>: First-hand, verifiable interaction with the subject matter</li>
@@ -965,15 +966,15 @@ const TRACKS = {
 <li><strong>Authoritativeness</strong>: Third-party recognition, citations, industry standing</li>
 <li><strong>Trustworthiness</strong>: Accuracy, transparency, verifiable claims, no deception</li>
 </ul>
-<h3>Scoring and Prioritizing</h3>
-<p>Before optimization, audit your current signal profile. Score each E-E-A-T dimension on a 1–10 scale. Where are the gaps? An organization with 9/10 expertise signals but 3/10 trust signals (missing reviews, no transparent ownership) will underperform in LLM citations despite deep content.</p>
-<div class="callout">"E-E-A-T isn't a checklist Google invented. It's the actual signal profile of authoritative sources. The LLMs trained on authoritative sources. <strong>Build the signals, get cited. Skip them, get omitted.</strong>"</div>
+<h3>Evidence Gaps and Prioritization</h3>
+<p>Before optimization, audit the evidence a reader can inspect: demonstrated experience, relevant expertise, independent corroboration, transparent ownership, and claim accuracy. Record specific gaps rather than inventing a universal 1–10 authority score.</p>
+<div class="callout">"Use these dimensions to ask what a reader can inspect and verify. Do not turn them into a universal score or a citation promise."</div>
 <h3>Tasks for This Module</h3>`,
           checks: [
-            'Score your entity across all four E-E-A-T dimensions (1-10)',
-            'Identify the lowest-scoring dimension — this is your priority queue',
-            'List three specific actions to improve your Trust score',
-            'Research which E-E-A-T signals your top-cited competitors have that you lack',
+            'Record inspectable evidence and gaps across the four E-E-A-T review dimensions',
+            'Identify the highest-impact unresolved evidence gap',
+            'List three actions that would make an important claim easier to verify',
+            'Compare the inspectable evidence behind frequently cited alternatives',
           ]
         }
       },
@@ -986,7 +987,7 @@ const TRACKS = {
           eyebrow: 'TRACK 01 · MODULE 4 · FOUNDATION',
           body: `<h3>The Paradigm Shift</h3>
 <p>SEO optimized for crawl-rank-retrieve. A bot crawled your page, an algorithm ranked it against others, and users retrieved it from a results page. The entire discipline — keyword density, backlink counts, page speed — was built around this three-step process.</p>
-<p>GEO operates in a different paradigm: train-compress-generate. LLMs were trained on a corpus, compressed that corpus into weighted parameters, and now generate answers from those parameters. There is no rank. There is citation probability.</p>
+<p>Generative answers may draw on model parameters, retrieved sources, tool outputs, and product-specific ranking or selection systems. GEO measurement therefore focuses on observable answer inclusion, accuracy, attribution, citations, and competitors under documented conditions.</p>
 <h3>What Doesn't Transfer</h3>
 <ul>
 <li>Keyword density: LLMs understand semantics, not keyword frequency</li>
@@ -1029,7 +1030,7 @@ const TRACKS = {
 <h3>Tasks for This Module</h3>`,
           checks: [
             'Define your 5 primary query clusters (questions LLMs should answer by citing you)',
-            'Run baseline Share of Model test across all 4 LLM platforms',
+            'Choose relevant platforms and run a documented baseline query set',
             'Document your citation rate per platform (e.g. "ChatGPT: 2/10 queries")',
             'Identify which competitors appear in your query clusters most frequently',
           ]
@@ -1042,17 +1043,17 @@ const TRACKS = {
         xp: 140,
         content: {
           eyebrow: 'TRACK 01 · MODULE 6 · FOUNDATION',
-          body: `<h3>The AI-Era robots.txt</h3>
-<p>llms.txt is a plaintext file deployed at your root domain that explicitly defines which content LLM crawlers are permitted to index. It is to AI what robots.txt is to traditional search engines — but it operates on a different logic.</p>
-<p>Key LLM crawlers to control: GPTBot (OpenAI), ClaudeBot (Anthropic), PerplexityBot, Googlebot-Extended (for SGE). Each respects different file formats and permission structures.</p>
-<h3>The Critical Mistake</h3>
-<p>Most brands accidentally block high-value entity pages through overly aggressive robots.txt configurations written for traditional crawlers. A robots.txt rule disallowing query-parameterized URLs often blocks FAQ pages, author profiles, and schema-rich content — exactly the pages that generate LLM citations.</p>
-<div class="callout">"Without a properly structured llms.txt, you're either accidentally blocking citation-generating content or allowing crawlers to index pages that dilute your entity signal. <strong>Swell Marketing clients see measurable Share of Model improvement within two crawl cycles of a correct deployment.</strong>"</div>
+          body: `<h3>Separate Access Policy from Content Guidance</h3>
+<p>robots.txt expresses crawl permissions to bots that honor the Robots Exclusion Protocol. llms.txt is an optional plaintext guide to important public content; it is not an access-control standard.</p>
+<p>Crawler tokens and purposes change. Verify each one in current first-party documentation, distinguish search or user retrieval from model training, and record cases where one control affects multiple uses.</p>
+<h3>The Common Category Error</h3>
+<p>Audit the full delivery path: robots.txt, status codes, authentication, CDN or WAF rules, rendering, and the final page response. Do not infer crawler access from the policy file alone or assume a page format generates citations.</p>
+<div class="callout">"Treat llms.txt as a concise guide to important public content, not as an access-control standard or a citation guarantee. Use robots.txt and documented crawler controls for permissions, then test actual responses."</div>
 <h3>Tasks for This Module</h3>`,
           checks: [
-            'Check your robots.txt: are any LLM crawlers blocked (GPTBot, ClaudeBot, PerplexityBot)?',
+            'Document which crawler uses are allowed or excluded and why',
             'Audit which high-value pages may be inadvertently blocked by existing rules',
-            'Draft a basic llms.txt file granting access to entity pages, FAQ pages, author pages',
+            'Draft an optional llms.txt guide to the most useful public pages',
             'Verify schema markup is in initial HTML response (not JavaScript-rendered)',
           ]
         }
@@ -1074,15 +1075,15 @@ const TRACKS = {
         content: {
           eyebrow: 'TRACK 02 · MODULE 1 · ADVANCED',
           body: `<h3>Building the @graph</h3>
-<p>The JSON-LD @graph is the canonical declaration of your entity's identity. It must be deployed in the <code>&lt;head&gt;</code> of your homepage and every key entity page. A complete @graph for a business includes Organization, WebSite, Person (for founders), and WebPage types at minimum.</p>
-<p>Critical properties: <code>@id</code> (canonical URI), <code>name</code>, <code>url</code>, <code>description</code>, <code>sameAs</code> (array of all verified external profiles), <code>knowsAbout</code> (array of topic authority claims), and <code>founder</code> linked to a Person @id.</p>
-<div class="callout">"This is not a metadata checkbox — it is your canonical entity declaration. Include @id URIs that resolve, sameAs links to every platform where your entity exists, and <strong>knowsAbout properties that define your topic authority.</strong>"</div>
+<p>A JSON-LD @graph can declare entities and relationships represented on a page. Include only types and properties supported by visible content and verified facts; there is no universal minimum graph that fits every business.</p>
+<p>Common properties include a stable <code>@id</code>, <code>name</code>, <code>url</code>, and an accurate description. Add <code>sameAs</code>, <code>knowsAbout</code>, people, and organizational relationships only when each claim is verified and belongs to the correct entity.</p>
+<div class="callout">"Treat the graph as a factual declaration, not a metadata checklist. Reuse stable identifiers and include only properties supported by the visible page and approved evidence."</div>
 <h3>Validation and Testing</h3>
-<p>Use Google's Rich Results Test and Schema.org Validator. Every @id URI must resolve to the canonical page. Every sameAs URL must be live and bidirectionally linked back. Test JSON syntax rigorously — a syntax error in your @graph can silently break entity recognition.</p>
+<p>Validate syntax and vocabulary with appropriate tools, then compare the graph with the visible page and entity registry. Stable @id values should identify the intended entity, and every sameAs URL must be live and represent that exact entity.</p>
 <h3>Tasks for This Module</h3>`,
           checks: [
-            'Build a complete JSON-LD @graph for your organization (min: Organization + Person)',
-            'Include all sameAs nodes (min: LinkedIn, Wikidata, one industry directory)',
+            'Build a JSON-LD @graph containing only entities supported by the visible page',
+            'Include only verified sameAs identifiers for the exact entity',
             'Validate with Google Rich Results Test — zero errors',
             'Verify every @id URI resolves to the correct canonical page',
             'Deploy to homepage and confirm in browser source (not JavaScript-injected)',
@@ -1097,17 +1098,17 @@ const TRACKS = {
         content: {
           eyebrow: 'TRACK 02 · MODULE 2 · ADVANCED',
           body: `<h3>Building the Identity Network</h3>
-<p>sameAs node mapping is the process of connecting your entity's canonical @id to every verified external profile where your entity exists. The more authoritative and diverse the network, the stronger the identity signal LLMs receive during training and inference.</p>
+<p>sameAs mapping connects an entity's canonical identifier to verified external identifiers for that exact entity. The goal is disambiguation, not a large or diverse count. Record why each relationship is valid.</p>
 <p>Priority nodes for most organizations: LinkedIn Company Page, Wikidata (create an entry if none exists), Crunchbase, Google Business Profile, GitHub (for tech entities), Angel.co, industry-specific directories, government business registries.</p>
 <h3>Bidirectional Linking</h3>
-<p>The sameAs declaration in your JSON-LD is one direction. For maximum signal strength, every external profile must link back to your canonical domain. Use rel="me" on personal profiles. Use website field on company profiles. This creates a verifiable identity loop — circular verification that LLMs use to confirm entity authenticity.</p>
+<p>Where an external profile provides a website or identity field, link it to the canonical domain. This gives reviewers another way to verify the relationship. Do not describe bidirectional links as proof of how every LLM confirms authenticity.</p>
 <div class="callout"><strong>Include only profiles that genuinely identify the same entity.</strong> A smaller set of accurate, maintained nodes is more useful than a long list of weak or incorrect associations.</div>
 <h3>Tasks for This Module</h3>`,
           checks: [
             'Audit all existing external profiles — list every platform where entity exists',
             'Create Wikidata entry if none exists (or claim and update existing)',
             'Add rel="me" or website field linking back to canonical domain on each profile',
-            'Update JSON-LD sameAs array with all verified nodes (min 8)',
+            'Update the JSON-LD sameAs array with verified identifiers only',
             'Test that every sameAs URL is live and publicly accessible',
           ]
         }
@@ -1123,8 +1124,8 @@ const TRACKS = {
 <p>GEO content is not SEO content. It is written to be extracted and cited by machines — not to generate clicks. Every paragraph is a potential citation. Every sentence is a potential answer. Structure is the strategy.</p>
 <p>The GEO content rules: Lead every piece with the entity name in the first sentence. Include at least one verifiable metric per section. Use declarative, citable statements. Define acronyms on first use. Structure with H2/H3 that answer questions machines are likely to be asked.</p>
 <div class="callout">"<strong>Write for the machine that will read it, not the algorithm that will rank it.</strong> GEO content is the testimony you want the LLM to repeat verbatim when it answers a relevant question."</div>
-<h3>FAQPage Schema: The Highest-Leverage Format</h3>
-<p>FAQ pages align with the question-and-answer structure LLMs use natively. Every FAQ answer must be a complete, standalone, citable paragraph. Deploy FAQPage JSON-LD alongside WebPage and Organization schema. Questions should mirror the exact phrasing an LLM is likely to receive.</p>
+<h3>FAQPage Schema: Use When the Content Fits</h3>
+<p>Use an FAQ when recurring audience questions are not answered more clearly elsewhere. Write concise, standalone answers supported by evidence. Add FAQPage structured data only when it accurately represents visible content and current platform guidance.</p>
 <h3>Tasks for This Module</h3>`,
           checks: [
             'Audit existing content: rewrite 3 pieces with GEO construction rules',
@@ -1143,11 +1144,11 @@ const TRACKS = {
         content: {
           eyebrow: 'TRACK 02 · MODULE 4 · ADVANCED',
           body: `<h3>Instrumenting Your Monitoring Stack</h3>
-<p>Share of Model monitoring requires systematic, weekly query cycles across all four major LLM platforms. This cannot be ad-hoc — it must be structured, repeatable, and documented to track trends over time.</p>
-<p>Build a query bank of 20–40 prompts that should surface your brand. Rotate through these weekly. Track: citation frequency, sentiment (positive/neutral/negative), position in response (first, middle, last mention), and accuracy of description.</p>
+<p>Answer monitoring requires a versioned query set and documented collection conditions. Choose platforms and cadence from the business decision being supported; weekly collection across every platform is not automatically necessary.</p>
+<p>Build a versioned query portfolio sized to the decisions it supports. Choose collection cadence from the decision window and review capacity. Track inclusion, accuracy, attribution, citations, and named alternatives under documented conditions.</p>
 <h3>Competitor Displacement Analysis</h3>
 <p>For every query where a competitor is cited and you are not — that is a signal gap. Document which competitor appears, what signals they have that you lack, and what content or schema change would close the gap. This list becomes your optimization backlog.</p>
-<div class="callout">"The signal gap between you and your competitors is growing every week. <strong>Most teams don't know it until it's a canyon.</strong> Weekly monitoring is the only way to detect displacement before it becomes structural."</div>
+<div class="callout">"Set monitoring cadence from the decision window. Preserve comparable runs and investigate material changes; collecting more often than the team can review adds noise."</div>
 <h3>Tasks for This Module</h3>`,
           checks: [
             'Build a query bank of 20+ prompts across your primary topic clusters',
@@ -1169,7 +1170,7 @@ const TRACKS = {
 <p>Publish GEO content on third-party platforms that LLMs are trained on: Reddit (relevant subreddits), Quora answers, Medium, Substack, LinkedIn articles, and industry publications. The goal is not traffic — it is citation seeding.</p>
 <p>When an LLM is trained on web data and multiple authoritative sources cite your entity for a topic, your Share of Model for that topic increases structurally. You are pre-populating the training corpus.</p>
 <h3>Platform Priority Stack</h3>
-<p>Tier 1 (highest LLM training weight): Reddit (high-engagement threads), Quora (accepted answers), Wikipedia-adjacent sources. Tier 2: Medium publications, LinkedIn articles, industry trade publications. Tier 3: Substack newsletters, YouTube descriptions, podcast show notes.</p>
+<p>Do not assign universal “LLM training weights” to publishing platforms. Select distribution surfaces by audience relevance, editorial credibility, the claim they can corroborate, and whether they influence the buyer decision being measured.</p>
 <div class="callout">"Social engagement on distributed content is a secondary signal — but a real one. Platforms with high engagement metrics are more likely to be included in LLM training data scrapes. <strong>The Social Signal Amplification Agent tracks engagement-to-LLM-perception correlation over time.</strong>"</div>
 <h3>Tasks for This Module</h3>`,
           checks: [
@@ -1188,19 +1189,19 @@ const TRACKS = {
         xp: 200,
         content: {
           eyebrow: 'TRACK 02 · MODULE 6 · ADVANCED',
-          body: `<h3>The Invisible Foundation</h3>
-<p>If LLM crawlers can't access your content, your signal architecture doesn't matter. Technical GEO infrastructure is the precondition for everything else working. A single misconfigured robots.txt can neutralize months of schema work.</p>
+          body: `<h3>Test the Delivery Path</h3>
+<p>Relevant systems need a working path to the public evidence they retrieve. Test robots policy, HTTP responses, WAF behavior, rendering, and structured data separately so one failure is not misdiagnosed as another.</p>
 <h3>The Audit Checklist</h3>
-<p>Run systematically: JSON-LD validity on all key pages, llms.txt existence and correctness, robots.txt LLM crawler access, sitemap completeness (entity pages, FAQ pages, author pages prioritized), Core Web Vitals (sub-2.5s LCP on entity-critical pages), and schema markup in initial HTML response (not JS-rendered).</p>
+<p>Run systematic checks: JSON-LD syntax and factual accuracy, robots.txt policy, important URL responses, sitemap completeness, user-experience performance, and availability of material content in the delivered HTML. Treat llms.txt as optional guidance, not a required access control.</p>
 <h3>Entity Graph Consistency</h3>
-<p>Every page on your site that mentions your entity should reference the same @id URI. Inconsistent entity references create ambiguity that dilutes citation probability. Run a site-wide audit for entity name variations, inconsistent schema types, and conflicting @id declarations.</p>
-<div class="callout">"<strong>Without consistent entity graph maintenance, every other signal you build will decay or conflict.</strong> Run maintenance cycles at minimum monthly. Automated systems run them continuously."</div>
+<p>Structured data about the same entity should reuse its stable @id. Run a site-wide audit for name variations, inconsistent schema types, and conflicting identifiers, then verify whether each reference actually describes the same entity.</p>
+<div class="callout">"Review the entity graph when material facts or relationships change. Each proposed update needs provenance, validation, and a rollback path before deployment."</div>
 <h3>Tasks for This Module</h3>`,
           checks: [
             'Run full JSON-LD validation across all key pages — document errors',
-            'Verify llms.txt exists and grants access to GPTBot, ClaudeBot, PerplexityBot',
-            'Test Core Web Vitals on top 10 entity-critical pages — flag LCP > 2.5s',
-            'Audit robots.txt for inadvertent LLM crawler blocks',
+            'Verify optional llms.txt guidance matches public content and makes no permission claims',
+            'Test user-experience performance on the highest-value page templates',
+            'Audit robots.txt against the documented access and training policy',
             'Confirm schema markup appears in view-source HTML (not JS-injected)',
           ]
         }
@@ -1213,10 +1214,10 @@ const TRACKS = {
         content: {
           eyebrow: 'TRACK 02 · MODULE 7 · ADVANCED',
           body: `<h3>Mapping the Signal Gap</h3>
-<p>Map the signal architecture of your 3–5 most cited competitors in LLM responses. Analyze their schema structure, E-E-A-T signal density, content citation patterns, and backlink authority. You are not looking for what they rank for — you're looking for why LLMs trust them.</p>
+<p>Record which alternatives appear across the same versioned query set. Inspect the cited sources, claims, page formats, entity clarity, and independent corroboration you can observe. Treat explanations for selection as hypotheses, not knowledge of why a model “trusts” an entity.</p>
 <h3>The Analysis Framework</h3>
 <p>For each competitor: (1) What schema types do they deploy? (2) How many sameAs nodes do they have? (3) What E-E-A-T signals are verifiable? (4) Where is their content syndicated? (5) What query clusters do they dominate and why? The gap between their profile and yours is your action list.</p>
-<div class="callout">"You are not looking for what they rank for — <strong>you're looking for why LLMs trust them.</strong> The gap between their signal profile and yours is the action list."</div>
+<div class="callout">"Compare observable evidence, not imagined model internals. Turn material differences into hypotheses with an owner and an acceptance test."</div>
 <h3>Tasks for This Module</h3>`,
           checks: [
             'Identify top 3 competitors in your LLM query clusters',
@@ -1235,16 +1236,16 @@ const TRACKS = {
         content: {
           eyebrow: 'TRACK 02 · MODULE 8 · ADVANCED',
           body: `<h3>The Most Underused GEO Signal</h3>
-<p>Author entities are the most underutilized lever in GEO. Every person who produces content or holds authority within an organization needs a canonical author page with Person schema, @id URI, professional credentials, and sameAs connections.</p>
-<p>Author entities are the mechanism by which expertise signals accumulate and compound. When an author publishes content, their entity's E-E-A-T signals transfer to that content. Building the author page before building the content multiplies signal density from day one.</p>
+<p>Create an author entity when authorship materially helps a reader evaluate the work. A useful author page identifies the person accurately and presents only relevant, verifiable biography, credentials, work, and external profiles.</p>
+<p>Author pages help readers evaluate authorship when they contain verifiable biographies, credentials, work, and external profiles. They do not transfer an invisible authority score to every page. Create them when the authorship context is real and useful.</p>
 <h3>Person Schema Requirements</h3>
-<p>Minimum: <code>@type: Person</code>, <code>@id</code> (canonical author URL), <code>name</code>, <code>url</code>, <code>jobTitle</code>, <code>worksFor</code> linked to Organization @id, <code>sameAs</code> (LinkedIn, Twitter/X, Google Scholar if applicable), and <code>knowsAbout</code> topics. Include <code>credential</code> and <code>award</code> properties where verifiable.</p>
+<p>Start with a stable <code>@id</code>, accurate name, canonical URL, and visible biography. Add job title, organizational relationships, external profiles, topics, credentials, and awards only when each property is relevant and verifiable.</p>
 <div class="callout">"Build the author page before you build the content. Author entities are how <strong>expertise signals accumulate and compound</strong> — every piece of content they produce inherits the authority of their entity declaration."</div>
 <h3>Tasks for This Module</h3>`,
           checks: [
-            'Create canonical author page(s) for all content-producing team members',
+            'Create canonical author pages where authorship context materially aids verification',
             'Deploy Person schema with all required properties and @id URI',
-            'Add sameAs nodes for each author (LinkedIn minimum, Google Scholar if applicable)',
+            'Add verified sameAs identifiers for each author where real profiles exist',
             'Link all existing content back to author @id via author property in Article schema',
             'Verify author @id URIs resolve and bidirectional linking is in place',
           ]
@@ -1321,14 +1322,14 @@ const TRACKS = {
 <h3>Setup Phase Agents</h3>
 <ul>
 <li><strong>Agent 1 · Schema Architect</strong>: JSON-LD @graph generation and maintenance</li>
-<li><strong>Agent 2 · E-E-A-T Signal</strong>: Trust signal scoring and gap identification</li>
+<li><strong>Agent 2 · Evidence Review</strong>: Verifiable claim and provenance gaps</li>
 <li><strong>Agent 3 · GEO Content Gen</strong>: Geo-targeted content production</li>
 <li><strong>Agent 4 · Citation Tracking</strong>: Web brand mention monitoring</li>
 <li><strong>Agent 5 · GEO Audit</strong>: Infrastructure audit and compliance</li>
 </ul>
 <h3>Continuous Operations</h3>
 <p>Agents 6–16 run continuously, feeding each other. Agent 6's LLM Brand Monitor outputs inform Agent 7's Competitor Intel. Agent 14's Trend Detection feeds Agent 3's Content Gen. Agent 12's Entity Graph Management feeds Agents 1 and 2. Agent 13 aggregates everything for reporting.</p>
-<div class="callout">"Each agent's output serves as another agent's input. This is <strong>signal compounding in its most powerful form</strong> — every optimization loop makes every subsequent loop more accurate."</div>
+<div class="callout">"Each agent output becomes an input only after it passes the required validation. Repetition can compound errors as easily as insight, so provenance and review remain part of the loop."</div>
 <h3>Tasks for This Module</h3>`,
           checks: [
             'Map all 16 AURE agents to their functions and dependencies',
@@ -1346,9 +1347,9 @@ const TRACKS = {
         content: {
           eyebrow: 'TRACK 03 · MODULE 4 · AGENT',
           body: `<h3>Why BFT Matters in GEO</h3>
-<p>Byzantine Fault Tolerance (BFT) in multi-agent systems means the system continues to produce correct outputs even when some agents produce incorrect, conflicting, or malicious results. In GEO, this is critical: a single faulty schema update from an autonomous agent could corrupt your entity graph.</p>
+<p>Byzantine fault tolerance is a distributed-systems concept with formal assumptions that do not automatically apply to a group of language-model agents. For GEO workflows, use the narrower controls you can verify: independent checks, schema validation, approvals, audit logs, and rollback.</p>
 <h3>BFT Implementation Patterns</h3>
-<p>Three-agent validation: before any schema update is deployed, three independent agents must produce consistent outputs. Majority-rules for content decisions. Consensus verification for sameAs node additions (two agents must confirm the node is live and bidirectionally linked).</p>
+<p>Do not treat agent agreement as proof. Before a schema update is deployed, validate syntax, compare each claim with an approved source, require human review for material entity changes, and retain a rollback path.</p>
 <div class="callout">"Signal integrity is the precondition for signal authority. A schema declaration that conflicts with another on the same domain is <strong>worse than no schema at all</strong> — it creates disambiguation problems that compound across every LLM that ingests the conflicting data."</div>
 <h3>The Mandate Chain</h3>
 <p>Every agent action must be traceable to a Mandate: a structured objective declared by the orchestrator. The Mandate Chain creates an audit log of every change made to the signal architecture — who authorized it, what was changed, what the expected outcome was, and what the measured result was.</p>
@@ -1392,10 +1393,10 @@ const TRACKS = {
           body: `<h3>The Loop Architecture</h3>
 <p>A continuous GEO optimization loop can run on a defined cadence: Monitor → Analyze → Update → Distribute → Report. In the AURE case study, agents coordinate these phases between explicit human approvals and review controls.</p>
 <h3>Compounding Returns</h3>
-<p>The power of the loop is compounding. Each cycle produces slightly better signal architecture, slightly higher citation probability, slightly more accurate monitoring baselines. Over 12 months, a system running continuous loops has an insurmountable structural advantage over one running monthly manual audits.</p>
+<p>The value of the loop is shorter learning latency: observations can reach a decision sooner when inputs and approvals are reliable. More cycles are not automatically better; measure whether each cycle resolves a documented constraint without increasing error or review burden.</p>
 <div class="callout">A coordinated system can review the same query and signal set consistently. <strong>That makes changes easier to compare, audit, and improve over time.</strong></div>
 <h3>Building Your First Loop</h3>
-<p>Start with the minimum viable loop: one monitoring agent querying 4 LLMs weekly, one analysis agent flagging citation gaps, one content agent generating one FAQ per gap. This three-agent loop, run consistently, will compound your SoM measurably within 60 days.</p>
+<p>Start with the smallest useful loop: capture a defined query set, review material representation gaps, choose one evidence-backed intervention, and verify it before deployment. Add agents or cadence only when they reduce learning latency without increasing error or review burden.</p>
 <h3>Tasks for This Module</h3>`,
           checks: [
             'Design your minimum viable GEO loop with 3 agents',
@@ -1417,9 +1418,9 @@ const TRACKS = {
 <p>Manual SoM measurement — asking 4 LLMs 40 questions every week — is unsustainable at scale. The LLM Brand Monitor Agent (AURE Agent 6) automates this: it maintains the query bank, cycles through prompts systematically, parses responses for entity citations, scores sentiment, and writes structured output to the entity graph management system.</p>
 <h3>Building the Query Bank</h3>
 <p>The query bank is the core asset. It should contain: category queries (who are the best X), comparison queries (X vs Y), recommendation queries (best X for Y use case), problem-solution queries (how to solve Z problem), and news queries (what has X done lately). Each query targets a specific citation gap or competitive displacement.</p>
-<div class="callout">"Systematically query ChatGPT, Perplexity, Gemini, and Claude. Record every response. Calculate your citation frequency per platform. <strong>Run it weekly — the trend line matters more than any single data point.</strong>"</div>
+<div class="callout">"Use the same versioned questions and documented conditions on the products relevant to the buyer journey. Preserve full answers and choose a cadence the team can review."</div>
 <h3>Output Format for Downstream Agents</h3>
-<p>The monitoring agent must output structured JSON: <code>{platform, query, cited: bool, position, sentiment, competitors_cited: [], timestamp}</code>. This format feeds directly into competitor intelligence, trend detection, and content generation agents without transformation overhead.</p>
+<p>The monitoring agent should output a documented structure such as <code>{platform, model_version, query_id, included, citations: [], competitors: [], timestamp, capture_url}</code>. Keep the schema versioned so downstream analysis can detect collection changes instead of silently mixing incompatible runs.</p>
 <h3>Tasks for This Module</h3>`,
           checks: [
             'Build a 40-query bank covering all 5 query types for your entity',
@@ -1512,7 +1513,7 @@ const TRACKS = {
 
 const AURE_AGENTS = [
   {num:'01',name:'Schema Architect',role:'JSON-LD @graph generation',type:'setup'},
-  {num:'02',name:'E-E-A-T Signal',role:'Trust signal scoring',type:'setup'},
+  {num:'02',name:'Evidence Review',role:'Claim and provenance gaps',type:'setup'},
   {num:'03',name:'GEO Content Gen',role:'Geo-targeted content',type:'content'},
   {num:'04',name:'Citation Tracking',role:'Web brand mentions',type:'setup'},
   {num:'05',name:'GEO Audit',role:'Infrastructure audit',type:'setup'},

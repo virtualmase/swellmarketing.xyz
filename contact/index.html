@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07100f">
+  <title>Request a Working Session — Swell Marketing</title>
+  <meta name="description" content="Tell Swell what AI products are getting wrong, why it matters, and what you need to decide next.">
+  <link rel="canonical" href="https://swellmarketing.xyz/contact/">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script defer src="/assets/attribution.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header"><div class="shell nav"><a class="brand" href="/" aria-label="Swell Marketing home"><span class="brand-mark">S</span><span class="brand-copy"><span class="brand-name">Swell Marketing</span><span class="brand-tag">GEO growth systems</span></span></a><nav class="desktop-nav" aria-label="Primary navigation"><a href="/services/">Services</a><a href="/method/">Method</a><a href="/pricing/">Plans</a><a href="/about/">About</a><a href="/resources/">Resources</a></nav><div class="nav-actions"><a class="btn btn-primary" href="#request">Describe the problem</a><details class="mobile-nav"><summary>Menu</summary><nav class="mobile-nav-menu" aria-label="Mobile navigation"><a href="/services/">Services</a><a href="/method/">Method</a><a href="/pricing/">Plans</a><a href="/geo-audit/">Diagnostic</a><a href="#request">Describe the problem</a></nav></details></div></div></header>
+  <main id="main">
+    <section class="page-hero"><div class="shell"><div class="page-hero-grid"><div><div class="eyebrow">Request a working session</div><h1 class="page-title">Start with the <em>observed problem.</em></h1></div><div><p class="page-lede">Tell us what an AI product is getting wrong, why it matters commercially, and what you need to decide. Swell will review the request before recommending a call, baseline, or self-guided next step.</p><div class="hero-actions"><a class="btn btn-primary" href="#request">Describe the problem</a><a class="btn" href="https://meetings-na2.hubspot.com/mason-nguyen">Book in HubSpot</a><a class="btn" href="/geo-audit/">Find your first constraint</a></div></div></div></div></section>
+    <section class="section" id="request" aria-labelledby="request-title"><div class="shell request-layout"><div><div class="eyebrow">Useful context</div><h2 class="section-title" id="request-title">Give us enough signal to <em>respond well.</em></h2><p class="section-intro request-intro">Required fields support this specific request. Marketing updates are optional and use separate consent.</p><div class="request-expectations"><div><span>01</span><p>We review the commercial problem and earliest likely constraint.</p></div><div><span>02</span><p>We respond by email; the target is within one business day.</p></div><div><span>03</span><p>We recommend one next step without guaranteeing an AI outcome.</p></div></div></div>
+      <form class="lead-form" id="lead-request-form" novalidate>
+        <div class="form-field"><label for="lead-name">Your name</label><input id="lead-name" name="name" autocomplete="name" maxlength="100" required><small data-error-for="name"></small></div>
+        <div class="form-field"><label for="lead-email">Work email</label><input id="lead-email" name="email" type="email" autocomplete="email" maxlength="254" required><small data-error-for="email"></small></div>
+        <div class="form-field"><label for="lead-role">Role <span>Optional</span></label><input id="lead-role" name="role" autocomplete="organization-title" maxlength="120"></div>
+        <div class="form-field"><label for="lead-website">Company website</label><input id="lead-website" name="website" inputmode="url" autocomplete="url" placeholder="example.com" maxlength="500" required><small data-error-for="website"></small></div>
+        <div class="form-field form-field-full"><label for="lead-trigger">What is happening?</label><textarea id="lead-trigger" name="trigger" rows="5" minlength="20" maxlength="2000" placeholder="Name the AI answer, buyer question, entity conflict, or measurement gap you observed." required></textarea><small data-error-for="trigger"></small></div>
+        <div class="form-field form-field-full"><label for="lead-consequence">Why does it matter commercially? <span>Optional</span></label><textarea id="lead-consequence" name="commercialConsequence" rows="3" maxlength="2000" placeholder="For example: prospects repeat outdated claims during sales calls."></textarea></div>
+        <div class="form-field form-field-full"><label for="lead-timeline">When do you need to act?</label><select id="lead-timeline" name="timeline"><option value="within_30_days">Within 30 days</option><option value="within_90_days">Within 90 days</option><option value="this_year">This year</option><option value="exploring" selected>Still exploring</option></select></div>
+        <div class="form-trap" aria-hidden="true"><label for="lead-company">Leave this empty</label><input id="lead-company" name="company" tabindex="-1" autocomplete="off"></div>
+        <label class="form-consent form-field-full"><input type="checkbox" name="responseConsent" required><span>You may use this information to respond to my request. I understand this is not consent to unrelated marketing.</span></label><small class="form-field-full" data-error-for="responseConsent"></small>
+        <label class="form-consent form-field-full"><input type="checkbox" name="marketingConsent"><span>Optional: send me occasional Swell research and operating resources. I can unsubscribe at any time.</span></label>
+        <input type="hidden" name="firstConstraint" value="unclear"><input type="hidden" name="sourcePage"><input type="hidden" name="referrer"><input type="hidden" name="utmSource"><input type="hidden" name="utmMedium"><input type="hidden" name="utmCampaign"><input type="hidden" name="utmContent">
+        <div class="form-submit form-field-full"><button class="btn btn-primary" type="submit">Send the request</button><p>By submitting, you acknowledge the <a href="/privacy/">privacy notice</a>.</p></div>
+        <div class="form-status form-field-full" id="lead-form-status" role="status" aria-live="polite" tabindex="-1"></div>
+      </form>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="shell"><div class="footer-bottom"><span>© 2026 Swell Marketing</span><span><a href="/privacy/">Privacy</a> · <a href="mailto:masonnguyengeo@gmail.com">Email Mason</a></span></div></div></footer>
+<script>
+(() => {
+  const form = document.querySelector('#lead-request-form');
+  const status = document.querySelector('#lead-form-status');
+  const params = new URLSearchParams(location.search);
+  const mapping = { utm_source: 'utmSource', utm_medium: 'utmMedium', utm_campaign: 'utmCampaign', utm_content: 'utmContent' };
+  form.elements.sourcePage.value = location.pathname + location.search;
+  form.elements.referrer.value = document.referrer;
+  for (const [parameter, field] of Object.entries(mapping)) form.elements[field].value = params.get(parameter) || '';
+  try {
+    const attribution = JSON.parse(sessionStorage.getItem('swell_attribution_v1') || 'null');
+    const first = attribution?.firstTouch || {};
+    form.elements.sourcePage.value = first.landingPage || form.elements.sourcePage.value;
+    form.elements.referrer.value = first.referrer || form.elements.referrer.value;
+    for (const field of ['utmSource', 'utmMedium', 'utmCampaign', 'utmContent']) {
+      form.elements[field].value = first[field] || form.elements[field].value;
+    }
+  } catch {}
+  const storedConstraint = sessionStorage.getItem('swell_first_constraint');
+  if (storedConstraint) form.elements.firstConstraint.value = storedConstraint;
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    status.dataset.state = '';
+    status.textContent = '';
+    form.querySelectorAll('[data-error-for]').forEach(node => { node.textContent = ''; });
+    const button = form.querySelector('button[type="submit"]');
+    button.disabled = true;
+    button.textContent = 'Sending…';
+    const payload = Object.fromEntries(new FormData(form));
+    payload.responseConsent = form.elements.responseConsent.checked;
+    payload.marketingConsent = form.elements.marketingConsent.checked;
+    try {
+      const response = await fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      let result = {};
+      try { result = await response.json(); } catch {}
+      if (!response.ok) {
+        for (const [field, message] of Object.entries(result.fieldErrors || {})) {
+          const node = form.querySelector(`[data-error-for="${field}"]`);
+          if (node) node.textContent = message;
+        }
+        throw new Error(result.code === 'validation_failed' ? 'Check the highlighted fields.' : 'The request could not be saved. Email masonnguyengeo@gmail.com instead.');
+      }
+      form.reset();
+      status.dataset.state = 'success';
+      status.textContent = 'Request received. Swell will review it and respond by email.';
+    } catch (error) {
+      status.dataset.state = 'error';
+      status.textContent = error.message || 'The request could not be saved. Email masonnguyengeo@gmail.com instead.';
+    } finally {
+      button.disabled = false;
+      button.textContent = 'Send the request';
+      status.focus();
+    }
+  });
+})();
+</script>
+</body>
+</html>

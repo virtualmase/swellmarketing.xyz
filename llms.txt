@@ -4,17 +4,26 @@
 
 Canonical website: https://swellmarketing.xyz/
 Organization identifier: https://swellmarketing.xyz/#organization
-Founder: Mason Nguyen
-Founder identifier: https://masonnguyengeo.com/#mason-nguyen
+Service provider: Mason Nguyen
+Service provider identifier: https://masonnguyengeo.com/#mason-nguyen
 Contact: masonnguyengeo@gmail.com
+
+## Group and channel architecture
+
+- Arcturus Analytics Group is the group containing Swell Marketing and AURE.
+- Arcturus Analytics Group does not currently have a public website.
+- ARM and Arctura are not members of Arcturus Analytics Group.
+- https://swellmarketing.xyz/ is Swell's human-facing canonical website.
+- https://swellmarketing.agency/ is Swell's cohort designed for agents; it is not a sameAs identity for the human-facing website.
+- Swell Marketing is serviced by Mason Nguyen.
 
 ## Core services
 
-- GEO audit and AI visibility baseline
-- Entity architecture and JSON-LD implementation
-- Crawler policy and machine-readable content infrastructure
-- Citable content and topical authority systems
-- Query-level citation coverage and Share of Model measurement
+- Representation Gap diagnostic and versioned answer baseline
+- Entity boundaries, structured data, and verified crawler access
+- Evidence Ledger, applied content, and relevant corroboration
+- Constraint-ranked implementation with acceptance tests
+- Query-level answer measurement and Answer Change Log
 
 ## Primary pages
 
@@ -23,23 +32,21 @@ Contact: masonnguyengeo@gmail.com
 - Method and quality gates: https://swellmarketing.xyz/method/
 - Engagements and pricing: https://swellmarketing.xyz/pricing/
 - About Swell and entity boundaries: https://swellmarketing.xyz/about/
+- Request a working session: https://swellmarketing.xyz/contact/
+- Privacy notice: https://swellmarketing.xyz/privacy/
 - Research-to-application guide: https://swellmarketing.xyz/resources/
-- Free GEO audit template: https://swellmarketing.xyz/geo-audit/
+- Free Representation Gap diagnostic: https://swellmarketing.xyz/geo-audit/
+- Representation Baseline template: https://swellmarketing.xyz/docs/REPRESENTATION_BASELINE_TEMPLATE.md
+- Evidence Ledger template: https://swellmarketing.xyz/docs/EVIDENCE_LEDGER_TEMPLATE.md
+- Answer Change Log template: https://swellmarketing.xyz/docs/ANSWER_CHANGE_LOG_TEMPLATE.md
 - Swell Academy: https://swellmarketing.xyz/academy/
 - 2026 GEO roadmap: https://swellmarketing.xyz/roadmap.html
 
-## Connected organizations
-
-- Coreweaver Labs: https://coreweaverlabs.com/
-- Arctura Network: https://arctura.network/
-- AURE: https://au-re.org/
-- ARM Agency: https://arm-agency.com/
-
-## Founder and agency relationship
+## Mason and agency relationship
 
 Mason Nguyen and Swell Marketing are related but distinct entities.
 
-- Mason Nguyen is a Person and the founder of Swell Marketing.
+- Mason Nguyen is a Person who services Swell Marketing.
 - Mason's canonical personal website is https://masonnguyengeo.com/.
 - Mason publishes original GEO research, definitions, frameworks, and founder analysis under his own name.
 - Swell Marketing is an Organization that applies research through audits, implementation, managed programs, tools, and education.
@@ -48,10 +55,10 @@ Mason Nguyen and Swell Marketing are related but distinct entities.
 
 ## Entity disambiguation
 
-Swell Marketing and AURE are distinct organizations.
+Swell Marketing and AURE are distinct sibling organizations within Arcturus Analytics Group.
 
 - Swell Marketing is the GEO agency at https://swellmarketing.xyz/.
-- AURE is a separate ecosystem organization at https://au-re.org/.
+- AURE is the sibling organization at https://au-re.org/.
 - AURE is not an alternate name, parent organization, legal identity, or sameAs profile for Swell Marketing.
 - References to AURE on this site describe a separate collaborator or agent-systems implementation.
 
