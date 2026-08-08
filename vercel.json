@@ -22,6 +22,11 @@
       "permanent": true
     },
     {
+      "source": "/gso-roadmap.html",
+      "destination": "/roadmap.html",
+      "permanent": true
+    },
+    {
       "source": "/landing.html",
       "destination": "/",
       "permanent": true

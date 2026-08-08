@@ -18,7 +18,10 @@ Contact: masonnguyengeo@gmail.com
 ## Primary pages
 
 - Homepage: https://swellmarketing.xyz/
+- Services: https://swellmarketing.xyz/services/
+- Method and quality gates: https://swellmarketing.xyz/method/
 - Engagements and pricing: https://swellmarketing.xyz/pricing/
+- About Swell and entity boundaries: https://swellmarketing.xyz/about/
 - Free GEO audit template: https://swellmarketing.xyz/geo-audit/
 - Swell Academy: https://swellmarketing.xyz/academy/
 - 2026 GEO roadmap: https://swellmarketing.xyz/roadmap.html
