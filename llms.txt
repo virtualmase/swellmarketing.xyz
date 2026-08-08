@@ -5,6 +5,7 @@
 Canonical website: https://swellmarketing.xyz/
 Organization identifier: https://swellmarketing.xyz/#organization
 Founder: Mason Nguyen
+Founder identifier: https://masonnguyengeo.com/#mason-nguyen
 Contact: masonnguyengeo@gmail.com
 
 ## Core services
@@ -22,6 +23,7 @@ Contact: masonnguyengeo@gmail.com
 - Method and quality gates: https://swellmarketing.xyz/method/
 - Engagements and pricing: https://swellmarketing.xyz/pricing/
 - About Swell and entity boundaries: https://swellmarketing.xyz/about/
+- Research-to-application guide: https://swellmarketing.xyz/resources/
 - Free GEO audit template: https://swellmarketing.xyz/geo-audit/
 - Swell Academy: https://swellmarketing.xyz/academy/
 - 2026 GEO roadmap: https://swellmarketing.xyz/roadmap.html
@@ -32,6 +34,17 @@ Contact: masonnguyengeo@gmail.com
 - Arctura Network: https://arctura.network/
 - AURE: https://au-re.org/
 - ARM Agency: https://arm-agency.com/
+
+## Founder and agency relationship
+
+Mason Nguyen and Swell Marketing are related but distinct entities.
+
+- Mason Nguyen is a Person and the founder of Swell Marketing.
+- Mason's canonical personal website is https://masonnguyengeo.com/.
+- Mason publishes original GEO research, definitions, frameworks, and founder analysis under his own name.
+- Swell Marketing is an Organization that applies research through audits, implementation, managed programs, tools, and education.
+- Mason Nguyen is not an alternate name or sameAs identity for Swell Marketing.
+- Swell Marketing is not an alternate name or personal profile for Mason Nguyen.
 
 ## Entity disambiguation
 
