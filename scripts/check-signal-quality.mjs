@@ -96,19 +96,19 @@ for (const file of htmlFiles) {
 }
 
 const ctaContract = new Map([
-  ["/geo-audit/", "Find your first constraint"],
-  ["#gap-check", "Find your first constraint"],
-  ["/pricing/", "Review engagements"],
-  ["https://calendly.com/swellmarketing", "Book a discovery call"],
-  ["https://www.notion.so/364db2c4244c81f9aeaac6eaedaf7faa", "Open the full audit template"]
+  ["/geo-audit/", ["Find your first constraint", "Run the free diagnostic"]],
+  ["#gap-check", ["Find your first constraint", "Run the five questions"]],
+  ["/pricing/", ["Review engagements", "See pricing"]],
+  ["https://meetings-na2.hubspot.com/mason-nguyen", ["Book a discovery call", "Book a working session", "Book in HubSpot"]],
+  ["https://www.notion.so/364db2c4244c81f9aeaac6eaedaf7faa", ["Open the full audit template"]]
 ]);
 
 for (const [source, markup] of html) {
   for (const anchor of anchorData(markup)) {
     if (!/\b(?:btn|text-link)\b/.test(anchor.attributes)) continue;
     const expected = ctaContract.get(anchor.href);
-    if (expected && anchor.label !== expected) {
-      issues.push(`${source}: CTA "${anchor.label}" points to ${anchor.href}; expected "${expected}"`);
+    if (expected && !expected.includes(anchor.label)) {
+      issues.push(`${source}: CTA "${anchor.label}" points to ${anchor.href}; expected one of "${expected.join('", "')}"`);
     }
   }
 }
@@ -130,6 +130,7 @@ const retiredPublicPhrases = [
 ];
 
 for (const [source, markup] of html) {
+  if (markup.includes("—")) issues.push(`${source}: em dash remains in public copy`);
   for (const phrase of retiredPublicPhrases) {
     if (markup.toLowerCase().includes(phrase.toLowerCase())) {
       issues.push(`${source}: retired claim or label remains: "${phrase}"`);
