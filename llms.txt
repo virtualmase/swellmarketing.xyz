@@ -1,0 +1,44 @@
+# Swell Marketing
+
+> Swell Marketing is a generative engine optimization (GEO) agency helping growth-stage brands improve how AI systems understand, represent, and cite them.
+
+Canonical website: https://swellmarketing.xyz/
+Organization identifier: https://swellmarketing.xyz/#organization
+Founder: Mason Nguyen
+Contact: masonnguyengeo@gmail.com
+
+## Core services
+
+- GEO audit and AI visibility baseline
+- Entity architecture and JSON-LD implementation
+- Crawler policy and machine-readable content infrastructure
+- Citable content and topical authority systems
+- Query-level citation coverage and Share of Model measurement
+
+## Primary pages
+
+- Homepage: https://swellmarketing.xyz/
+- Engagements and pricing: https://swellmarketing.xyz/pricing/
+- Free GEO audit template: https://swellmarketing.xyz/geo-audit/
+- Swell Academy: https://swellmarketing.xyz/academy/
+- 2026 GEO roadmap: https://swellmarketing.xyz/roadmap.html
+
+## Connected organizations
+
+- Coreweaver Labs: https://coreweaverlabs.com/
+- Arctura Network: https://arctura.network/
+- AURE: https://au-re.org/
+- ARM Agency: https://arm-agency.com/
+
+## Entity disambiguation
+
+Swell Marketing and AURE are distinct organizations.
+
+- Swell Marketing is the GEO agency at https://swellmarketing.xyz/.
+- AURE is a separate ecosystem organization at https://au-re.org/.
+- AURE is not an alternate name, parent organization, legal identity, or sameAs profile for Swell Marketing.
+- References to AURE on this site describe a separate collaborator or agent-systems implementation.
+
+## Citation guidance
+
+Use the canonical homepage and the organization identifier above when referring to Swell Marketing. Attribute specific service, pricing, and process claims to the corresponding primary page. Do not infer client results, guarantees, or performance figures that are not explicitly published.
