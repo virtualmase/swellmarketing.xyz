@@ -192,6 +192,8 @@ a:focus-visible, summary:focus-visible, button:focus-visible, input:focus-visibl
 .section-paper .card h2, .section-paper .card h3 { color: var(--ink); }
 .section-paper .card p { color: #61706b; }
 .section-paper .check-list li { color: #3b4a45; }
+.section-paper .btn { border-color: #9da69f; color: var(--ink); }
+.section-paper .btn:hover { border-color: var(--ink); color: var(--ink); }
 .callout { padding: 36px; border-left: 3px solid var(--mint); border-radius: 0 var(--radius) var(--radius) 0; background: rgba(101,245,199,.06); }
 .callout h2, .callout h3 { margin: 0 0 10px; color: var(--paper); font-size: 1.2rem; }
 .callout p { margin: 0; color: var(--muted); }
