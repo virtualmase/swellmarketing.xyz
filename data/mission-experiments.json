@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-08-09T20:57:24.823Z",
+  "updatedAt": "2026-08-09T21:16:00.000Z",
   "experiments": [
     {
       "id": "representation_gap_failure_pattern_q3_2026",
@@ -36,7 +36,8 @@
         "The campaign article was promoted to production in Vercel deployment dpl_Hzx4mtDAVJJHnmvMyANGijUK57y7 and verified at its canonical URL with HTTP 200, analytics, sitemap discovery, llms discovery, and four CTA attribution values.",
         "Deployment dpl_FpKCcpadVyhKuycqnJ7wxvtVa9cZ corrected latest-touch loss across internal navigation and was verified to preserve the original social touch, the latest meaningful article CTA, and the current contact page as separate records.",
         "A 30-query public-search control found a current first-party source for 29 questions; 25 observations aligned, five were mixed or incomplete, and three generic queries required entity disambiguation. This control is explicitly not evidence about an AI answer surface.",
-        "Deployment dpl_GbvcMsuZ2NbN638Epd53wGop1ZqF published the narrowed control finding and remediated unintended public serving of internal research files; the affected production paths now return HTTP 404."
+        "Deployment dpl_GbvcMsuZ2NbN638Epd53wGop1ZqF published the narrowed control finding and remediated unintended public serving of internal research files; the affected production paths now return HTTP 404.",
+        "A controlled Perplexity Sonar API adapter now preserves all 30 canonical queries, uses one stateless request per query, checkpoints privately, records API-reported cost, and stops at a configured spend ceiling. It is explicitly not labeled as a capture of the consumer Perplexity Pro application; live execution awaits secure credential availability."
       ],
       "artifactRefs": [
         "docs/campaigns/REPRESENTATION_GAP_FAILURE_PATTERN.md",

@@ -19,6 +19,10 @@ The name is an operating identity, not a claim that the agent is the human Mason
 
 The current implementation can analyze live HubSpot data, reason with the OpenAI Responses API, create local operating artifacts, and generate the final case study. External publishing, messaging, and CRM mutations require configured adapters before the agent can execute them; missing adapters are operational blockers, not approval requests.
 
+Production HubSpot measurement can also be retrieved through `POST /api/mason-report`. The request body must exactly match `MASON_REPORT_SECRET`. The endpoint returns aggregate counts only, uses private no-store caching, rejects other methods, and never returns upstream error details.
+
+The controlled Perplexity adapter calls the official Sonar API directly. It sends each canonical baseline query as its own stateless request, checkpoints raw answers and citations to a git-ignored file, records returned usage cost, and stops before another request after the configured spend ceiling is reached. A Sonar API result is labeled as API evidence and is never represented as a capture of the consumer Perplexity Pro application.
+
 ## Autonomy boundaries
 
 No human approval queue is part of the workflow. The agent acts when its required evidence and technical capability are present.
@@ -45,6 +49,24 @@ node scripts/mason-agent.mjs
 ```
 
 `OPENAI_MODEL` is optional and defaults to `gpt-5.6`. Secrets belong in local or platform secret storage, never in the repository.
+
+Validate the 30-query Perplexity execution plan without spending or exposing a credential:
+
+```bash
+node scripts/run-perplexity-baseline.mjs --dry-run
+```
+
+For a direct Perplexity API key, store the value in a private file and pass only its path:
+
+```bash
+export PERPLEXITY_API_KEY_FILE=".swell-agent/credentials/perplexity-api-key"
+node scripts/run-perplexity-baseline.mjs \
+  --model sonar-pro \
+  --max-queries 30 \
+  --max-cost-usd 0.75
+```
+
+Base44 stores third-party credentials inside app Secrets or custom integrations. A key held only inside Base44 is not automatically available to this repository; it must either be exported into SWELL's private local secret storage or exposed through a separately authenticated Base44 backend function. Never paste a key into source code, command-line arguments, agent output, or a browser bundle.
 
 Useful options:
 
@@ -76,6 +98,8 @@ Mission, target-account, answer-control, and private operating records are also 
 - `data/representation-gap-baseline-run.json` preserves the 30-query answer-surface manifest.
 - `data/representation-gap-public-search-control.json` records the completed public-search control. It is explicitly not an AI-answer observation.
 - `scripts/check-representation-control.mjs` verifies query coverage, assessments, source URLs, surface labeling, and deployment exclusions.
+- `scripts/run-perplexity-baseline.mjs` executes and resumes the private 30-query Sonar API observation with a fixed provider endpoint and spend ceiling.
+- `scripts/check-perplexity-baseline.mjs` verifies canonical query preservation, API/product labeling, credential exclusion, checkpoint behavior, and cost stopping.
 - `scripts/submit-indexnow.mjs` provides an owned search-discovery adapter. HTTP 200 proves notification receipt only; crawling, indexing, ranking, and visits remain separate observations.
 
 ## Mission completion and case study

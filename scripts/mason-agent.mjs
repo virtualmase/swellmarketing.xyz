@@ -45,7 +45,10 @@ const now = value("--date") ? new Date(value("--date")) : new Date();
 if (Number.isNaN(now.getTime())) throw new Error("--date must be a valid ISO date.");
 
 const snapshotPath = value("--snapshot");
-const baseSnapshot = snapshotPath ? await readJson(snapshotPath) : await getGtmSnapshot({ now });
+const snapshotDocument = snapshotPath ? await readJson(snapshotPath) : null;
+const baseSnapshot = snapshotDocument
+  ? snapshotDocument.scope === "aggregate_only" && snapshotDocument.snapshot ? snapshotDocument.snapshot : snapshotDocument
+  : await getGtmSnapshot({ now });
 const missionLedger = await readJson("data/mission-activity-ledger.json");
 const experimentRegistry = await readJson("data/mission-experiments.json");
 const snapshot = applyMissionEvidence(baseSnapshot, missionLedger, experimentRegistry);

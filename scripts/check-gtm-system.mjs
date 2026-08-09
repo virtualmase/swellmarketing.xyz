@@ -55,7 +55,7 @@ if (!contact.includes('href="/privacy/"')) issues.push("contact form does not li
 for (const heading of ["What Swell collects", "Why it is used", "Voice and meeting information", "Retention and choices", "Contact"]) {
   if (!privacy.includes(heading)) issues.push(`privacy notice is missing ${heading}`);
 }
-for (const variable of ["GTM_WEBHOOK_URL", "GTM_WEBHOOK_SECRET", "VAPI_WEBHOOK_SECRET", "HUBSPOT_ACCESS_TOKEN", "HUBSPOT_PIPELINE_ID", "HUBSPOT_STAGE_QUALIFIED", "HUBSPOT_OWNER_ID", "OPENAI_API_KEY", "OPENAI_MODEL"]) {
+for (const variable of ["GTM_WEBHOOK_URL", "GTM_WEBHOOK_SECRET", "VAPI_WEBHOOK_SECRET", "HUBSPOT_ACCESS_TOKEN", "HUBSPOT_PIPELINE_ID", "HUBSPOT_STAGE_QUALIFIED", "HUBSPOT_OWNER_ID", "OPENAI_API_KEY", "OPENAI_MODEL", "MASON_REPORT_SECRET", "PERPLEXITY_API_KEY", "PERPLEXITY_API_KEY_FILE"]) {
   if (!envExample.includes(`${variable}=`)) issues.push(`.env.example is missing ${variable}`);
 }
 if (masonAgent.authority?.executionMode !== "autonomous") issues.push("Mason agent is not configured for autonomous execution");
@@ -116,6 +116,7 @@ if (journey?.currentPage?.landingPage !== "/contact/") issues.push("attribution 
 const { default: leadHandler } = await import(path.join(root, "api/leads.js"));
 const { default: vapiHandler } = await import(path.join(root, "api/vapi-webhook.js"));
 const { default: gtmEventsHandler } = await import(path.join(root, "api/gtm-events.js"));
+const { createMasonReportHandler } = await import(path.join(root, "api/mason-report.js"));
 const { processHubSpotEvent } = await import(path.join(root, "lib/hubspot-adapter.js"));
 
 function responseHarness() {
@@ -127,6 +128,45 @@ function responseHarness() {
     setHeader(name, value) { this.headers[name.toLowerCase()] = value; },
     end(body = "") { this.body = body; }
   };
+}
+
+async function invokeMasonReport({ method = "POST", body = "", configuredSecret, getSnapshot } = {}) {
+  const originalSecret = process.env.MASON_REPORT_SECRET;
+  if (configuredSecret === undefined) delete process.env.MASON_REPORT_SECRET;
+  else process.env.MASON_REPORT_SECRET = configuredSecret;
+  const response = responseHarness();
+  try {
+    await createMasonReportHandler({ getSnapshot })({ method, headers: { "content-length": String(Buffer.byteLength(body)) }, body }, response);
+  } finally {
+    if (originalSecret === undefined) delete process.env.MASON_REPORT_SECRET;
+    else process.env.MASON_REPORT_SECRET = originalSecret;
+  }
+  return { status: response.statusCode, headers: response.headers, body: JSON.parse(response.body) };
+}
+
+let reportResult = await invokeMasonReport({ method: "GET", configuredSecret: "test-report-secret" });
+if (reportResult.status !== 405 || reportResult.body.code !== "method_not_allowed") issues.push("Mason report API did not reject non-POST methods");
+
+reportResult = await invokeMasonReport({ body: "test-report-secret" });
+if (reportResult.status !== 503 || reportResult.body.code !== "report_unconfigured") issues.push("Mason report API did not fail closed without a configured secret");
+
+reportResult = await invokeMasonReport({ body: "wrong-secret", configuredSecret: "test-report-secret" });
+if (reportResult.status !== 401 || reportResult.body.code !== "unauthorized") issues.push("Mason report API accepted an invalid secret");
+
+const aggregateFixture = {
+  generatedAt: "2026-08-09T21:00:00.000Z",
+  contacts: { accountTotal: 1, swellTotal: 1, connected: 0, bySource: { direct: 1 }, byFit: { unknown: 1 }, doNotContact: 0, ownerless: 0 },
+  pipeline: { accountTotalDeals: 0, swellTotalDeals: 0, byStage: {}, openAmount: 0, closedWonCount: 0, closedWonRevenue: 0, openWithoutNextAction: 0, overdueNextActions: 0, ownerlessOpenDeals: 0 },
+  tasks: { accountTotal: 0, swellTotal: 0, byStatus: {}, open: 0, overdue: 0, ownerlessOpen: 0 }
+};
+reportResult = await invokeMasonReport({ body: "test-report-secret\n", configuredSecret: "test-report-secret", getSnapshot: async () => aggregateFixture });
+if (reportResult.status !== 200 || reportResult.body.scope !== "aggregate_only") issues.push("Mason report API did not return the aggregate fixture");
+if (JSON.stringify(reportResult.body).includes("email") || JSON.stringify(reportResult.body).includes("firstname")) issues.push("Mason report API fixture crossed the aggregate-only boundary");
+if (reportResult.headers["cache-control"] !== "no-store, private") issues.push("Mason report API is missing private no-store caching");
+
+reportResult = await invokeMasonReport({ body: "test-report-secret", configuredSecret: "test-report-secret", getSnapshot: async () => { throw new Error("sensitive upstream detail"); } });
+if (reportResult.status !== 503 || reportResult.body.code !== "report_temporarily_unavailable" || JSON.stringify(reportResult.body).includes("sensitive")) {
+  issues.push("Mason report API did not sanitize an upstream failure");
 }
 
 async function invoke(body, { method = "POST", fetchImpl, webhookUrl } = {}) {

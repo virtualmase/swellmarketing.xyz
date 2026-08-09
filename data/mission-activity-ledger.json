@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-08-09T20:57:24.823Z",
+  "updatedAt": "2026-08-09T21:16:00.000Z",
   "events": [
     {
       "id": "mission_campaign_asset_20260809_01",
@@ -195,6 +195,82 @@
         "receiptState": "received",
         "urlCount": 1,
         "indexingGuaranteed": false
+      }
+    },
+    {
+      "id": "mission_measurement_adapter_20260809_01",
+      "type": "measurement_adapter_deployed",
+      "occurredAt": "2026-08-09T21:07:11.000Z",
+      "entityId": "mason_aggregate_crm_report",
+      "status": "verified",
+      "sourceSystem": "vercel",
+      "sourceRef": "dpl_58SeS1qCGUNBA7KF9DmT8DcoTVsW",
+      "evidence": [
+        "api/mason-report.js",
+        "scripts/check-gtm-system.mjs",
+        "https://swellmarketing.xyz/api/mason-report"
+      ],
+      "data": {
+        "productionReady": true,
+        "authenticationRequired": true,
+        "aggregateOnly": true,
+        "privateNoStore": true,
+        "getStatus": 405,
+        "invalidSecretStatus": 401,
+        "representativePrivatePathStatus": 404
+      }
+    },
+    {
+      "id": "mission_crm_snapshot_20260809_01",
+      "type": "crm_snapshot_captured",
+      "occurredAt": "2026-08-09T21:11:20.691Z",
+      "entityId": "hubspot_aggregate_20260809T211120Z",
+      "status": "verified",
+      "sourceSystem": "hubspot_via_mason_report",
+      "sourceRef": "https://swellmarketing.xyz/api/mason-report",
+      "evidence": [
+        "api/mason-report.js",
+        "lib/gtm-report.js",
+        "docs/MASON_AGENT_OPERATIONS.md"
+      ],
+      "data": {
+        "scope": "aggregate_only",
+        "swellContacts": 1,
+        "connectedBuyerConversations": 0,
+        "swellDeals": 0,
+        "qualifiedPipelineUsd": 0,
+        "closedWonCount": 0,
+        "closedWonRevenueUsd": 0,
+        "swellTasks": 1,
+        "completedSwellTasks": 1,
+        "personalDataCaptured": false
+      }
+    },
+    {
+      "id": "mission_answer_adapter_20260809_01",
+      "type": "answer_surface_adapter_configured",
+      "occurredAt": "2026-08-09T21:16:00.000Z",
+      "entityId": "perplexity_sonar_baseline_adapter",
+      "experimentId": "representation_gap_failure_pattern_q3_2026",
+      "status": "verified",
+      "sourceSystem": "repository",
+      "sourceRef": "scripts/run-perplexity-baseline.mjs",
+      "evidence": [
+        "lib/perplexity-baseline.js",
+        "scripts/run-perplexity-baseline.mjs",
+        "scripts/check-perplexity-baseline.mjs",
+        "docs/MASON_AGENT_OPERATIONS.md"
+      ],
+      "data": {
+        "provider": "Perplexity",
+        "surface": "Sonar API",
+        "defaultModel": "sonar-pro",
+        "consumerProSurface": false,
+        "plannedQueries": 30,
+        "queryMutation": "none",
+        "defaultMaxCostUsd": 0.75,
+        "credentialPersisted": false,
+        "liveExecutionStatus": "credential_not_available_to_runtime"
       }
     }
   ]
