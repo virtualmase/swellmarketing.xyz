@@ -25,6 +25,16 @@
       "source": "/thank-you/geo-mastery",
       "destination": "/thank-you/geo-mastery/",
       "permanent": true
+    },
+    {
+      "source": "/academy",
+      "destination": "https://academy.swellmarketing.xyz/",
+      "permanent": true
+    },
+    {
+      "source": "/academy/",
+      "destination": "https://academy.swellmarketing.xyz/",
+      "permanent": true
     }
   ]
 }
