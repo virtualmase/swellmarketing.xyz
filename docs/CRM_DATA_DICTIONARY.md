@@ -47,6 +47,7 @@ This is the vendor-neutral schema for HubSpot, Airtable, Pipedrive, or another s
 | `utm_medium` | Text | No | Preserve raw input plus normalized value |
 | `utm_campaign` | Text | No | Campaign identifier, not free-form interpretation |
 | `utm_content` | Text | No | Creative/content identifier |
+| `latest_touch` | JSON/long text | No | Most recent page, referrer, and UTM values; never overwrites original touch |
 | `landing_page` | URL | No | First identified landing page |
 | `referrer` | URL | No | First identified referrer |
 | `trigger` | Long text | At connected | Buyer language, not seller rewrite only |

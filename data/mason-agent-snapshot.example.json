@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-08-09T20:00:00.000Z",
+  "contacts": {
+    "accountTotal": 1,
+    "swellTotal": 1,
+    "connected": 0,
+    "bySource": { "direct": 1 },
+    "byFit": { "unknown": 1 },
+    "doNotContact": 0,
+    "ownerless": 0
+  },
+  "pipeline": {
+    "accountTotalDeals": 0,
+    "swellTotalDeals": 0,
+    "byStage": {},
+    "openAmount": 0,
+    "closedWonCount": 0,
+    "closedWonRevenue": 0,
+    "openWithoutNextAction": 0,
+    "overdueNextActions": 0,
+    "ownerlessOpenDeals": 0
+  },
+  "tasks": {
+    "accountTotal": 0,
+    "swellTotal": 0,
+    "byStatus": {},
+    "open": 0,
+    "overdue": 0,
+    "ownerlessOpen": 0
+  },
+  "activity": {
+    "completedDiscoveryCalls": 0,
+    "proposalsIssued": 0,
+    "firstResponseSlaPercent": null,
+    "requiredFieldCompletionPercent": null,
+    "consentOrUnsupportedClaimViolations": 0
+  },
+  "missionEvidence": {
+    "agreementAndPaymentVerified": false,
+    "materialExperimentsComplete": false,
+    "caseStudyEvidenceSanitized": false
+  }
+}

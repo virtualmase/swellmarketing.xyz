@@ -27,7 +27,7 @@
         <div class="form-trap" aria-hidden="true"><label for="lead-company">Leave this empty</label><input id="lead-company" name="company" tabindex="-1" autocomplete="off"></div>
         <label class="form-consent form-field-full"><input type="checkbox" name="responseConsent" required><span>You may use this information to respond to my request. I understand this is not consent to unrelated marketing.</span></label><small class="form-field-full" data-error-for="responseConsent"></small>
         <label class="form-consent form-field-full"><input type="checkbox" name="marketingConsent"><span>Optional: send me occasional Swell research and operating resources. I can unsubscribe at any time.</span></label>
-        <input type="hidden" name="firstConstraint" value="unclear"><input type="hidden" name="sourcePage"><input type="hidden" name="referrer"><input type="hidden" name="utmSource"><input type="hidden" name="utmMedium"><input type="hidden" name="utmCampaign"><input type="hidden" name="utmContent">
+        <input type="hidden" name="firstConstraint" value="unclear"><input type="hidden" name="sourcePage"><input type="hidden" name="referrer"><input type="hidden" name="utmSource"><input type="hidden" name="utmMedium"><input type="hidden" name="utmCampaign"><input type="hidden" name="utmContent"><input type="hidden" name="latestSourcePage"><input type="hidden" name="latestReferrer"><input type="hidden" name="latestUtmSource"><input type="hidden" name="latestUtmMedium"><input type="hidden" name="latestUtmCampaign"><input type="hidden" name="latestUtmContent">
         <div class="form-submit form-field-full"><button class="btn btn-primary" type="submit">Send the representation gap</button><p>By submitting, you acknowledge the <a href="/privacy/">privacy notice</a>.</p></div>
         <div class="form-status form-field-full" id="lead-form-status" role="status" aria-live="polite" tabindex="-1"></div>
       </form>
@@ -46,11 +46,18 @@
   try {
     const attribution = JSON.parse(sessionStorage.getItem('swell_attribution_v1') || 'null');
     const first = attribution?.firstTouch || {};
+    const latest = attribution?.latestTouch || {};
     form.elements.sourcePage.value = first.landingPage || form.elements.sourcePage.value;
     form.elements.referrer.value = first.referrer || form.elements.referrer.value;
     for (const field of ['utmSource', 'utmMedium', 'utmCampaign', 'utmContent']) {
       form.elements[field].value = first[field] || form.elements[field].value;
     }
+    form.elements.latestSourcePage.value = latest.landingPage || '';
+    form.elements.latestReferrer.value = latest.referrer || '';
+    form.elements.latestUtmSource.value = latest.utmSource || '';
+    form.elements.latestUtmMedium.value = latest.utmMedium || '';
+    form.elements.latestUtmCampaign.value = latest.utmCampaign || '';
+    form.elements.latestUtmContent.value = latest.utmContent || '';
   } catch {}
   const storedConstraint = sessionStorage.getItem('swell_first_constraint');
   if (storedConstraint) form.elements.firstConstraint.value = storedConstraint;

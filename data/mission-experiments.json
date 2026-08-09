@@ -1,0 +1,86 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-08-09T20:57:24.823Z",
+  "experiments": [
+    {
+      "id": "representation_gap_failure_pattern_q3_2026",
+      "material": true,
+      "status": "active",
+      "owner": "Mason Nguyen (AI GTM operating agent)",
+      "hypothesis": "Evidence-rich B2B companies with outdated AI descriptions will engage more often with a concrete failure-pattern observation and Representation Gap diagnostic than with generic GEO-services messaging.",
+      "segment": "B2B software and technical-service companies with a documented product, category, brand, or market change in the last 24 months.",
+      "offer": "Representation Gap diagnostic leading to the commissioned Representation Baseline when a commercially meaningful problem is verified.",
+      "startsAt": "2026-08-10",
+      "reviewAt": "2026-09-07",
+      "endsAt": "2026-11-07",
+      "primaryMetrics": [
+        "connected_buyer_conversations",
+        "qualified_opportunities",
+        "paid_baselines_sold",
+        "qualified_pipeline_usd"
+      ],
+      "guardrailMetrics": [
+        "low_fit_lead_rate",
+        "opt_out_failures",
+        "unsupported_claims",
+        "first_response_sla_percent"
+      ],
+      "minimumReviewEvidence": {
+        "targetAccountsResearched": 10,
+        "permittedDistributionAttempts": 10,
+        "connectedBuyerConversations": 3
+      },
+      "result": "pending",
+      "decision": null,
+      "observations": [
+        "The campaign article was promoted to production in Vercel deployment dpl_Hzx4mtDAVJJHnmvMyANGijUK57y7 and verified at its canonical URL with HTTP 200, analytics, sitemap discovery, llms discovery, and four CTA attribution values.",
+        "Deployment dpl_FpKCcpadVyhKuycqnJ7wxvtVa9cZ corrected latest-touch loss across internal navigation and was verified to preserve the original social touch, the latest meaningful article CTA, and the current contact page as separate records.",
+        "A 30-query public-search control found a current first-party source for 29 questions; 25 observations aligned, five were mixed or incomplete, and three generic queries required entity disambiguation. This control is explicitly not evidence about an AI answer surface.",
+        "Deployment dpl_GbvcMsuZ2NbN638Epd53wGop1ZqF published the narrowed control finding and remediated unintended public serving of internal research files; the affected production paths now return HTTP 404."
+      ],
+      "artifactRefs": [
+        "docs/campaigns/REPRESENTATION_GAP_FAILURE_PATTERN.md",
+        "data/representation-gap-target-accounts.json",
+        "data/representation-gap-baseline-run.json",
+        "data/representation-gap-public-search-control.json"
+      ]
+    },
+    {
+      "id": "indexnow_campaign_discovery_20260809",
+      "material": true,
+      "status": "active",
+      "owner": "Mason Nguyen (AI GTM operating agent)",
+      "hypothesis": "Submitting the evidence-backed campaign revision through site-owner-authenticated IndexNow will produce verifiable participating-search discovery or organic-visit evidence within seven days.",
+      "segment": "Search users researching recent B2B company, product, and category changes.",
+      "offer": "Representation Gap diagnostic reached from the failure-pattern campaign article.",
+      "startsAt": "2026-08-09",
+      "reviewAt": "2026-08-17",
+      "endsAt": "2026-09-07",
+      "primaryMetrics": [
+        "indexnow_receipt_status",
+        "campaign_url_indexed",
+        "organic_search_visits",
+        "diagnostic_visits"
+      ],
+      "guardrailMetrics": [
+        "unsupported_indexing_claims",
+        "private_artifact_exposure"
+      ],
+      "minimumReviewEvidence": {
+        "indexNowHttpReceipt": 200,
+        "elapsedDays": 7,
+        "crawlIndexOrOrganicVisitObservations": 1
+      },
+      "result": "pending",
+      "decision": null,
+      "observations": [
+        "The first IndexNow request returned HTTP 202 while key validation was pending. After the public root key was verified, the repeated request returned HTTP 200 at 2026-08-09T20:57:24.823Z. Per the protocol, this proves receipt only and does not guarantee crawling or indexing."
+      ],
+      "artifactRefs": [
+        "94b70df047162735890706ba2a91124a.txt",
+        "scripts/submit-indexnow.mjs",
+        "resources/ai-still-describes-retired-product/index.html"
+      ]
+    }
+  ]
+}

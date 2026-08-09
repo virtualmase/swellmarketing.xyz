@@ -125,7 +125,15 @@ export default async function handler(request, response) {
       utmSource: text(body.utmSource, 200),
       utmMedium: text(body.utmMedium, 200),
       utmCampaign: text(body.utmCampaign, 200),
-      utmContent: text(body.utmContent, 200)
+      utmContent: text(body.utmContent, 200),
+      latestTouch: {
+        sourcePage: text(body.latestSourcePage, 500),
+        referrer: text(body.latestReferrer, 1000),
+        utmSource: text(body.latestUtmSource, 200),
+        utmMedium: text(body.latestUtmMedium, 200),
+        utmCampaign: text(body.latestUtmCampaign, 200),
+        utmContent: text(body.latestUtmContent, 200)
+      }
     }
   };
 

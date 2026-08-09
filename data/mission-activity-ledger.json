@@ -1,0 +1,201 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-08-09T20:57:24.823Z",
+  "events": [
+    {
+      "id": "mission_campaign_asset_20260809_01",
+      "type": "campaign_asset_created",
+      "occurredAt": "2026-08-09T20:00:00.000Z",
+      "entityId": "representation_gap_failure_pattern_q3_2026",
+      "experimentId": "representation_gap_failure_pattern_q3_2026",
+      "status": "verified",
+      "sourceSystem": "repository",
+      "sourceRef": "resources/ai-still-describes-retired-product/index.html",
+      "evidence": [
+        "docs/campaigns/REPRESENTATION_GAP_FAILURE_PATTERN.md",
+        "resources/ai-still-describes-retired-product/index.html"
+      ],
+      "data": {
+        "publicationStatus": "repository_ready",
+        "productionVerified": false
+      }
+    },
+    {
+      "id": "mission_target_set_20260809_01",
+      "type": "target_set_created",
+      "occurredAt": "2026-08-09T20:00:00.000Z",
+      "entityId": "representation_gap_failure_pattern_q3_2026",
+      "experimentId": "representation_gap_failure_pattern_q3_2026",
+      "status": "verified",
+      "sourceSystem": "repository",
+      "sourceRef": "data/representation-gap-target-accounts.json",
+      "evidence": [
+        "data/representation-gap-target-accounts.json"
+      ],
+      "data": {
+        "accounts": 10,
+        "permissionEstablished": 0,
+        "outreachAttempted": 0
+      }
+    },
+    {
+      "id": "mission_answer_baseline_prepared_20260809_01",
+      "type": "answer_baseline_prepared",
+      "occurredAt": "2026-08-09T20:15:00.000Z",
+      "entityId": "representation_gap_baseline_20260810_01",
+      "experimentId": "representation_gap_failure_pattern_q3_2026",
+      "status": "verified",
+      "sourceSystem": "repository",
+      "sourceRef": "data/representation-gap-baseline-run.json",
+      "evidence": [
+        "data/representation-gap-baseline-run.json"
+      ],
+      "data": {
+        "accounts": 10,
+        "queries": 30,
+        "configuredSurfaces": 0,
+        "observations": 0
+      }
+    },
+    {
+      "id": "mission_campaign_published_20260809_01",
+      "type": "campaign_published",
+      "occurredAt": "2026-08-09T20:29:12.000Z",
+      "entityId": "representation_gap_failure_pattern_q3_2026",
+      "experimentId": "representation_gap_failure_pattern_q3_2026",
+      "status": "verified",
+      "sourceSystem": "vercel",
+      "sourceRef": "dpl_Hzx4mtDAVJJHnmvMyANGijUK57y7",
+      "evidence": [
+        "https://swellmarketing.xyz/resources/ai-still-describes-retired-product/",
+        "https://swellmarketing.xyz/sitemap.xml",
+        "https://swellmarketing.xyz/llms.txt",
+        "https://vercel.com/coreweaver-labs/swellmarketing-xyz/Hzx4mtDAVJJHnmvMyANGijUK57y7"
+      ],
+      "data": {
+        "httpStatus": 200,
+        "productionTarget": true,
+        "deploymentReady": true,
+        "analyticsScriptPresent": true,
+        "distinctCtaAttributionValues": 4,
+        "visualVerification": "passed_desktop_1440x1100"
+      }
+    },
+    {
+      "id": "mission_campaign_instrumentation_20260809_01",
+      "type": "campaign_instrumentation_deployed",
+      "occurredAt": "2026-08-09T20:31:00.000Z",
+      "entityId": "representation_gap_failure_pattern_q3_2026",
+      "experimentId": "representation_gap_failure_pattern_q3_2026",
+      "status": "verified",
+      "sourceSystem": "vercel",
+      "sourceRef": "dpl_FpKCcpadVyhKuycqnJ7wxvtVa9cZ",
+      "evidence": [
+        "https://swellmarketing.xyz/assets/attribution.js",
+        "https://swellmarketing.xyz/contact/",
+        "https://vercel.com/coreweaver-labs/swellmarketing-xyz/FpKCcpadVyhKuycqnJ7wxvtVa9cZ"
+      ],
+      "data": {
+        "originalTouchPreserved": true,
+        "latestMeaningfulTouchPreserved": true,
+        "articleCtaValues": 4,
+        "productionVerified": true
+      }
+    },
+    {
+      "id": "mission_answer_control_20260809_01",
+      "type": "answer_control_completed",
+      "occurredAt": "2026-08-09T20:45:00.000Z",
+      "entityId": "representation_gap_public_search_control_20260810_01",
+      "experimentId": "representation_gap_failure_pattern_q3_2026",
+      "status": "verified",
+      "sourceSystem": "codex_integrated_public_web_search",
+      "sourceRef": "data/representation-gap-public-search-control.json",
+      "evidence": [
+        "data/representation-gap-public-search-control.json",
+        "scripts/check-representation-control.mjs"
+      ],
+      "data": {
+        "surfaceClass": "public_search_control",
+        "aiAnswerSurface": false,
+        "accounts": 10,
+        "queries": 30,
+        "queriesWithCurrentFirstPartySource": 29,
+        "disambiguatedQueries": 3,
+        "aligned": 25,
+        "mixedOrIncomplete": 5
+      }
+    },
+    {
+      "id": "mission_governance_exposure_20260809_01",
+      "type": "governance_violation",
+      "occurredAt": "2026-08-09T20:47:04.000Z",
+      "entityId": "vercel_private_research_boundary",
+      "experimentId": "representation_gap_failure_pattern_q3_2026",
+      "status": "resolved",
+      "sourceSystem": "vercel",
+      "sourceRef": "dpl_GbvcMsuZ2NbN638Epd53wGop1ZqF",
+      "evidence": [
+        ".vercelignore",
+        "https://swellmarketing.xyz/data/representation-gap-target-accounts.json",
+        "https://vercel.com/coreweaver-labs/swellmarketing-xyz/GbvcMsuZ2NbN638Epd53wGop1ZqF"
+      ],
+      "data": {
+        "exposureClass": "internal_research_artifacts_publicly_served",
+        "personalDataExposed": false,
+        "credentialsExposed": false,
+        "productionStatusBefore": 200,
+        "productionStatusAfter": 404,
+        "rootCause": "Deployment included repository research files because no Vercel-specific ignore boundary existed.",
+        "remediation": "Added a Vercel deployment exclusion manifest and verified private research and mission paths return 404 in preview and production."
+      }
+    },
+    {
+      "id": "mission_campaign_iteration_20260809_01",
+      "type": "campaign_iteration_published",
+      "occurredAt": "2026-08-09T20:50:36.000Z",
+      "entityId": "representation_gap_failure_pattern_q3_2026",
+      "experimentId": "representation_gap_failure_pattern_q3_2026",
+      "status": "verified",
+      "sourceSystem": "vercel",
+      "sourceRef": "dpl_GbvcMsuZ2NbN638Epd53wGop1ZqF",
+      "evidence": [
+        "https://swellmarketing.xyz/resources/ai-still-describes-retired-product/",
+        "https://vercel.com/coreweaver-labs/swellmarketing-xyz/GbvcMsuZ2NbN638Epd53wGop1ZqF",
+        "data/representation-gap-public-search-control.json"
+      ],
+      "data": {
+        "productionTarget": true,
+        "deploymentReady": true,
+        "publicSearchControlPublished": true,
+        "privateResearchPathsExcluded": true,
+        "visualVerification": "passed_desktop_1440x1600"
+      }
+    },
+    {
+      "id": "mission_distribution_indexnow_20260809_01",
+      "type": "distribution_attempt",
+      "occurredAt": "2026-08-09T20:57:24.823Z",
+      "entityId": "representation_gap_indexnow_20260809_01",
+      "experimentId": "indexnow_campaign_discovery_20260809",
+      "status": "verified",
+      "sourceSystem": "indexnow",
+      "sourceRef": "https://api.indexnow.org/indexnow",
+      "evidence": [
+        "https://www.indexnow.org/en_gb/documentation",
+        "https://swellmarketing.xyz/94b70df047162735890706ba2a91124a.txt",
+        "https://swellmarketing.xyz/resources/ai-still-describes-retired-product/",
+        "scripts/submit-indexnow.mjs"
+      ],
+      "data": {
+        "permissionVerified": true,
+        "permissionBasis": "Site-owner key file verified on the submitted host.",
+        "channel": "indexnow",
+        "httpStatus": 200,
+        "receiptState": "received",
+        "urlCount": 1,
+        "indexingGuaranteed": false
+      }
+    }
+  ]
+}

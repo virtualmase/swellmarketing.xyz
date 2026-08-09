@@ -22,6 +22,12 @@
     "utmCampaign": {"type": "string", "maxLength": 200},
     "utmContent": {"type": "string", "maxLength": 200},
     "referrer": {"type": "string", "maxLength": 1000},
+    "latestSourcePage": {"type": "string", "maxLength": 500},
+    "latestReferrer": {"type": "string", "maxLength": 1000},
+    "latestUtmSource": {"type": "string", "maxLength": 200},
+    "latestUtmMedium": {"type": "string", "maxLength": 200},
+    "latestUtmCampaign": {"type": "string", "maxLength": 200},
+    "latestUtmContent": {"type": "string", "maxLength": 200},
     "company": {"type": "string", "maxLength": 0}
   }
 }

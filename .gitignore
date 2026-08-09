@@ -6,3 +6,9 @@ node_modules/
 *.log
 
 .vercel
+.swell-agent/
+
+# Private mission research: named accounts and query-level observations.
+data/representation-gap-target-accounts.json
+data/representation-gap-baseline-run.json
+data/representation-gap-public-search-control.json

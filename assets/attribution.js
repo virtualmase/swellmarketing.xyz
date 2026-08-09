@@ -12,9 +12,13 @@
   };
   try {
     const existing = JSON.parse(sessionStorage.getItem(key) || 'null');
+    let externalReferrer = false;
+    try { externalReferrer = Boolean(current.referrer && new URL(current.referrer).origin !== location.origin); } catch {}
+    const meaningfulTouch = Boolean(current.utmSource || current.utmMedium || current.utmCampaign || current.utmContent || externalReferrer);
     sessionStorage.setItem(key, JSON.stringify({
       firstTouch: existing?.firstTouch || current,
-      latestTouch: current
+      latestTouch: meaningfulTouch ? current : existing?.latestTouch || current,
+      currentPage: current
     }));
   } catch {
     sessionStorage.removeItem(key);

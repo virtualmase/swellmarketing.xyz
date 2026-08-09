@@ -3,6 +3,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import vm from "node:vm";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const issues = [];
@@ -15,8 +16,15 @@ const contact = await read("contact/index.html");
 const privacy = await read("privacy/index.html");
 const vapi = JSON.parse(await read("vapi/swell-pipeline-concierge.json"));
 const hubspotManifest = JSON.parse(await read("data/hubspot-manifest.json"));
+const masonAgent = JSON.parse(await read("data/mason-agent.json"));
+const missionLedger = JSON.parse(await read("data/mission-activity-ledger.json"));
+const experimentRegistry = JSON.parse(await read("data/mission-experiments.json"));
+const targetAccounts = JSON.parse(await read("data/representation-gap-target-accounts.json"));
+const baselineRun = JSON.parse(await read("data/representation-gap-baseline-run.json"));
 const envExample = await read(".env.example");
-const attributionPages = ["index.html", "services/index.html", "method/index.html", "pricing/index.html", "about/index.html", "resources/index.html", "geo-audit/index.html", "academy/index.html", "roadmap.html", "contact/index.html"];
+const { validateExperiments, validateMissionLedger } = await import(path.join(root, "lib/mission-evidence.js"));
+const attributionPages = ["index.html", "services/index.html", "method/index.html", "pricing/index.html", "about/index.html", "resources/index.html", "resources/ai-still-describes-retired-product/index.html", "geo-audit/index.html", "academy/index.html", "roadmap.html", "contact/index.html"];
+const attributionScript = await read("assets/attribution.js");
 
 const weights = model.qualification.dimensions.reduce((sum, dimension) => sum + dimension.weight, 0);
 if (weights !== 100) issues.push(`qualification weights total ${weights}, expected 100`);
@@ -40,12 +48,37 @@ for (const field of schema.required) {
 for (const field of ["utmSource", "utmMedium", "utmCampaign", "utmContent", "referrer", "firstConstraint"]) {
   if (!new RegExp(`name=["']${field}["']`).test(contact)) issues.push(`contact form is missing attribution field ${field}`);
 }
+for (const field of ["latestSourcePage", "latestReferrer", "latestUtmSource", "latestUtmMedium", "latestUtmCampaign", "latestUtmContent"]) {
+  if (!new RegExp(`name=["']${field}["']`).test(contact)) issues.push(`contact form is missing journey field ${field}`);
+}
 if (!contact.includes('href="/privacy/"')) issues.push("contact form does not link to the privacy notice");
 for (const heading of ["What Swell collects", "Why it is used", "Voice and meeting information", "Retention and choices", "Contact"]) {
   if (!privacy.includes(heading)) issues.push(`privacy notice is missing ${heading}`);
 }
-for (const variable of ["GTM_WEBHOOK_URL", "GTM_WEBHOOK_SECRET", "VAPI_WEBHOOK_SECRET", "HUBSPOT_ACCESS_TOKEN", "HUBSPOT_PIPELINE_ID", "HUBSPOT_STAGE_QUALIFIED", "HUBSPOT_OWNER_ID"]) {
+for (const variable of ["GTM_WEBHOOK_URL", "GTM_WEBHOOK_SECRET", "VAPI_WEBHOOK_SECRET", "HUBSPOT_ACCESS_TOKEN", "HUBSPOT_PIPELINE_ID", "HUBSPOT_STAGE_QUALIFIED", "HUBSPOT_OWNER_ID", "OPENAI_API_KEY", "OPENAI_MODEL"]) {
   if (!envExample.includes(`${variable}=`)) issues.push(`.env.example is missing ${variable}`);
+}
+if (masonAgent.authority?.executionMode !== "autonomous") issues.push("Mason agent is not configured for autonomous execution");
+if (!masonAgent.identity?.isAI || !masonAgent.identity?.disclosure?.includes("not the human")) issues.push("Mason agent disclosure is incomplete");
+if (!masonAgent.missionCompletion?.caseStudyPath) issues.push("Mason agent case-study destination is missing");
+if (Date.parse(masonAgent.objective?.endsAt) <= Date.parse(masonAgent.objective?.startsAt)) issues.push("Mason agent objective dates are invalid");
+for (const [key, target] of Object.entries(masonAgent.objective?.targets || {})) {
+  if (!Number.isFinite(target) || target < 0) issues.push(`Mason agent target ${key} is invalid`);
+}
+issues.push(...validateMissionLedger(missionLedger));
+issues.push(...validateExperiments(experimentRegistry));
+if (targetAccounts.accounts?.length !== 10) issues.push("Representation Gap experiment must contain exactly 10 researched accounts");
+if (new Set(targetAccounts.accounts?.map((account) => account.priority)).size !== 10) issues.push("Representation Gap account priorities are not unique");
+for (const account of targetAccounts.accounts || []) {
+  if (account.permissionStatus !== "not_established") issues.push(`${account.company} improperly infers contact permission`);
+  if (account.representationStatus !== "unobserved") issues.push(`${account.company} claims an observation without a versioned baseline`);
+  if (!account.evidenceUrl?.startsWith("https://")) issues.push(`${account.company} lacks a public HTTPS evidence source`);
+  if (account.representationQuestions?.length !== 3) issues.push(`${account.company} must have exactly three versioned baseline queries`);
+}
+if (baselineRun.accounts?.length !== 10) issues.push("Representation Gap baseline must include all 10 researched accounts");
+if (baselineRun.accounts?.flatMap((account) => account.queries || []).length !== 30) issues.push("Representation Gap baseline must contain exactly 30 queries");
+if (baselineRun.accounts?.some((account) => account.representationStatus !== "unobserved" || account.queries?.some((query) => query.observations?.length))) {
+  issues.push("Prepared Representation Gap baseline contains unverified observations");
 }
 for (const [objectType, properties] of [["contact", hubspotManifest.contactProperties], ["deal", hubspotManifest.dealProperties]]) {
   const names = properties.map((property) => property.name);
@@ -61,6 +94,24 @@ for (const page of attributionPages) {
   const markup = await read(page);
   if (!markup.includes('/assets/attribution.js')) issues.push(`${page} does not capture session attribution`);
 }
+
+const attributionStorage = new Map();
+function simulateAttributionVisit(url, referrer) {
+  const location = new URL(url);
+  const sessionStorage = {
+    getItem(key) { return attributionStorage.get(key) || null; },
+    setItem(key, value) { attributionStorage.set(key, value); },
+    removeItem(key) { attributionStorage.delete(key); }
+  };
+  vm.runInNewContext(attributionScript, { URL, URLSearchParams, Date, location, document: { referrer }, sessionStorage });
+}
+simulateAttributionVisit("https://swellmarketing.xyz/resources/ai-still-describes-retired-product/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=representation_gap_q3_2026&utm_content=retired_product_description", "https://www.linkedin.com/");
+simulateAttributionVisit("https://swellmarketing.xyz/geo-audit/?utm_source=swell_site&utm_medium=internal&utm_campaign=representation_gap_q3_2026&utm_content=retired_product_hero_cta", "https://swellmarketing.xyz/resources/ai-still-describes-retired-product/");
+simulateAttributionVisit("https://swellmarketing.xyz/contact/", "https://swellmarketing.xyz/geo-audit/");
+const journey = JSON.parse(attributionStorage.get("swell_attribution_v1") || "null");
+if (journey?.firstTouch?.utmSource !== "linkedin" || journey?.firstTouch?.utmContent !== "retired_product_description") issues.push("attribution journey did not preserve original social touch");
+if (journey?.latestTouch?.utmSource !== "swell_site" || journey?.latestTouch?.utmContent !== "retired_product_hero_cta") issues.push("attribution journey did not preserve the latest meaningful campaign CTA");
+if (journey?.currentPage?.landingPage !== "/contact/") issues.push("attribution journey did not record the current contact page separately");
 
 const { default: leadHandler } = await import(path.join(root, "api/leads.js"));
 const { default: vapiHandler } = await import(path.join(root, "api/vapi-webhook.js"));
@@ -111,7 +162,13 @@ const validLead = {
   marketingConsent: false,
   sourcePage: "/contact/?utm_source=linkedin",
   firstConstraint: "evidence",
-  utmSource: "linkedin"
+  utmSource: "linkedin",
+  utmCampaign: "representation_gap_q3_2026",
+  latestSourcePage: "/geo-audit/?utm_campaign=representation_gap_q3_2026",
+  latestUtmSource: "swell_site",
+  latestUtmMedium: "internal",
+  latestUtmCampaign: "representation_gap_q3_2026",
+  latestUtmContent: "retired_product_hero_cta"
 };
 
 let result = await invoke({ ...validLead, trigger: "short" });
@@ -138,6 +195,7 @@ if (result.status !== 202 || !result.body.eventId) issues.push("lead API did not
 if (forwardedEvent?.contact?.email !== "jamie@northstar.example") issues.push("lead API did not normalize email");
 if (forwardedEvent?.opportunity?.firstConstraint !== "evidence") issues.push("lead API did not preserve the first constraint");
 if (forwardedEvent?.opportunity?.source !== "linkedin") issues.push("lead API did not normalize the attributed source");
+if (forwardedEvent?.attribution?.latestTouch?.utmContent !== "retired_product_hero_cta") issues.push("lead API did not preserve latest-touch campaign content");
 if (forwardedEvent?.contact?.consent?.marketing !== false) issues.push("lead API changed optional marketing consent");
 if (!forwardedEvent?.eventId || forwardedEvent.eventId !== result.body.eventId) issues.push("lead API event ID mismatch");
 
