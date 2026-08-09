@@ -1,0 +1,30 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/geo-audit",
+      "destination": "/geo-audit/",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/academy",
+      "destination": "/academy/",
+      "permanent": true
+    },
+    {
+      "source": "/checkout/geo-mastery",
+      "destination": "/checkout/geo-mastery/",
+      "permanent": true
+    },
+    {
+      "source": "/thank-you/geo-mastery",
+      "destination": "/thank-you/geo-mastery/",
+      "permanent": true
+    }
+  ]
+}
