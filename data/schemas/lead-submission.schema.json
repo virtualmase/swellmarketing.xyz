@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swellmarketing.xyz/data/schemas/lead-submission.schema.json",
+  "title": "Swell lead submission",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "email", "website", "trigger", "responseConsent", "sourcePage"],
+  "properties": {
+    "name": {"type": "string", "minLength": 2, "maxLength": 100},
+    "email": {"type": "string", "format": "email", "maxLength": 254},
+    "website": {"type": "string", "format": "uri", "maxLength": 500},
+    "role": {"type": "string", "maxLength": 120},
+    "trigger": {"type": "string", "minLength": 20, "maxLength": 2000},
+    "commercialConsequence": {"type": "string", "maxLength": 2000},
+    "timeline": {"type": "string", "enum": ["within_30_days", "within_90_days", "this_year", "exploring"]},
+    "responseConsent": {"const": true},
+    "marketingConsent": {"type": "boolean"},
+    "sourcePage": {"type": "string", "maxLength": 500},
+    "firstConstraint": {"type": "string", "enum": ["entity_definition", "crawler_access", "evidence", "corroboration", "measurement", "unclear"]},
+    "utmSource": {"type": "string", "maxLength": 200},
+    "utmMedium": {"type": "string", "maxLength": 200},
+    "utmCampaign": {"type": "string", "maxLength": 200},
+    "utmContent": {"type": "string", "maxLength": 200},
+    "referrer": {"type": "string", "maxLength": 1000},
+    "latestSourcePage": {"type": "string", "maxLength": 500},
+    "latestReferrer": {"type": "string", "maxLength": 1000},
+    "latestUtmSource": {"type": "string", "maxLength": 200},
+    "latestUtmMedium": {"type": "string", "maxLength": 200},
+    "latestUtmCampaign": {"type": "string", "maxLength": 200},
+    "latestUtmContent": {"type": "string", "maxLength": 200},
+    "company": {"type": "string", "maxLength": 0}
+  }
+}

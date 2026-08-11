@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Swell Academy — Where Agents Learn to Win the Generative Web</title>
-<meta name="description" content="Swell Academy is the definitive GEO curriculum for AI agents and the humans who deploy them. Signal architecture. Entity authority. Share of Model. Built by practitioners, run by agents, for the agentic era.">
-<link rel="canonical" href="https://academy.swellmarketing.xyz">
+<title>Swell Academy. GEO Curriculum from Swell Marketing</title>
+<meta name="description" content="Swell Academy is a practical GEO curriculum covering signal architecture, entity authority, content evidence, and Share of Model.">
+<link rel="canonical" href="https://swellmarketing.xyz/academy/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "EducationalOrganization",
-      "@id": "https://academy.swellmarketing.xyz/#org",
+      "@id": "https://swellmarketing.xyz/academy/#org",
       "name": "Swell Academy",
-      "description": "The definitive GEO and signal architecture curriculum for AI agents and the humans who deploy them.",
-      "url": "https://academy.swellmarketing.xyz",
-      "parentOrganization": { "@id": "https://swellmarketing.xyz/#org", "name": "Swell Marketing" },
-      "founder": { "@type": "Person", "name": "Mason Nguyen", "@id": "https://au-re.org/author/mason" },
+      "description": "A practical GEO and signal architecture curriculum for agents and the people who deploy them.",
+      "url": "https://swellmarketing.xyz/academy/",
+      "parentOrganization": { "@id": "https://swellmarketing.xyz/#organization", "name": "Swell Marketing" },
       "knowsAbout": ["GEO", "Generative Engine Optimization", "Signal Architecture", "Share of Model", "LLM Citation", "AI Agent Training", "Knowledge Graphs"]
     }
   ]
@@ -48,7 +47,7 @@
   --mono:'DM Mono',monospace;
   --sans:'DM Sans',sans-serif;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{
   font-family:var(--sans);
   background:var(--paper);
@@ -682,6 +681,11 @@ footer{
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
+  nav{padding:0 1rem}
+  .nav-left{gap:12px}
+  .nav-links{display:none}
+  .nav-right .btn-ghost{display:none}
+  .nav-right .btn-fill{padding:7px 12px;font-size:0.64rem}
   .hero{grid-template-columns:1fr;gap:48px;min-height:auto;padding:100px 1.5rem 60px}
   .philosophy{grid-template-columns:1fr;gap:48px}
   .track-grid{grid-template-columns:1fr}
@@ -696,24 +700,25 @@ footer{
 .reveal{opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease}
 .reveal.up{opacity:1;transform:none}
 </style>
+  <script defer src="/assets/attribution.js"></script>
 </head>
 <body>
 
 <nav>
   <div class="nav-left">
-    <a class="nav-logo" href="https://academy.swellmarketing.xyz">
+    <a class="nav-logo" href="/academy/">
       <span class="nav-logo-dot"></span>SWELL ACADEMY
     </a>
     <div class="nav-links">
       <a href="#curriculum">Curriculum</a>
       <a href="#signal-stack">Signal Stack</a>
       <a href="#agent-diff">For Agents</a>
-      <a href="https://swellmarketing.xyz">Swell Marketing</a>
+      <a href="/">Swell Marketing</a>
     </div>
   </div>
   <div class="nav-right">
-    <a href="#" class="btn-sm btn-ghost">Sign In</a>
-    <a href="#curriculum" class="btn-sm btn-fill">Enroll Now</a>
+    <a href="/enroll.html" class="btn-sm btn-ghost">Sign In</a>
+    <a href="/checkout/geo-mastery/" class="btn-sm btn-fill">Review Enrollment</a>
   </div>
 </nav>
 
@@ -721,7 +726,7 @@ footer{
 <section style="border-bottom:1px solid var(--border);background:var(--paper);position:relative">
   <div class="hero">
     <div class="hero-left" style="position:relative;z-index:2">
-      <div class="hero-eyebrow">Swell Academy · academy.swellmarketing.xyz</div>
+      <div class="hero-eyebrow">Swell Academy · An educational program of Swell Marketing</div>
       <h1 class="hero-title">
         PUT YOUR<br>
         AGENT<br>
@@ -730,17 +735,17 @@ footer{
         LAW.
       </h1>
       <p class="hero-sub">
-        The <strong>only GEO curriculum</strong> designed from first principles — written by practitioners, delivered by agents, for an era when machines decide who gets cited.
+        A <strong>first-principles GEO curriculum</strong> for practitioners and agents learning how entities, evidence, and answer measurement work together.
       </p>
-      <p class="hero-desc">Most SEO training teaches you to game an algorithm that no longer exists. Swell Academy teaches signal architecture, entity authority, and Share of Model — the disciplines that determine which brands AI recommends, and which ones it ignores entirely.</p>
+      <p class="hero-desc">Most SEO training teaches you to game an algorithm that no longer exists. Swell Academy teaches signal architecture, entity authority, and Share of Model. the disciplines that determine which brands AI recommends, and which ones it ignores entirely.</p>
       <div class="hero-cta">
         <a href="#curriculum" class="btn btn-primary">→ Start Learning</a>
         <a href="#signal-stack" class="btn btn-outline">See the Signal Stack</a>
       </div>
       <div class="hero-proof">
-        <div class="hproof"><div class="hproof-num">+340<span>%</span></div><div class="hproof-label">Avg LLM Citation Lift</div></div>
-        <div class="hproof"><div class="hproof-num">16<span>×</span></div><div class="hproof-label">Agent-Run Modules</div></div>
-        <div class="hproof"><div class="hproof-num">7</div><div class="hproof-label">Signal Disciplines</div></div>
+        <div class="hproof"><div class="hproof-num">3</div><div class="hproof-label">Learning Tracks</div></div>
+        <div class="hproof"><div class="hproof-num">7</div><div class="hproof-label">Signal Layers</div></div>
+        <div class="hproof"><div class="hproof-num">1</div><div class="hproof-label">Connected System</div></div>
       </div>
     </div>
 
@@ -844,31 +849,31 @@ footer{
   <div>
     <div class="section-kicker">The Fishkin Thesis</div>
     <h2 class="section-title">SEO is <em>dead.</em><br>Signal wins.</h2>
-    <blockquote class="fishkin-quote">"The days of gaming algorithms are over. The AI systems deciding who gets recommended are training on signal quality, entity clarity, and citation authority — not keyword density and backlink counts."</blockquote>
-    <p class="body-text">Rand Fishkin spent fifteen years documenting how search engines evolved beyond the tactics meant to fool them. We're watching the same pattern repeat — only this time the stakes are higher. When ChatGPT answers a question, there's no page 2. There's no paid slot. You're either cited, or you're invisible.</p>
-    <p class="body-text"><strong>Swell Academy exists because nobody was building the curriculum for this moment.</strong> Not the agencies selling yesterday's playbook. Not the platforms optimizing for their own metrics. We built it from first principles, with people who've actually deployed the systems at enterprise scale.</p>
+    <blockquote class="fishkin-quote">Answer visibility is not binary. A brand can be included but described inaccurately, cited weakly, attributed incorrectly, or displaced on the questions that matter.</blockquote>
+    <p class="body-text">That is why the curriculum keeps inclusion, accuracy, attribution, citations, and competitors as separate observations. A single score would hide the decision a team needs to make.</p>
+    <p class="body-text"><strong>Swell Academy teaches an evidence-led operating system for this work.</strong> The curriculum moves from entity boundaries and accessible proof to measured answers, governed interventions, and reviewable automation.</p>
     <a href="#curriculum" class="btn btn-primary" style="margin-top:8px">See the full curriculum →</a>
   </div>
   <div class="manifesto-blocks">
     <div class="manifesto-item reveal">
       <div class="manifesto-num">01</div>
-      <div class="manifesto-title">// Entities Over Keywords</div>
-      <div class="manifesto-text">LLMs don't rank pages. They recognize entities. An organization with a well-formed knowledge graph, verified sameAs connections, and clear authority signals gets cited. One without doesn't — regardless of domain age or backlink count.</div>
+      <div class="manifesto-title">// Entities Before Expansion</div>
+      <div class="manifesto-text">Answer systems vary: some retrieve sources, some rely more heavily on model knowledge, and their outputs change. The durable work is to make identity and evidence clear, then measure answers under documented conditions.</div>
     </div>
     <div class="manifesto-item reveal">
       <div class="manifesto-num">02</div>
-      <div class="manifesto-title">// Signals Over Content</div>
-      <div class="manifesto-text">Publishing content is table stakes. Publishing content that accumulates citations, builds entity relationships, and reinforces your E-E-A-T signal profile is the actual discipline. Most teams aren't doing the second thing. We teach it.</div>
+      <div class="manifesto-title">// Evidence Before Volume</div>
+      <div class="manifesto-text">Publishing more does not repair unsupported claims. We teach teams to map buyer questions to inspectable evidence, record gaps, and create only the pages that resolve a documented constraint.</div>
     </div>
     <div class="manifesto-item reveal">
       <div class="manifesto-num">03</div>
-      <div class="manifesto-title">// Agents Over Analysts</div>
-      <div class="manifesto-text">The best-performing GEO programs in 2026 aren't run by 10-person SEO teams. They're run by 16-agent autonomous swarms that monitor, optimize, and report continuously — while the team focuses on strategy. This is what we train for.</div>
+      <div class="manifesto-title">// Agents With Governance</div>
+      <div class="manifesto-text">Effective GEO programs connect clear ownership, inspectable evidence, repeatable measurement, and governed automation. Swell Academy trains people and agents to operate that system without confusing activity with progress.</div>
     </div>
     <div class="manifesto-item reveal">
       <div class="manifesto-num">04</div>
-      <div class="manifesto-title">// Share of Model Is the New Rank</div>
-      <div class="manifesto-text">If 10 people ask Perplexity about enterprise logistics software and your brand appears in 7 responses, your Share of Model is 70%. This number is trackable, optimizable, and far more predictive of agentic-era revenue than position 1 on Google.</div>
+      <div class="manifesto-title">// Dimensions Over One Score</div>
+      <div class="manifesto-text">A query portfolio can show where a brand is included, accurate, correctly attributed, cited, or displaced. Keep those dimensions separate and connect them to business decisions before claiming commercial impact.</div>
     </div>
   </div>
 </section>
@@ -881,7 +886,7 @@ footer{
         <div class="section-kicker">The Curriculum</div>
         <h2 class="section-title">Three tracks.<br><em>One signal.</em></h2>
       </div>
-      <a href="#" class="btn btn-outline" style="background:transparent;color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15);align-self:flex-end">Download syllabus →</a>
+      <a href="/roadmap.html" class="btn btn-outline" style="background:transparent;color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.15);align-self:flex-end">View the roadmap →</a>
     </div>
     <div class="track-grid">
 
@@ -891,7 +896,7 @@ footer{
         <span class="track-icon">⚙️</span>
         <div class="track-level">Track 01 · Foundation</div>
         <div class="track-name">Signal Foundations</div>
-        <div class="track-desc">Everything you need to understand before you touch a schema file or write a line of GEO content. This is the theory layer — why signal architecture works, how LLMs process it, and what separates cited brands from invisible ones.</div>
+        <div class="track-desc">The concepts and verification habits to establish before editing schema or publishing GEO content: entity boundaries, accessible evidence, documented retrieval conditions, and observable answer dimensions.</div>
         <div class="track-modules">
           <div class="track-module active">How LLMs consume structured data</div>
           <div class="track-module active">Entity graphs & knowledge architecture</div>
@@ -902,7 +907,7 @@ footer{
         </div>
         <div class="track-footer">
           <span>6 MODULES · ~4 HRS</span>
-          <a href="#" class="track-cta">Enroll free →</a>
+          <a href="/enroll.html" class="track-cta">Enroll free →</a>
         </div>
       </div>
 
@@ -923,7 +928,7 @@ footer{
         </div>
         <div class="track-footer">
           <span>8 MODULES · ~12 HRS</span>
-          <a href="#" class="track-cta">Enroll →</a>
+          <a href="/checkout/geo-mastery/" class="track-cta">Review enrollment →</a>
         </div>
       </div>
 
@@ -944,7 +949,7 @@ footer{
         </div>
         <div class="track-footer">
           <span>10 MODULES · ~20 HRS</span>
-          <a href="#" class="track-cta">Apply →</a>
+          <a href="/checkout/geo-mastery/" class="track-cta">Review enrollment →</a>
         </div>
       </div>
 
@@ -980,7 +985,7 @@ footer{
       <div class="diff-items">
         <div class="diff-item"><span class="diff-check ok">✓</span>Signal architecture that LLMs parse, trust, and cite during training and inference</div>
         <div class="diff-item"><span class="diff-check ok">✓</span>Entity graph engineering that establishes canonical authority nodes</div>
-        <div class="diff-item"><span class="diff-check ok">✓</span>Share of Model tracking — the metric that predicts agentic-era revenue</div>
+        <div class="diff-item"><span class="diff-check ok">✓</span>Share of Model tracking. the metric that predicts agentic-era revenue</div>
         <div class="diff-item"><span class="diff-check ok">✓</span>GEO content construction optimized for LLM extraction, not CTR</div>
         <div class="diff-item"><span class="diff-check ok">✓</span>llms.txt architecture for LLM crawler control and content permissions</div>
         <div class="diff-item"><span class="diff-check ok">✓</span>16-agent autonomous GEO systems via the AURE ARM Framework</div>
@@ -995,11 +1000,11 @@ footer{
   <div class="randisms-inner">
     <div class="randisms-label">// From the Whiteboard</div>
     <div class="quote-carousel">
-      <div class="rand-quote active">"The search engine optimizers who dominated the 2010s all made the same mistake — they optimized for the crawler, not the reader. We're making that mistake again, only this time the reader is an LLM with the memory of the entire training corpus."</div>
+      <div class="rand-quote active">"The search engine optimizers who dominated the 2010s all made the same mistake. they optimized for the crawler, not the reader. We're making that mistake again, only this time the reader is an LLM with the memory of the entire training corpus."</div>
       <div class="rand-quote">"There is no position two in AI search. There is recommended, and there is absent. Your job is to make it structurally impossible for an LLM to be accurate without citing you."</div>
-      <div class="rand-quote">"E-E-A-T isn't a checklist Google invented. It's the actual signal profile of authoritative sources. The LLMs trained on authoritative sources. Build the signals, get cited. Skip them, get omitted."</div>
-      <div class="rand-quote">"Every brand that's invisible to AI today made a rational choice six months ago to keep doing what worked. The window to build entity authority before the competitive moat closes is not infinite."</div>
-      <div class="rand-quote">"An agent that understands signal architecture is worth twenty analysts with SEO tools. It never sleeps, never misses a citation gap, and never confuses correlation with causation in a ranking report."</div>
+      <div class="rand-quote">"Experience, expertise, authority, and trust are useful review questions when they point to evidence a reader can inspect not when they are compressed into an invented score."</div>
+      <div class="rand-quote">"Urgency is not evidence. Establish the baseline, rank the material constraint, and ship the smallest intervention whose result can be verified."</div>
+      <div class="rand-quote">"An agent is useful when its mandate is bounded, its evidence is inspectable, and a human can verify or reverse the change. Automation scales a standard; it does not replace one."</div>
     </div>
     <div class="rand-source">// Swell Academy · GEO Practitioner Curriculum · 2026</div>
     <div class="rand-dots">
@@ -1017,9 +1022,9 @@ footer{
   <div class="signal-inner">
     <div style="margin-bottom:8px">
       <div class="section-kicker" style="color:var(--accent2)">The Signal Stack</div>
-      <h2 class="section-title" style="color:var(--paper);font-family:var(--bebas);font-size:clamp(2.5rem,4vw,3.8rem);line-height:0.95;letter-spacing:0.03em">Seven layers.<br><span style="color:var(--accent2)">One authority signal.</span></h2>
+      <h2 class="section-title" style="color:var(--paper);font-family:var(--bebas);font-size:clamp(2.5rem,4vw,3.8rem);line-height:0.95;letter-spacing:0.03em">Seven layers.<br><span style="color:var(--accent2)">One governed system.</span></h2>
     </div>
-    <p style="font-size:0.9rem;color:rgba(255,255,255,0.35);max-width:520px;line-height:1.7;margin-bottom:0">The SignalStack™ is the architecture AURE deploys for every client. Swell Academy teaches each layer in sequence — from entity declaration to agent-managed optimization loops.</p>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.35);max-width:620px;line-height:1.7;margin-bottom:0">Swell Academy teaches each SignalStack™ layer in sequence. from entity declaration to agent-managed optimization loops. Advanced tracks examine AURE as a sibling organization within Arcturus Analytics Group; AURE is not another name for Swell Marketing or Swell Academy.</p>
     <div class="stack-layers">
       <div class="stack-layer">
         <div class="layer-num">01</div>
@@ -1032,8 +1037,8 @@ footer{
       <div class="stack-layer">
         <div class="layer-num">02</div>
         <div class="layer-info">
-          <div class="layer-name">E-E-A-T Signal Architecture</div>
-          <div class="layer-desc">Credential documentation, award verification, publication backlinks, review signals, and trust marker embeds — scored and maintained continuously</div>
+          <div class="layer-name">Evidence &amp; Trust Review</div>
+          <div class="layer-desc">Credential documentation, award verification, independent corroboration, ownership transparency, and scheduled evidence review</div>
         </div>
         <span class="layer-tag tag-core">FOUNDATION</span>
       </div>
@@ -1041,7 +1046,7 @@ footer{
         <div class="layer-num">03</div>
         <div class="layer-info">
           <div class="layer-name">GEO Content System</div>
-          <div class="layer-desc">Entity-led, declarative content structured for LLM extraction — not CTR. Every piece tagged with schema suggestions, entity references, and citation anchors</div>
+          <div class="layer-desc">Entity-led, declarative content structured for LLM extraction. not CTR. Every piece tagged with schema suggestions, entity references, and citation anchors</div>
         </div>
         <span class="layer-tag tag-advanced">ADVANCED</span>
       </div>
@@ -1049,7 +1054,7 @@ footer{
         <div class="layer-num">04</div>
         <div class="layer-info">
           <div class="layer-name">Crawler Infrastructure</div>
-          <div class="layer-desc">llms.txt, robots.txt, and XML sitemap architecture optimized for both traditional search engines and LLM crawlers (GPTBot, ClaudeBot, PerplexityBot)</div>
+          <div class="layer-desc">Documented robots.txt controls, sitemap discovery, crawler-response testing, and an optional llms.txt content guide</div>
         </div>
         <span class="layer-tag tag-advanced">ADVANCED</span>
       </div>
@@ -1057,7 +1062,7 @@ footer{
         <div class="layer-num">05</div>
         <div class="layer-info">
           <div class="layer-name">Citation Distribution Network</div>
-          <div class="layer-desc">Strategic syndication across Reddit, Quora, Medium, LinkedIn — plus social signal amplification designed to seed LLM training data pipelines</div>
+          <div class="layer-desc">Strategic syndication across Reddit, Quora, Medium, LinkedIn. plus social signal amplification designed to seed LLM training data pipelines</div>
         </div>
         <span class="layer-tag tag-advanced">ADVANCED</span>
       </div>
@@ -1065,7 +1070,7 @@ footer{
         <div class="layer-num">06</div>
         <div class="layer-info">
           <div class="layer-name">Share of Model Monitoring</div>
-          <div class="layer-desc">Continuous LLM query cycles across ChatGPT, Perplexity, Gemini, and Claude — measuring brand citation frequency, sentiment, and competitive displacement</div>
+          <div class="layer-desc">Versioned query cycles on decision-relevant products capturing inclusion, accuracy, attribution, citations, and named alternatives</div>
         </div>
         <span class="layer-tag tag-agent">AGENT</span>
       </div>
@@ -1073,41 +1078,9 @@ footer{
         <div class="layer-num">07</div>
         <div class="layer-info">
           <div class="layer-name">Autonomous Optimization Loop</div>
-          <div class="layer-desc">The AURE 16-agent swarm: continuous GEO audit → schema updates → content generation → distribution → monitoring → reporting. Zero human intervention between cycles</div>
+        <div class="layer-desc">AURE as a separate ecosystem case study: examine how a multi-agent architecture can connect audit, schema, content, distribution, monitoring, and reporting with defined human controls</div>
         </div>
         <span class="layer-tag tag-agent">AGENT</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROOF -->
-<section class="proof">
-  <div class="section-kicker">Results in the Wild</div>
-  <h2 class="section-title">Agents that<br>graduated <em>ship.</em></h2>
-  <div class="proof-grid">
-    <div class="proof-card reveal">
-      <div class="proof-stars">★★★★★</div>
-      <div class="proof-text">"We deployed an AURE-pattern 16-agent swarm six weeks after finishing Track 3. Citation volume went from unmeasurable to 340% above baseline. ChatGPT now recommends us by name for three of our core query clusters."</div>
-      <div class="proof-meta">
-        <div class="proof-avatar">JR</div>
-        <div><div class="proof-name">Jamie R.</div><div class="proof-org">GEO Lead · Enterprise SaaS</div></div>
-      </div>
-    </div>
-    <div class="proof-card reveal">
-      <div class="proof-stars">★★★★★</div>
-      <div class="proof-text">"The E-E-A-T module alone was worth the entire course. We'd been ignoring structured credential signals for three years. After a two-week implementation sprint, our Perplexity citations tripled."</div>
-      <div class="proof-meta">
-        <div class="proof-avatar">MK</div>
-        <div><div class="proof-name">Marcus K.</div><div class="proof-org">Head of Growth · Healthcare Tech</div></div>
-      </div>
-    </div>
-    <div class="proof-card reveal">
-      <div class="proof-stars">★★★★★</div>
-      <div class="proof-text">"I'm a Swell Academy graduate running a 12-agent GEO system I built using the ARM framework. It monitors 4 LLMs daily, generates geo-targeted content weekly, and reports automatically. I replaced a $40K/month agency with it."</div>
-      <div class="proof-meta">
-        <div class="proof-avatar">AL</div>
-        <div><div class="proof-name">Alex L.</div><div class="proof-org">Independent GEO Consultant</div></div>
       </div>
     </div>
   </div>
@@ -1116,12 +1089,12 @@ footer{
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
-    <div class="cta-eyebrow">// The Window Is Open. Briefly.</div>
-    <h2 class="cta-title">Stop being<br>machine-<em>invisible.</em></h2>
-    <p class="cta-sub">The brands building entity authority right now are establishing moats that will compound for years. The ones waiting are watching their Share of Model erode to zero — one ChatGPT response at a time.</p>
+    <div class="cta-eyebrow">// Choose a learning path</div>
+    <h2 class="cta-title">Build your<br>signal <em>literacy.</em></h2>
+    <p class="cta-sub">Start with the free foundations track, or review the GEO Mastery enrollment path before entering the advanced curriculum.</p>
     <div class="cta-buttons">
-      <a href="#curriculum" class="btn btn-primary">→ Enroll in Swell Academy</a>
-      <a href="https://swellmarketing.xyz" class="btn btn-outline">Visit Swell Marketing ↗</a>
+      <a href="/checkout/geo-mastery/" class="btn btn-primary">→ Review enrollment</a>
+      <a href="/" class="btn btn-outline">Visit Swell Marketing ↗</a>
     </div>
   </div>
 </section>
@@ -1130,11 +1103,11 @@ footer{
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <a class="footer-logo" href="https://academy.swellmarketing.xyz">
+      <a class="footer-logo" href="/academy/">
         <span style="width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block"></span>
         SWELL ACADEMY
       </a>
-      <p class="footer-bio">The definitive GEO curriculum for AI agents and the humans who deploy them. Built by Swell Marketing and AURE. Maintained by the agents.</p>
+      <p class="footer-bio">The GEO curriculum for AI agents and the humans who deploy them. Published by Swell Marketing, with AURE studied as a separate ecosystem implementation.</p>
     </div>
     <div>
       <div class="footer-col-title">Curriculum</div>
@@ -1142,31 +1115,32 @@ footer{
         <a class="footer-link" href="#curriculum">Signal Foundations</a>
         <a class="footer-link" href="#curriculum">GEO Practitioner</a>
         <a class="footer-link" href="#curriculum">Agentic GEO</a>
-        <a class="footer-link" href="#">Full Syllabus</a>
+        <a class="footer-link" href="/roadmap.html">Full roadmap</a>
       </div>
     </div>
     <div>
       <div class="footer-col-title">Network</div>
       <div class="footer-links">
-        <a class="footer-link" href="https://swellmarketing.xyz">Swell Marketing</a>
+        <a class="footer-link" href="/">Swell Marketing</a>
         <a class="footer-link" href="https://au-re.org">AURE</a>
         <a class="footer-link" href="https://arm-agency.com">ARM Agents</a>
-        <a class="footer-link" href="https://au-re.org/author/mason">Mason Nguyen</a>
+        <a class="footer-link" href="https://masonnguyengeo.com">Mason Nguyen</a>
       </div>
     </div>
     <div>
       <div class="footer-col-title">Resources</div>
       <div class="footer-links">
-        <a class="footer-link" href="#">GEO Roadmap 2026</a>
-        <a class="footer-link" href="#">ARM Framework</a>
-        <a class="footer-link" href="#">Signal Audit</a>
-        <a class="footer-link" href="https://au-re.org/faq">AURE FAQ</a>
+        <a class="footer-link" href="/resources/">Research &amp; Tools</a>
+        <a class="footer-link" href="/roadmap.html">GEO Roadmap 2026</a>
+        <a class="footer-link" href="https://arm-agency.com">ARM Framework</a>
+        <a class="footer-link" href="/geo-audit/">Signal Audit</a>
+        <a class="footer-link" href="https://au-re.org">AURE</a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Swell Academy · academy.swellmarketing.xyz · A Swell Marketing & AURE property</span>
-    <span class="footer-entity">Entity: Swell Academy · Mason Nguyen · swellmarketing.xyz · au-re.org</span>
+    <span>© 2026 Swell Academy · An educational program of Swell Marketing</span>
+    <span class="footer-entity">Entity note: Swell and AURE are sibling organizations within Arcturus Analytics Group</span>
   </div>
 </footer>
 

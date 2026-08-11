@@ -1,0 +1,124 @@
+# Mason Nguyen SWELL GTM Agent
+
+## Purpose
+
+Mason Nguyen is SWELL's autonomous AI GTM operating agent. It runs the 90-day mission defined in `data/mason-agent.json`, selects one constraint at a time, creates no more than three measurable priority actions, and preserves an experiment record for the final case study.
+
+The name is an operating identity, not a claim that the agent is the human Mason Nguyen. Every agent output includes that disclosure.
+
+## What the agent does
+
+- Reads aggregated SWELL HubSpot metrics and the canonical GTM operating model.
+- Measures progress against conversations, opportunities, discovery, proposals, pipeline, revenue, SLA, data quality, and governance targets.
+- Chooses the current constraint before proposing more demand activity.
+- Produces structured actions, an asset brief, a testable hypothesis, observations, and a decision.
+- Creates the run's draft artifact autonomously under `.swell-agent/artifacts/` and marks the matching action executed.
+- Records each run privately under `.swell-agent/runs/`.
+- Excludes records explicitly labeled `rehearsal` from case-study evidence.
+- Generates `docs/SWELL_MISSION_CASE_STUDY.md` automatically only after every completion gate is verified.
+
+The current implementation can analyze live HubSpot data, reason with the OpenAI Responses API, create local operating artifacts, and generate the final case study. External publishing, messaging, and CRM mutations require configured adapters before the agent can execute them; missing adapters are operational blockers, not approval requests.
+
+Production HubSpot measurement can also be retrieved through `POST /api/mason-report`. The request body must exactly match `MASON_REPORT_SECRET`. The endpoint returns aggregate counts only, uses private no-store caching, rejects other methods, and never returns upstream error details.
+
+The controlled Perplexity adapter calls the official Sonar API directly. It sends each canonical baseline query as its own stateless request, checkpoints raw answers and citations to a git-ignored file, records returned usage cost, and stops before another request after the configured spend ceiling is reached. A Sonar API result is labeled as API evidence and is never represented as a capture of the consumer Perplexity Pro application.
+
+## Autonomy boundaries
+
+No human approval queue is part of the workflow. The agent acts when its required evidence and technical capability are present.
+
+Autonomy does not permit the agent to infer consent, bypass suppression, fabricate proof, leak personal data, change configured commercial terms, or declare revenue without verified agreement and required initial payment. Voice recording and outbound automation remain unavailable until notice, consent, retention, jurisdiction, and suppression controls are configured.
+
+## Run locally
+
+Run the deterministic operating loop without network access:
+
+```bash
+node scripts/mason-agent.mjs \
+  --offline \
+  --snapshot data/mason-agent-snapshot.example.json \
+  --date 2026-08-09T20:58:00Z
+```
+
+Run against live aggregate HubSpot data and OpenAI:
+
+```bash
+export HUBSPOT_ACCESS_TOKEN="..."
+export OPENAI_API_KEY="..."
+node scripts/mason-agent.mjs
+```
+
+`OPENAI_MODEL` is optional and defaults to `gpt-5.6`. Secrets belong in local or platform secret storage, never in the repository.
+
+Validate the 30-query Perplexity execution plan without spending or exposing a credential:
+
+```bash
+node scripts/run-perplexity-baseline.mjs --dry-run
+```
+
+For a direct Perplexity API key, store the value in a private file and pass only its path:
+
+```bash
+export PERPLEXITY_API_KEY_FILE=".swell-agent/credentials/perplexity-api-key"
+node scripts/run-perplexity-baseline.mjs \
+  --model sonar-pro \
+  --max-queries 30 \
+  --max-cost-usd 0.75
+```
+
+Base44 stores third-party credentials inside app Secrets or custom integrations. A key held only inside Base44 is not automatically available to this repository; it must either be exported into SWELL's private local secret storage or exposed through a separately authenticated Base44 backend function. Never paste a key into source code, command-line arguments, agent output, or a browser bundle.
+
+Useful options:
+
+- `--context "..."` supplies a specific operating request.
+- `--snapshot <path>` uses a saved aggregate snapshot instead of HubSpot.
+- `--output <path>` also writes the generated brief to a chosen file.
+- `--no-record` suppresses the private experiment record for a test run.
+- `--date <ISO date>` makes a run reproducible.
+- `--strict-ai` disables the automatic deterministic fallback and fails if OpenAI is unavailable.
+
+If OpenAI is unreachable or returns an API error, the default behavior is to continue with the deterministic SWELL decision engine and record the degraded execution mode. This keeps measurement, constraint selection, artifact creation, and mission documentation running without silently pretending model reasoning occurred.
+
+## Experiment record
+
+Each recorded run contains:
+
+- The aggregate input snapshot.
+- The selected constraint and its evidence.
+- The proposed or executed actions.
+- The hypothesis, observation, result state, and decision.
+- Mission status and any missing evidence.
+
+The run directory is git-ignored because future aggregate snapshots may still be commercially sensitive. The final case study includes only sanitized aggregate metrics and documented interpretations.
+
+Mission, target-account, answer-control, and private operating records are also listed in `.vercelignore`. They remain available to the local agent but are excluded from Vercel uploads. A production deployment is not accepted until representative private paths return HTTP 404.
+
+## Current campaign controls
+
+- `data/representation-gap-baseline-run.json` preserves the 30-query answer-surface manifest.
+- `data/representation-gap-public-search-control.json` records the completed public-search control. It is explicitly not an AI-answer observation.
+- `scripts/check-representation-control.mjs` verifies query coverage, assessments, source URLs, surface labeling, and deployment exclusions.
+- `scripts/run-perplexity-baseline.mjs` executes and resumes the private 30-query Sonar API observation with a fixed provider endpoint and spend ceiling.
+- `scripts/check-perplexity-baseline.mjs` verifies canonical query preservation, API/product labeling, credential exclusion, checkpoint behavior, and cost stopping.
+- `scripts/submit-indexnow.mjs` provides an owned search-discovery adapter. HTTP 200 proves notification receipt only; crawling, indexing, ranking, and visits remain separate observations.
+
+## Mission completion and case study
+
+The agent will report the mission complete only when:
+
+1. Every commercial and quality metric has a verified value and passes its target.
+2. Agreement and required initial payment evidence exist for the first engagement.
+3. Every material experiment has a complete hypothesis-to-decision record.
+4. The case-study evidence set is marked sanitized.
+
+On the first complete run, the agent writes the final case study automatically. A provisional preview can be printed without creating the final artifact:
+
+```bash
+node scripts/mason-case-study.mjs --preview
+```
+
+Running `node scripts/mason-case-study.mjs` without `--preview` fails closed until the latest recorded run is complete.
+
+## Current measurement limitation
+
+HubSpot supplies contact, deal, and task aggregates. The append-only `data/mission-activity-ledger.json` supplies verified discoveries, proposals, first-response timing, stage-exit field completeness, governance events, and mission-completion evidence. A metric remains `null` or `false` until a dated ledger event points to its authoritative source; the agent will not infer it.

@@ -1,0 +1,190 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-08-10",
+  "owner": "Mason Nguyen",
+  "purpose": "Operate Swell as one evidence-backed system from market signal through acquisition, onboarding, delivery, retention, feedback, and advocacy.",
+  "operatingPrinciples": [
+    "One account identity and append-only activity history across the entire client lifecycle.",
+    "A stage represents verified state, never agent activity or intent.",
+    "Every open commercial, onboarding, delivery, and client-success record has one owner, one next action, and one due date.",
+    "Agents may prepare and execute reversible work inside approved scope; material commitments and irreversible external actions require the authority defined here.",
+    "No campaign is launched without an approved brief, validated tracking, a rollback path, and an accountable owner.",
+    "No result, testimonial, review, or case study is fabricated, selectively misrepresented, or published without client permission.",
+    "Automation failures are visible, replayable, and owned. Silent failure is a launch blocker."
+  ],
+  "systemsOfRecord": {
+    "commercial": "CRM",
+    "delivery": "Approved project workspace",
+    "evidence": "Controlled client evidence repository",
+    "analytics": "Versioned reporting store",
+    "financial": "Contract and billing systems",
+    "rule": "Identifiers are linked across systems; confidential artifacts are not copied into general CRM notes."
+  },
+  "identityKeys": [
+    "contact_id",
+    "company_id",
+    "opportunity_id",
+    "engagement_id",
+    "campaign_id",
+    "work_item_id",
+    "source_event_id"
+  ],
+  "clientLifecycle": [
+    {
+      "id": "pending_handoff",
+      "order": 10,
+      "definition": "Agreement and required initial payment are verified; delivery has not accepted the commercial record.",
+      "requiredExit": ["scope_version", "commercial_owner", "delivery_owner", "promises_made", "known_unknowns", "kickoff_at"]
+    },
+    {
+      "id": "onboarding",
+      "order": 20,
+      "definition": "Stakeholders, communication rules, access, evidence, measurement, and kickoff outcomes are being verified.",
+      "requiredExit": ["client_owner", "stakeholder_map", "communication_plan", "access_register", "baseline_plan", "success_plan", "first_30_day_plan"]
+    },
+    {
+      "id": "strategy_ready",
+      "order": 30,
+      "definition": "The baseline and strategy are approved, capacity is assigned, and the first campaign or delivery cycle is ready for launch review.",
+      "requiredExit": ["approved_strategy_version", "approved_scope", "capacity_owner", "measurement_plan", "campaign_brief_ids"]
+    },
+    {
+      "id": "active",
+      "order": 40,
+      "definition": "Approved work is being executed and measured within scope.",
+      "requiredExit": ["delivery_acceptance", "outcome_summary", "next_term_recommendation"]
+    },
+    {
+      "id": "renewal_due",
+      "order": 50,
+      "definition": "The engagement is inside its renewal decision window and has a documented outcome and next-term recommendation.",
+      "requiredExit": ["renewal_decision", "decision_evidence", "next_action_at"]
+    },
+    {
+      "id": "completed",
+      "order": 60,
+      "definition": "Scoped work and acceptance are complete; final reporting, access disposition, and follow-up are in progress.",
+      "requiredExit": ["final_report", "access_disposition", "retention_follow_up_at", "feedback_status"]
+    },
+    {
+      "id": "paused",
+      "order": 70,
+      "definition": "Work is intentionally paused with a reason, impact, owner, and review date.",
+      "requiredExit": ["pause_reason", "pause_impact", "review_at", "restart_criteria"]
+    },
+    {
+      "id": "offboarded",
+      "order": 80,
+      "definition": "Work is closed, access is removed or transferred, artifacts are delivered, and permitted follow-up is scheduled.",
+      "requiredExit": []
+    }
+  ],
+  "allowedClientTransitions": {
+    "pending_handoff": ["onboarding", "paused"],
+    "onboarding": ["strategy_ready", "paused"],
+    "strategy_ready": ["active", "paused"],
+    "active": ["renewal_due", "completed", "paused"],
+    "renewal_due": ["active", "completed", "paused"],
+    "completed": ["offboarded", "active"],
+    "paused": ["onboarding", "strategy_ready", "active", "completed", "offboarded"],
+    "offboarded": []
+  },
+  "campaignLifecycle": [
+    {"id": "draft", "requiredExit": ["objective", "audience", "offer", "owner"]},
+    {"id": "planned", "requiredExit": ["brief_version", "channels", "budget", "measurement_plan", "stop_conditions", "review_at"]},
+    {"id": "awaiting_approval", "requiredExit": ["approval_request_id"]},
+    {"id": "approved", "requiredExit": ["approved_by", "approved_at", "approved_brief_version"]},
+    {"id": "scheduled", "requiredExit": ["approved_by", "approved_at", "approved_brief_version", "tracking_validation", "asset_validation", "launch_at", "rollback_owner"]},
+    {"id": "live", "requiredExit": ["launch_evidence", "first_observation_at"]},
+    {"id": "optimizing", "requiredExit": ["experiment_log", "decision", "decision_evidence"]},
+    {"id": "completed", "requiredExit": ["outcome_report", "artifact_archive", "learning_record"]},
+    {"id": "stopped", "requiredExit": ["stop_reason", "stop_evidence", "owner_notified_at"]},
+    {"id": "blocked", "requiredExit": ["blocker", "blocker_owner", "next_review_at"]}
+  ],
+  "workItemDefinition": {
+    "requiredFields": ["work_item_id", "engagement_id", "title", "owner", "status", "priority", "due_at", "acceptance_criteria", "scope_version"],
+    "statuses": ["backlog", "ready", "in_progress", "in_review", "client_review", "accepted", "blocked", "canceled"],
+    "completionRule": "A work item is accepted only when its acceptance evidence is recorded."
+  },
+  "authorityPolicy": {
+    "autonomous": [
+      "Research public sources and approved client repositories",
+      "Normalize, deduplicate, classify, summarize, and score records",
+      "Draft briefs, plans, copy, reports, tasks, and internal recommendations",
+      "Create internal tasks and route work using approved rules",
+      "Monitor approved campaigns, budgets, deadlines, delivery quality, and client health",
+      "Pause an automation or campaign when a documented safety or spend stop condition fires",
+      "Send approved transactional confirmations after destination success"
+    ],
+    "policyBound": [
+      "Send follow-up using an approved template, consent scope, audience, channel, and frequency policy",
+      "Schedule approved assets and campaigns without changing claims, audience, channel, or budget",
+      "Apply optimizations inside the approved brief's spend, claim, channel, and experiment bounds",
+      "Request missing onboarding inputs and send factual status reports using approved communication rules"
+    ],
+    "humanApprovalRequired": [
+      "Change pricing, discounting, payment terms, scope, or contractual commitments",
+      "Mark an opportunity closed won without verified agreement and required payment",
+      "Accept credentials, change account permissions, or grant third-party access",
+      "Approve strategy, a new public claim, creative direction, or a campaign's first launch",
+      "Increase budget or expand audience, geography, channel, or data use beyond the approved brief",
+      "Issue refunds, credits, legal responses, or regulated claims",
+      "Publish a testimonial, review, case study, client name, logo, or confidential result",
+      "Override consent, suppression, safety, quality, or acceptance gates"
+    ],
+    "forbidden": [
+      "Fabricate evidence, authority, performance, reviews, testimonials, identities, or consent",
+      "Purchase or use unlawfully obtained contact data",
+      "Send after opt-out or outside the recorded consent and outreach policy",
+      "Hide failures, spend, material negative results, or scope deviations",
+      "Store secrets in prompts, CRM notes, logs, or generated artifacts"
+    ]
+  },
+  "serviceLevels": {
+    "wonHandoffHours": 24,
+    "kickoffSchedulingHours": 24,
+    "onboardingInputReminderBusinessDays": 2,
+    "clientQuestionResponseBusinessHours": 4,
+    "blockedWorkEscalationHours": 4,
+    "campaignAnomalyReviewMinutes": 30,
+    "reportDeliveryBusinessDaysAfterPeriod": 3,
+    "renewalDecisionWindowDays": 30,
+    "privateFeedbackRequestDaysAfterAcceptance": 2,
+    "publicReviewRequestDaysAfterPositiveFeedback": 1,
+    "postEngagementFollowUpDays": [30, 90]
+  },
+  "feedbackPolicy": {
+    "sequence": [
+      "Confirm delivery acceptance and resolve open issues.",
+      "Request private feedback without conditioning service or incentives on sentiment.",
+      "Route negative or unresolved feedback to service recovery.",
+      "Apply one neutral public-review outreach policy regardless of sentiment; delay only while a material service issue is unresolved or outreach is not permitted.",
+      "Request separate written permission for testimonial, logo, named results, or case-study use."
+    ],
+    "reviewEligibilityFields": ["delivery_accepted_at", "private_feedback_status", "open_issue_count", "review_outreach_permitted"],
+    "reviewEligibilityRule": "Eligible when delivery is accepted, the neutral private-feedback step is complete, no material service issue is open, and outreach is permitted; sentiment must not determine eligibility."
+  },
+  "healthSignals": {
+    "green": "Milestones are on track, inputs and approvals arrive within SLA, outcomes are supported, and no material issue is open.",
+    "yellow": "One material dependency, deadline, quality measure, usage signal, or stakeholder relationship is at risk.",
+    "red": "A safety, consent, scope, payment, access, performance, or relationship issue threatens delivery or trust."
+  },
+  "northStarMetrics": {
+    "acquisition": ["qualified_pipeline_value", "source_to_revenue", "lead_to_connected_rate", "qualified_to_won_rate", "sales_cycle_days", "customer_acquisition_cost"],
+    "onboarding": ["time_to_kickoff", "time_to_required_access", "time_to_first_value", "onboarding_completion_rate"],
+    "delivery": ["on_time_acceptance_rate", "first_pass_qa_rate", "scope_variance", "blocked_work_hours", "gross_margin", "capacity_utilization"],
+    "campaign": ["objective_metric", "guardrail_metrics", "spend_variance", "experiment_velocity", "tracking_integrity_rate"],
+    "client": ["client_health_distribution", "retention_rate", "renewal_rate", "expansion_revenue", "time_to_issue_resolution"],
+    "advocacy": ["private_feedback_response_rate", "review_request_eligibility_rate", "public_review_conversion_rate", "case_study_permission_rate", "referral_pipeline"]
+  },
+  "automationRequirements": [
+    "Named trigger and workflow version",
+    "Validated preconditions and required fields",
+    "Idempotency key and append-only source event",
+    "Explicit authority classification",
+    "Destination confirmation before success is stated",
+    "Retry policy, dead-letter record, and failure owner",
+    "Rollback or correction procedure",
+    "Success, duplicate, invalid, rejection, timeout, suppression, and recovery tests"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "version": "2026-08-08",
+  "status": "approved",
+  "entities": {
+    "arcturus_analytics_group": {
+      "canonicalName": "Arcturus Analytics Group",
+      "type": "group",
+      "publicWebsite": null,
+      "role": "Container for Swell Marketing and AURE",
+      "members": [
+        "swell_marketing",
+        "aure"
+      ],
+      "excludedEntities": [
+        "ARM",
+        "Arctura"
+      ]
+    },
+    "swell_marketing": {
+      "canonicalName": "Swell Marketing",
+      "type": "organization",
+      "canonicalId": "https://swellmarketing.xyz/#organization",
+      "humanWebsite": "https://swellmarketing.xyz/",
+      "agentCohort": "https://swellmarketing.agency/",
+      "group": "arcturus_analytics_group",
+      "role": "Applied GEO services, tools, education, and operations",
+      "serviceStatement": "Serviced by Mason Nguyen."
+    },
+    "aure": {
+      "canonicalName": "AURE",
+      "type": "organization",
+      "canonicalId": "https://au-re.org/",
+      "canonicalWebsite": "https://au-re.org/",
+      "group": "arcturus_analytics_group",
+      "relationshipToSwell": "Sibling organization"
+    },
+    "mason_nguyen": {
+      "canonicalName": "Mason Nguyen",
+      "type": "person",
+      "canonicalId": "https://masonnguyengeo.com/#mason-nguyen",
+      "canonicalWebsite": "https://masonnguyengeo.com/",
+      "relationshipToSwell": "Service provider and canonical author of referenced research",
+      "publicServiceStatement": "Serviced by Mason Nguyen."
+    }
+  },
+  "rules": [
+    "Do not assign Arcturus Analytics Group a URL until it has an approved public site.",
+    "Do not represent ARM or Arctura as members of Arcturus Analytics Group.",
+    "Do not use sameAs between related but distinct people, organizations, sites, or cohorts.",
+    "Use swellmarketing.xyz for Swell's human-facing canonical website.",
+    "Describe swellmarketing.agency as Swell's cohort designed for agents, not as a sameAs identity.",
+    "Describe Swell and AURE as distinct sibling organizations within Arcturus Analytics Group."
+  ]
+}

@@ -1,0 +1,82 @@
+# Swell Marketing
+
+> Swell Marketing is a generative engine optimization (GEO) agency helping growth-stage brands improve how AI systems understand, represent, and cite them.
+
+Canonical website: https://swellmarketing.xyz/
+Organization identifier: https://swellmarketing.xyz/#organization
+Service provider: Mason Nguyen
+Service provider identifier: https://masonnguyengeo.com/#mason-nguyen
+Contact: masonnguyengeo@gmail.com
+Concierge phone: +1-619-745-6997
+Public alternate name: Swell Marketing Agency
+
+## Group and channel architecture
+
+- Arcturus Analytics Group is the group containing Swell Marketing and AURE.
+- Arcturus Analytics Group does not currently have a public website.
+- ARM and Arctura are not members of Arcturus Analytics Group.
+- https://swellmarketing.xyz/ is Swell's human-facing canonical website.
+- https://swellmarketing.agency/ is Swell's cohort designed for agents; it is not a sameAs identity for the human-facing website.
+- Swell Marketing is serviced by Mason Nguyen.
+
+## Core services
+
+- Representation Gap diagnostic and versioned answer baseline
+- Entity boundaries, structured data, and verified crawler access
+- Evidence Ledger, applied content, and relevant corroboration
+- Constraint-ranked implementation with acceptance tests
+- Query-level answer measurement and Answer Change Log
+
+## Primary pages
+
+- Homepage: https://swellmarketing.xyz/
+- Services: https://swellmarketing.xyz/services/
+- Method and quality gates: https://swellmarketing.xyz/method/
+- Engagements and pricing: https://swellmarketing.xyz/pricing/
+- About Swell and entity boundaries: https://swellmarketing.xyz/about/
+- Request a working session: https://swellmarketing.xyz/contact/
+- Privacy notice: https://swellmarketing.xyz/privacy/
+- Research-to-application guide: https://swellmarketing.xyz/resources/
+- Autonomous digital agency operating guide: https://swellmarketing.xyz/resources/autonomous-digital-agency/
+- Generative engine optimization guide: https://swellmarketing.xyz/resources/generative-engine-optimization/
+- AI visibility measurement guide: https://swellmarketing.xyz/resources/ai-visibility/
+- Entity optimization guide: https://swellmarketing.xyz/resources/entity-optimization/
+- Citable content and citation-readiness guide: https://swellmarketing.xyz/resources/citable-content/
+- GEO and AI-native agency terminology index: https://swellmarketing.xyz/resources/geo-terms/
+- Buyer observation on outdated AI descriptions: https://swellmarketing.xyz/resources/ai-still-describes-retired-product/
+- Free Representation Gap diagnostic: https://swellmarketing.xyz/geo-audit/
+- Representation Baseline template: https://swellmarketing.xyz/docs/REPRESENTATION_BASELINE_TEMPLATE.md
+- Evidence Ledger template: https://swellmarketing.xyz/docs/EVIDENCE_LEDGER_TEMPLATE.md
+- Answer Change Log template: https://swellmarketing.xyz/docs/ANSWER_CHANGE_LOG_TEMPLATE.md
+- Swell Academy: https://swellmarketing.xyz/academy/
+- 2026 GEO roadmap: https://swellmarketing.xyz/roadmap.html
+
+## Mason and agency relationship
+
+Mason Nguyen and Swell Marketing are related but distinct entities.
+
+- Mason Nguyen is a Person who services Swell Marketing.
+- Mason's canonical personal website is https://masonnguyengeo.com/.
+- Mason publishes original GEO research, definitions, frameworks, and founder analysis under his own name.
+- Swell Marketing is an Organization that applies research through audits, implementation, managed programs, tools, and education.
+- Mason Nguyen is not an alternate name or sameAs identity for Swell Marketing.
+- Swell Marketing is not an alternate name or personal profile for Mason Nguyen.
+
+## Entity disambiguation
+
+Swell Marketing and AURE are distinct sibling organizations within Arcturus Analytics Group.
+
+- Swell Marketing is the GEO agency at https://swellmarketing.xyz/.
+- AURE is the sibling organization at https://au-re.org/.
+- AURE is not an alternate name, parent organization, legal identity, or sameAs profile for Swell Marketing.
+- References to AURE on this site describe a separate collaborator or agent-systems implementation.
+
+## Citation guidance
+
+Use the canonical homepage and the organization identifier above when referring to Swell Marketing. Attribute specific service, pricing, and process claims to the corresponding primary page. Do not infer client results, guarantees, or performance figures that are not explicitly published.
+
+## Operating technology disclosure
+
+- Swell currently uses selected Google Antigravity, Anthropic Claude, OpenAI ChatGPT/Codex, and Manus capabilities within governed workflows.
+- These vendor references describe tools in the operating stack and do not imply sponsorship, endorsement, exclusivity, or permanent architecture.
+- Swell's own lifecycle, evidence, approval, consent, budget, and quality rules govern work across tools.
