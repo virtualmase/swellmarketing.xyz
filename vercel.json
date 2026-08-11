@@ -1,64 +1,40 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
   "redirects": [
     {
-      "source": "/academy.html",
-      "destination": "/academy/",
-      "permanent": true
-    },
-    {
-      "source": "/geo-audit.html",
+      "source": "/geo-audit",
       "destination": "/geo-audit/",
       "permanent": true
     },
     {
-      "source": "/pricing.html",
+      "source": "/pricing",
       "destination": "/pricing/",
       "permanent": true
     },
     {
-      "source": "/signal-roadmap.html",
-      "destination": "/roadmap.html",
+      "source": "/academy",
+      "destination": "/academy/",
       "permanent": true
     },
     {
-      "source": "/gso-roadmap.html",
-      "destination": "/roadmap.html",
+      "source": "/checkout/geo-mastery",
+      "destination": "/checkout/geo-mastery/",
       "permanent": true
     },
     {
-      "source": "/landing.html",
-      "destination": "/",
+      "source": "/thank-you/geo-mastery",
+      "destination": "/thank-you/geo-mastery/",
       "permanent": true
-    }
-  ],
-  "headers": [
-    {
-      "source": "/llms.txt",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/plain; charset=utf-8"
-        }
-      ]
     },
     {
-      "source": "/docs/ENTITY_GROWTH_COMPASS.md",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
+      "source": "/academy",
+      "destination": "https://academy.swellmarketing.xyz/",
+      "permanent": true
     },
     {
-      "source": "/docs/CRAWLER_POLICY.md",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
+      "source": "/academy/",
+      "destination": "https://academy.swellmarketing.xyz/",
+      "permanent": true
     }
   ]
 }
