@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "capturedAt": "2026-08-10T16:00:00.000Z",
+  "engagements": [
+    {
+      "engagement_id": "eng_example_onboarding",
+      "opportunity_id": "deal_example_won",
+      "status": "onboarding",
+      "owner": "Mason Nguyen",
+      "next_action": "Collect analytics access and approve baseline plan",
+      "next_action_at": "2026-08-11T16:00:00.000Z",
+      "client_owner": "Client sponsor",
+      "stakeholder_map": "workspace://eng_example_onboarding/stakeholders",
+      "communication_plan": "workspace://eng_example_onboarding/communications",
+      "success_plan": "workspace://eng_example_onboarding/success-plan",
+      "first_30_day_plan": "workspace://eng_example_onboarding/30-day-plan",
+      "work_items": []
+    }
+  ],
+  "campaigns": [
+    {
+      "campaign_id": "campaign_example_launch",
+      "engagement_id": "eng_example_onboarding",
+      "status": "awaiting_approval",
+      "brief_version": "brief-v1",
+      "approval_request_id": "approval_example_1",
+      "next_action_at": "2026-08-11T16:00:00.000Z"
+    }
+  ]
+}

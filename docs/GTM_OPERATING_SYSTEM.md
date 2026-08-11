@@ -31,6 +31,8 @@ Multi-entity companies are a secondary segment when products, people, locations,
 7. **Handoff:** Closed-won work transfers with the full evidence and commercial record; delivery does not rediscover the sale.
 8. **Learn:** Win/loss reasons, buyer language, recurring constraints, and delivery evidence update the operating system without exposing client-confidential material.
 
+After closed won, `docs/AGENCY_OPERATING_SYSTEM.md` and `data/agency-operating-model.json` govern onboarding, campaign delivery, client success, feedback, reviews, and follow-up. The shared opportunity and engagement identifiers preserve one lifecycle rather than creating a disconnected fulfillment system.
+
 ## Pipeline definitions
 
 The stage definitions and required exit fields live in the operating-model JSON. A stage describes verified buyer state, not seller activity. Sending an email does not make a lead “connected.” Sending a proposal does not create verbal commitment. An opportunity is closed won only after the agreement and required initial payment are complete.

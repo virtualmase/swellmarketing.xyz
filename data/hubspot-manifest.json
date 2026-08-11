@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "apiVersion": "2026-03",
   "propertyGroup": {
     "name": "swell_gtm",
@@ -32,7 +32,17 @@
     {"name":"swell_fit","label":"Swell fit","type":"enumeration","fieldType":"select","description":"Canonical fit classification.","groupName":"dealinformation","formField":false,"options":["qualified","nurture","disqualified","unknown"]},
     {"name":"swell_recommended_offer","label":"Recommended Swell offer","type":"enumeration","fieldType":"select","description":"Canonical offer ID.","groupName":"dealinformation","formField":false,"options":["self_guided_gap_check","commissioned_baseline","managed_foundation","managed_growth","managed_scale","none","unknown"]},
     {"name":"swell_next_action","label":"Swell next action","type":"string","fieldType":"text","description":"Current concrete next action.","groupName":"dealinformation","formField":false},
-    {"name":"swell_next_action_at","label":"Swell next action due","type":"datetime","fieldType":"date","description":"UTC due time for current next action.","groupName":"dealinformation","formField":false}
+    {"name":"swell_next_action_at","label":"Swell next action due","type":"datetime","fieldType":"date","description":"UTC due time for current next action.","groupName":"dealinformation","formField":false},
+    {"name":"swell_engagement_id","label":"Swell engagement ID","type":"string","fieldType":"text","description":"Immutable delivery identifier created after verified close.","groupName":"dealinformation","formField":false},
+    {"name":"swell_client_status","label":"Swell client status","type":"enumeration","fieldType":"select","description":"Canonical post-sale engagement stage.","groupName":"dealinformation","formField":false,"options":["pending_handoff","onboarding","strategy_ready","active","renewal_due","completed","paused","offboarded"]},
+    {"name":"swell_delivery_owner","label":"Swell delivery owner","type":"string","fieldType":"text","description":"Accountable delivery owner; use the immutable owner identifier when available.","groupName":"dealinformation","formField":false},
+    {"name":"swell_client_health","label":"Swell client health","type":"enumeration","fieldType":"select","description":"Evidence-backed client health classification.","groupName":"dealinformation","formField":false,"options":["green","yellow","red","unknown"]},
+    {"name":"swell_next_milestone","label":"Swell next milestone","type":"string","fieldType":"text","description":"Current client-visible delivery milestone.","groupName":"dealinformation","formField":false},
+    {"name":"swell_next_milestone_at","label":"Swell next milestone due","type":"datetime","fieldType":"date","description":"UTC due time for the current client-visible milestone.","groupName":"dealinformation","formField":false},
+    {"name":"swell_term_end_at","label":"Swell term end","type":"datetime","fieldType":"date","description":"UTC engagement term end used for renewal preparation.","groupName":"dealinformation","formField":false},
+    {"name":"swell_renewal_status","label":"Swell renewal status","type":"enumeration","fieldType":"select","description":"Canonical renewal decision state.","groupName":"dealinformation","formField":false,"options":["not_due","preparing","proposed","renewed","declined","completed"]},
+    {"name":"swell_feedback_status","label":"Swell feedback status","type":"enumeration","fieldType":"select","description":"Private feedback and recovery state.","groupName":"dealinformation","formField":false,"options":["not_eligible","not_requested","requested","received","recovery","closed"]},
+    {"name":"swell_public_review_status","label":"Swell public review status","type":"enumeration","fieldType":"select","description":"Public review outreach state; eligibility is enforced separately.","groupName":"dealinformation","formField":false,"options":["not_eligible","not_requested","requested","completed","declined"]}
   ],
   "pipeline": {
     "recommendedLabel": "Swell GTM",

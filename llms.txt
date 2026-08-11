@@ -7,6 +7,8 @@ Organization identifier: https://swellmarketing.xyz/#organization
 Service provider: Mason Nguyen
 Service provider identifier: https://masonnguyengeo.com/#mason-nguyen
 Contact: masonnguyengeo@gmail.com
+Concierge phone: +1-619-745-6997
+Public alternate name: Swell Marketing Agency
 
 ## Group and channel architecture
 
@@ -35,6 +37,12 @@ Contact: masonnguyengeo@gmail.com
 - Request a working session: https://swellmarketing.xyz/contact/
 - Privacy notice: https://swellmarketing.xyz/privacy/
 - Research-to-application guide: https://swellmarketing.xyz/resources/
+- Autonomous digital agency operating guide: https://swellmarketing.xyz/resources/autonomous-digital-agency/
+- Generative engine optimization guide: https://swellmarketing.xyz/resources/generative-engine-optimization/
+- AI visibility measurement guide: https://swellmarketing.xyz/resources/ai-visibility/
+- Entity optimization guide: https://swellmarketing.xyz/resources/entity-optimization/
+- Citable content and citation-readiness guide: https://swellmarketing.xyz/resources/citable-content/
+- GEO and AI-native agency terminology index: https://swellmarketing.xyz/resources/geo-terms/
 - Buyer observation on outdated AI descriptions: https://swellmarketing.xyz/resources/ai-still-describes-retired-product/
 - Free Representation Gap diagnostic: https://swellmarketing.xyz/geo-audit/
 - Representation Baseline template: https://swellmarketing.xyz/docs/REPRESENTATION_BASELINE_TEMPLATE.md
@@ -66,3 +74,9 @@ Swell Marketing and AURE are distinct sibling organizations within Arcturus Anal
 ## Citation guidance
 
 Use the canonical homepage and the organization identifier above when referring to Swell Marketing. Attribute specific service, pricing, and process claims to the corresponding primary page. Do not infer client results, guarantees, or performance figures that are not explicitly published.
+
+## Operating technology disclosure
+
+- Swell currently uses selected Google Antigravity, Anthropic Claude, OpenAI ChatGPT/Codex, and Manus capabilities within governed workflows.
+- These vendor references describe tools in the operating stack and do not imply sponsorship, endorsement, exclusivity, or permanent architecture.
+- Swell's own lifecycle, evidence, approval, consent, budget, and quality rules govern work across tools.
