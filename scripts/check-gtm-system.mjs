@@ -75,7 +75,7 @@ if (!contact.includes('href="/privacy/"')) issues.push("contact form does not li
 for (const heading of ["What Swell collects", "Why it is used", "Voice and meeting information", "Retention and choices", "Contact"]) {
   if (!privacy.includes(heading)) issues.push(`privacy notice is missing ${heading}`);
 }
-for (const variable of ["GTM_WEBHOOK_URL", "GTM_WEBHOOK_SECRET", "VAPI_WEBHOOK_SECRET", "HUBSPOT_ACCESS_TOKEN", "HUBSPOT_PIPELINE_ID", "HUBSPOT_STAGE_QUALIFIED", "HUBSPOT_OWNER_ID", "OPENAI_API_KEY", "OPENAI_MODEL", "MASON_REPORT_SECRET", "PERPLEXITY_API_KEY", "PERPLEXITY_API_KEY_FILE"]) {
+for (const variable of ["GTM_WEBHOOK_URL", "GTM_WEBHOOK_SECRET", "TURNSTILE_SITE_KEY", "TURNSTILE_SECRET_KEY", "VAPI_WEBHOOK_SECRET", "HUBSPOT_ACCESS_TOKEN", "HUBSPOT_PIPELINE_ID", "HUBSPOT_STAGE_QUALIFIED", "HUBSPOT_OWNER_ID", "OPENAI_API_KEY", "OPENAI_MODEL", "MASON_REPORT_SECRET", "PERPLEXITY_API_KEY", "PERPLEXITY_API_KEY_FILE"]) {
   if (!envExample.includes(`${variable}=`)) issues.push(`.env.example is missing ${variable}`);
 }
 if (masonAgent.authority?.executionMode !== "autonomous") issues.push("Mason agent is not configured for autonomous execution");
@@ -138,6 +138,7 @@ if (journey?.latestTouch?.utmSource !== "swell_site" || journey?.latestTouch?.ut
 if (journey?.currentPage?.landingPage !== "/contact/") issues.push("attribution journey did not record the current contact page separately");
 
 const { default: leadHandler } = await import(path.join(root, "api/leads.js"));
+const { default: publicConfigHandler } = await import(path.join(root, "api/public-config.js"));
 const { default: vapiHandler } = await import(path.join(root, "api/vapi-webhook.js"));
 const { default: gtmEventsHandler } = await import(path.join(root, "api/gtm-events.js"));
 const { createMasonReportHandler } = await import(path.join(root, "api/mason-report.js"));
@@ -193,25 +194,56 @@ if (reportResult.status !== 503 || reportResult.body.code !== "report_temporaril
   issues.push("Mason report API did not sanitize an upstream failure");
 }
 
-async function invoke(body, { method = "POST", fetchImpl, webhookUrl } = {}) {
+async function invoke(body, { method = "POST", fetchImpl, webhookUrl, origin = "https://swellmarketing.xyz", contentType = "application/json", turnstileSiteKey, turnstileSecretKey } = {}) {
   const originalFetch = globalThis.fetch;
   const originalUrl = process.env.GTM_WEBHOOK_URL;
   const originalSecret = process.env.GTM_WEBHOOK_SECRET;
+  const originalTurnstileSiteKey = process.env.TURNSTILE_SITE_KEY;
+  const originalTurnstileSecret = process.env.TURNSTILE_SECRET_KEY;
   if (fetchImpl) globalThis.fetch = fetchImpl;
   if (webhookUrl === undefined) delete process.env.GTM_WEBHOOK_URL;
   else process.env.GTM_WEBHOOK_URL = webhookUrl;
   process.env.GTM_WEBHOOK_SECRET = "test-secret";
+  if (turnstileSiteKey === undefined) delete process.env.TURNSTILE_SITE_KEY;
+  else process.env.TURNSTILE_SITE_KEY = turnstileSiteKey;
+  if (turnstileSecretKey === undefined) delete process.env.TURNSTILE_SECRET_KEY;
+  else process.env.TURNSTILE_SECRET_KEY = turnstileSecretKey;
   const response = responseHarness();
   try {
-    await leadHandler({ method, headers: { "content-length": String(JSON.stringify(body).length) }, body }, response);
+    await leadHandler({ method, headers: { "content-length": String(JSON.stringify(body).length), origin, "content-type": contentType }, body }, response);
   } finally {
     globalThis.fetch = originalFetch;
     if (originalUrl === undefined) delete process.env.GTM_WEBHOOK_URL;
     else process.env.GTM_WEBHOOK_URL = originalUrl;
     if (originalSecret === undefined) delete process.env.GTM_WEBHOOK_SECRET;
     else process.env.GTM_WEBHOOK_SECRET = originalSecret;
+    if (originalTurnstileSiteKey === undefined) delete process.env.TURNSTILE_SITE_KEY;
+    else process.env.TURNSTILE_SITE_KEY = originalTurnstileSiteKey;
+    if (originalTurnstileSecret === undefined) delete process.env.TURNSTILE_SECRET_KEY;
+    else process.env.TURNSTILE_SECRET_KEY = originalTurnstileSecret;
   }
   return { status: response.statusCode, body: JSON.parse(response.body) };
+}
+
+async function invokePublicConfig({ method = "GET", siteKey } = {}) {
+  const originalSiteKey = process.env.TURNSTILE_SITE_KEY;
+  if (siteKey === undefined) delete process.env.TURNSTILE_SITE_KEY;
+  else process.env.TURNSTILE_SITE_KEY = siteKey;
+  const response = responseHarness();
+  try {
+    await publicConfigHandler({ method }, response);
+  } finally {
+    if (originalSiteKey === undefined) delete process.env.TURNSTILE_SITE_KEY;
+    else process.env.TURNSTILE_SITE_KEY = originalSiteKey;
+  }
+  return { status: response.statusCode, body: JSON.parse(response.body) };
+}
+
+let publicConfig = await invokePublicConfig({ method: "POST" });
+if (publicConfig.status !== 405 || publicConfig.body.code !== "method_not_allowed") issues.push("public config API did not reject non-GET methods");
+publicConfig = await invokePublicConfig({ siteKey: "public-site-key" });
+if (publicConfig.status !== 200 || publicConfig.body.turnstileSiteKey !== "public-site-key" || JSON.stringify(publicConfig.body).includes("TURNSTILE_SECRET_KEY")) {
+  issues.push("public config API did not expose only the configured Turnstile site key");
 }
 
 const validLead = {
@@ -232,7 +264,8 @@ const validLead = {
   latestUtmSource: "swell_site",
   latestUtmMedium: "internal",
   latestUtmCampaign: "representation_gap_q3_2026",
-  latestUtmContent: "retired_product_hero_cta"
+  latestUtmContent: "retired_product_hero_cta",
+  formStartedAt: Date.now() - 4_000
 };
 
 let result = await invoke({ ...validLead, trigger: "short" });
@@ -241,8 +274,36 @@ if (result.status !== 400 || result.body.code !== "validation_failed") issues.pu
 result = await invoke({ ...validLead, responseConsent: false });
 if (result.status !== 400 || !result.body.fieldErrors?.responseConsent) issues.push("lead API did not enforce response consent");
 
+result = await invoke({ ...validLead, formStartedAt: Date.now() });
+if (result.status !== 400 || !result.body.fieldErrors?.formStartedAt) issues.push("lead API did not reject an unrealistically fast form submission");
+
+result = await invoke(validLead, { origin: "https://evil.example" });
+if (result.status !== 403 || result.body.code !== "origin_not_allowed") issues.push("lead API did not reject an untrusted origin");
+
+result = await invoke(validLead, { contentType: "text/plain" });
+if (result.status !== 415 || result.body.code !== "unsupported_media_type") issues.push("lead API did not require JSON input");
+
 result = await invoke({ ...validLead, company: "spam" });
 if (result.status !== 202 || result.body.eventId) issues.push("lead API honeypot did not quietly accept without forwarding");
+
+result = await invoke(validLead, { turnstileSiteKey: "site-key" });
+if (result.status !== 503 || result.body.code !== "temporarily_unavailable") issues.push("lead API did not fail closed on partial Turnstile configuration");
+
+result = await invoke(validLead, { turnstileSiteKey: "site-key", turnstileSecretKey: "secret-key" });
+if (result.status !== 403 || result.body.code !== "challenge_failed") issues.push("lead API did not require a configured Turnstile challenge");
+
+let challengeForwardedEvent;
+result = await invoke({ ...validLead, turnstileToken: "challenge-token" }, {
+  webhookUrl: "https://crm.example/webhook",
+  turnstileSiteKey: "site-key",
+  turnstileSecretKey: "secret-key",
+  fetchImpl: async (url, options) => {
+    if (String(url).includes("challenges.cloudflare.com")) return { json: async () => ({ success: true }) };
+    challengeForwardedEvent = JSON.parse(options.body);
+    return { ok: true, status: 202 };
+  }
+});
+if (result.status !== 202 || challengeForwardedEvent?.intakeProtection?.turnstile !== "verified") issues.push("lead API did not record a verified Turnstile challenge");
 
 result = await invoke(validLead);
 if (result.status !== 503 || result.body.code !== "temporarily_unavailable") issues.push("lead API did not fail closed when the destination was absent");

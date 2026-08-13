@@ -27,8 +27,8 @@
         <div class="form-trap" aria-hidden="true"><label for="lead-company">Leave this empty</label><input id="lead-company" name="company" tabindex="-1" autocomplete="off"></div>
         <label class="form-consent form-field-full"><input type="checkbox" name="responseConsent" required><span>You may use this information to respond to my request. I understand this is not consent to unrelated marketing.</span></label><small class="form-field-full" data-error-for="responseConsent"></small>
         <label class="form-consent form-field-full"><input type="checkbox" name="marketingConsent"><span>Optional: send me occasional Swell research and operating resources. I can unsubscribe at any time.</span></label>
-        <input type="hidden" name="firstConstraint" value="unclear"><input type="hidden" name="sourcePage"><input type="hidden" name="referrer"><input type="hidden" name="utmSource"><input type="hidden" name="utmMedium"><input type="hidden" name="utmCampaign"><input type="hidden" name="utmContent"><input type="hidden" name="latestSourcePage"><input type="hidden" name="latestReferrer"><input type="hidden" name="latestUtmSource"><input type="hidden" name="latestUtmMedium"><input type="hidden" name="latestUtmCampaign"><input type="hidden" name="latestUtmContent">
-        <div class="form-submit form-field-full"><button class="btn btn-primary" type="submit">Send the representation gap</button><p>By submitting, you acknowledge the <a href="/privacy/">privacy notice</a>.</p></div>
+        <input type="hidden" name="formStartedAt"><input type="hidden" name="turnstileToken"><input type="hidden" name="firstConstraint" value="unclear"><input type="hidden" name="sourcePage"><input type="hidden" name="referrer"><input type="hidden" name="utmSource"><input type="hidden" name="utmMedium"><input type="hidden" name="utmCampaign"><input type="hidden" name="utmContent"><input type="hidden" name="latestSourcePage"><input type="hidden" name="latestReferrer"><input type="hidden" name="latestUtmSource"><input type="hidden" name="latestUtmMedium"><input type="hidden" name="latestUtmCampaign"><input type="hidden" name="latestUtmContent">
+        <div class="form-field-full" id="turnstile-widget" aria-live="polite"></div><div class="form-submit form-field-full"><button class="btn btn-primary" type="submit">Send the representation gap</button><p>By submitting, you acknowledge the <a href="/privacy/">privacy notice</a>.</p></div>
         <div class="form-status form-field-full" id="lead-form-status" role="status" aria-live="polite" tabindex="-1"></div>
       </form>
     </div></section>
@@ -40,6 +40,7 @@
   const status = document.querySelector('#lead-form-status');
   const params = new URLSearchParams(location.search);
   const mapping = { utm_source: 'utmSource', utm_medium: 'utmMedium', utm_campaign: 'utmCampaign', utm_content: 'utmContent' };
+  form.elements.formStartedAt.value = String(Date.now());
   form.elements.sourcePage.value = location.pathname + location.search;
   form.elements.referrer.value = document.referrer;
   for (const [parameter, field] of Object.entries(mapping)) form.elements[field].value = params.get(parameter) || '';
@@ -62,6 +63,28 @@
   const storedConstraint = sessionStorage.getItem('swell_first_constraint');
   if (storedConstraint) form.elements.firstConstraint.value = storedConstraint;
 
+  async function configureTurnstile() {
+    try {
+      const configResponse = await fetch('/api/public-config', { headers: { Accept: 'application/json' } });
+      const config = configResponse.ok ? await configResponse.json() : {};
+      if (!config.turnstileSiteKey) return;
+      const script = document.createElement('script');
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      script.async = true;
+      script.defer = true;
+      script.onload = () => window.turnstile?.ready(() => {
+        window.turnstile.render('#turnstile-widget', {
+          sitekey: config.turnstileSiteKey,
+          callback: token => { form.elements.turnstileToken.value = token; },
+          'expired-callback': () => { form.elements.turnstileToken.value = ''; },
+          'error-callback': () => { form.elements.turnstileToken.value = ''; }
+        });
+      });
+      document.head.append(script);
+    } catch {}
+  }
+  configureTurnstile();
+
   form.addEventListener('submit', async event => {
     event.preventDefault();
     status.dataset.state = '';
@@ -82,9 +105,11 @@
           const node = form.querySelector(`[data-error-for="${field}"]`);
           if (node) node.textContent = message;
         }
-        throw new Error(result.code === 'validation_failed' ? 'Check the highlighted fields.' : 'The request could not be saved. Email masonnguyengeo@gmail.com instead.');
+        throw new Error(result.code === 'validation_failed' ? 'Check the highlighted fields.' : result.code === 'challenge_failed' ? 'Please complete the security check and try again.' : 'The request could not be saved. Email masonnguyengeo@gmail.com instead.');
       }
       form.reset();
+      form.elements.formStartedAt.value = String(Date.now());
+      form.elements.turnstileToken.value = '';
       status.dataset.state = 'success';
       status.textContent = 'Received. We will review the representation gap and reply within one business day.';
     } catch (error) {

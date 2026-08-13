@@ -2,8 +2,11 @@ import { createHash } from "node:crypto";
 
 const ALLOWED_TIMELINES = new Set(["within_30_days", "within_90_days", "this_year", "exploring"]);
 const ALLOWED_CONSTRAINTS = new Set(["entity_definition", "crawler_access", "evidence", "corroboration", "measurement", "unclear"]);
+const TRUSTED_ORIGINS = new Set(["https://swellmarketing.xyz", "https://www.swellmarketing.xyz"]);
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_BODY_BYTES = 20_000;
+const MIN_FORM_AGE_MS = 2_500;
+const MAX_FORM_AGE_MS = 6 * 60 * 60 * 1000;
 
 function text(value, maxLength) {
   return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
@@ -13,13 +16,17 @@ function boolean(value) {
   return value === true || value === "true" || value === "on";
 }
 
+function header(request, name) {
+  return String(request.headers?.[name] || "").trim();
+}
+
 function normalizeWebsite(value) {
   const candidate = text(value, 500);
   if (!candidate) return "";
   const withProtocol = /^https?:\/\//i.test(candidate) ? candidate : `https://${candidate}`;
   try {
     const url = new URL(withProtocol);
-    if (!['http:', 'https:'].includes(url.protocol) || !url.hostname.includes('.')) return "";
+    if (!["http:", "https:"].includes(url.protocol) || !url.hostname.includes(".")) return "";
     url.hash = "";
     return url.toString();
   } catch {
@@ -30,15 +37,68 @@ function normalizeWebsite(value) {
 function json(response, status, body) {
   response.status(status).setHeader("Content-Type", "application/json; charset=utf-8");
   response.setHeader("Cache-Control", "no-store");
+  response.setHeader("X-Content-Type-Options", "nosniff");
   response.end(JSON.stringify(body));
 }
 
 function authorizedWebhookHeaders(secret) {
   return {
     "Content-Type": "application/json",
-    "User-Agent": "Swell-GTM/1.0",
+    "User-Agent": "Swell-GTM/1.1",
     ...(secret ? { Authorization: `Bearer ${secret}` } : {})
   };
+}
+
+function hasTrustedOrigin(request) {
+  const origin = header(request, "origin");
+  if (!origin) return false;
+  try {
+    return TRUSTED_ORIGINS.has(new URL(origin).origin);
+  } catch {
+    return false;
+  }
+}
+
+function isJsonRequest(request) {
+  return header(request, "content-type").toLowerCase().startsWith("application/json");
+}
+
+function validFormAge(value) {
+  const startedAt = Number(value);
+  if (!Number.isFinite(startedAt)) return false;
+  const age = Date.now() - startedAt;
+  return age >= MIN_FORM_AGE_MS && age <= MAX_FORM_AGE_MS;
+}
+
+function sourceIp(request) {
+  return header(request, "x-forwarded-for").split(",")[0].trim();
+}
+
+async function verifyTurnstile(body, request) {
+  const siteKey = text(process.env.TURNSTILE_SITE_KEY, 500);
+  const secret = text(process.env.TURNSTILE_SECRET_KEY, 500);
+  const configured = Boolean(siteKey || secret);
+  if (!configured) return { state: "not_configured" };
+  if (!siteKey || !secret) return { state: "misconfigured" };
+
+  const token = text(body.turnstileToken, 2_048);
+  if (!token) return { state: "failed" };
+
+  try {
+    const payload = new URLSearchParams({ secret, response: token });
+    const ip = sourceIp(request);
+    if (ip) payload.set("remoteip", ip);
+    const verification = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: payload.toString(),
+      signal: AbortSignal.timeout(5_000)
+    });
+    const result = await verification.json();
+    return result?.success === true ? { state: "verified" } : { state: "failed" };
+  } catch {
+    return { state: "failed" };
+  }
 }
 
 function inferSource(body) {
@@ -62,8 +122,10 @@ export default async function handler(request, response) {
     response.setHeader("Allow", "POST");
     return json(response, 405, { ok: false, code: "method_not_allowed" });
   }
+  if (!hasTrustedOrigin(request)) return json(response, 403, { ok: false, code: "origin_not_allowed" });
+  if (!isJsonRequest(request)) return json(response, 415, { ok: false, code: "unsupported_media_type" });
 
-  const declaredLength = Number(request.headers["content-length"] || 0);
+  const declaredLength = Number(header(request, "content-length") || 0);
   if (declaredLength > MAX_BODY_BYTES) return json(response, 413, { ok: false, code: "payload_too_large" });
 
   const body = request.body && typeof request.body === "object" ? request.body : {};
@@ -76,14 +138,21 @@ export default async function handler(request, response) {
   const responseConsent = boolean(body.responseConsent);
   const timeline = ALLOWED_TIMELINES.has(body.timeline) ? body.timeline : "exploring";
   const firstConstraint = ALLOWED_CONSTRAINTS.has(body.firstConstraint) ? body.firstConstraint : "unclear";
-
   const fieldErrors = {};
   if (name.length < 2) fieldErrors.name = "Enter your name.";
   if (!EMAIL_PATTERN.test(email)) fieldErrors.email = "Enter a valid work email.";
   if (!website) fieldErrors.website = "Enter a valid company website.";
   if (trigger.length < 20) fieldErrors.trigger = "Describe the problem in at least 20 characters.";
   if (!responseConsent) fieldErrors.responseConsent = "Permission to respond is required.";
+  if (!validFormAge(body.formStartedAt)) fieldErrors.formStartedAt = "Please take a moment to complete the request before submitting.";
   if (Object.keys(fieldErrors).length) return json(response, 400, { ok: false, code: "validation_failed", fieldErrors });
+
+  const turnstile = await verifyTurnstile(body, request);
+  if (turnstile.state === "misconfigured") {
+    console.error(JSON.stringify({ code: "turnstile_misconfigured" }));
+    return json(response, 503, { ok: false, code: "temporarily_unavailable" });
+  }
+  if (turnstile.state === "failed") return json(response, 403, { ok: false, code: "challenge_failed" });
 
   const receivedAt = new Date().toISOString();
   const idempotencyInput = `${email}|${website}|${trigger.toLowerCase()}|${receivedAt.slice(0, 13)}`;
@@ -134,6 +203,10 @@ export default async function handler(request, response) {
         utmCampaign: text(body.latestUtmCampaign, 200),
         utmContent: text(body.latestUtmContent, 200)
       }
+    },
+    intakeProtection: {
+      formAgeValidated: true,
+      turnstile: turnstile.state === "verified" ? "verified" : "not_configured"
     }
   };
 
@@ -157,7 +230,7 @@ export default async function handler(request, response) {
       method: "POST",
       headers: authorizedWebhookHeaders(process.env.GTM_WEBHOOK_SECRET),
       body: JSON.stringify(event),
-      signal: AbortSignal.timeout(8000)
+      signal: AbortSignal.timeout(8_000)
     });
     if (!forwarded.ok) {
       console.error(JSON.stringify({ code: "gtm_destination_rejected", eventId, status: forwarded.status }));
