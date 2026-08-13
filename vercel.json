@@ -2,18 +2,18 @@
   "trailingSlash": true,
   "redirects": [
     {
-      "source": "/geo-audit",
-      "destination": "/geo-audit/",
-      "permanent": true
-    },
-    {
       "source": "/pricing",
       "destination": "/pricing/",
       "permanent": true
     },
     {
-      "source": "/academy",
-      "destination": "/academy/",
+      "source": "/pricing.html",
+      "destination": "/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/geo-audit",
+      "destination": "/geo-audit/",
       "permanent": true
     },
     {
@@ -35,6 +35,66 @@
       "source": "/academy/",
       "destination": "https://academy.swellmarketing.xyz/",
       "permanent": true
+    },
+    {
+      "source": "/landing.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/signal-roadmap.html",
+      "destination": "/roadmap.html",
+      "permanent": true
+    },
+    {
+      "source": "/gso-roadmap.html",
+      "destination": "/roadmap.html",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), geolocation=(), microphone=(), payment=()"
+        }
+      ]
+    },
+    {
+      "source": "/docs/ENTITY_GROWTH_COMPASS.md",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/docs/CRAWLER_POLICY.md",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ]
 }

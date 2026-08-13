@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
@@ -8,6 +8,14 @@ import vm from "node:vm";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const issues = [];
 const read = (relative) => readFile(path.join(root, relative), "utf8");
+const exists = async (relative) => {
+  try {
+    await access(path.join(root, relative));
+    return true;
+  } catch {
+    return false;
+  }
+};
 
 const model = JSON.parse(await read("data/gtm-operating-model.json"));
 const schema = JSON.parse(await read("data/schemas/lead-submission.schema.json"));
@@ -19,8 +27,20 @@ const hubspotManifest = JSON.parse(await read("data/hubspot-manifest.json"));
 const masonAgent = JSON.parse(await read("data/mason-agent.json"));
 const missionLedger = JSON.parse(await read("data/mission-activity-ledger.json"));
 const experimentRegistry = JSON.parse(await read("data/mission-experiments.json"));
-const targetAccounts = JSON.parse(await read("data/representation-gap-target-accounts.json"));
-const baselineRun = JSON.parse(await read("data/representation-gap-baseline-run.json"));
+const privateRepresentationFixtures = [
+  "data/representation-gap-target-accounts.json",
+  "data/representation-gap-baseline-run.json"
+];
+const hasPrivateRepresentationFixtures = (await Promise.all(privateRepresentationFixtures.map(exists))).every(Boolean);
+if (!hasPrivateRepresentationFixtures && process.env.STRICT_PRIVATE_FIXTURES === "1") {
+  issues.push("private representation fixtures are required when STRICT_PRIVATE_FIXTURES=1");
+}
+const targetAccounts = hasPrivateRepresentationFixtures
+  ? JSON.parse(await read("data/representation-gap-target-accounts.json"))
+  : null;
+const baselineRun = hasPrivateRepresentationFixtures
+  ? JSON.parse(await read("data/representation-gap-baseline-run.json"))
+  : null;
 const envExample = await read(".env.example");
 const { validateExperiments, validateMissionLedger } = await import(path.join(root, "lib/mission-evidence.js"));
 const attributionPages = ["index.html", "services/index.html", "method/index.html", "pricing/index.html", "about/index.html", "resources/index.html", "resources/ai-still-describes-retired-product/index.html", "geo-audit/index.html", "academy/index.html", "roadmap.html", "contact/index.html"];
@@ -67,18 +87,22 @@ for (const [key, target] of Object.entries(masonAgent.objective?.targets || {}))
 }
 issues.push(...validateMissionLedger(missionLedger));
 issues.push(...validateExperiments(experimentRegistry));
-if (targetAccounts.accounts?.length !== 10) issues.push("Representation Gap experiment must contain exactly 10 researched accounts");
-if (new Set(targetAccounts.accounts?.map((account) => account.priority)).size !== 10) issues.push("Representation Gap account priorities are not unique");
-for (const account of targetAccounts.accounts || []) {
-  if (account.permissionStatus !== "not_established") issues.push(`${account.company} improperly infers contact permission`);
-  if (account.representationStatus !== "unobserved") issues.push(`${account.company} claims an observation without a versioned baseline`);
-  if (!account.evidenceUrl?.startsWith("https://")) issues.push(`${account.company} lacks a public HTTPS evidence source`);
-  if (account.representationQuestions?.length !== 3) issues.push(`${account.company} must have exactly three versioned baseline queries`);
-}
-if (baselineRun.accounts?.length !== 10) issues.push("Representation Gap baseline must include all 10 researched accounts");
-if (baselineRun.accounts?.flatMap((account) => account.queries || []).length !== 30) issues.push("Representation Gap baseline must contain exactly 30 queries");
-if (baselineRun.accounts?.some((account) => account.representationStatus !== "unobserved" || account.queries?.some((query) => query.observations?.length))) {
-  issues.push("Prepared Representation Gap baseline contains unverified observations");
+if (hasPrivateRepresentationFixtures) {
+  if (targetAccounts.accounts?.length !== 10) issues.push("Representation Gap experiment must contain exactly 10 researched accounts");
+  if (new Set(targetAccounts.accounts?.map((account) => account.priority)).size !== 10) issues.push("Representation Gap account priorities are not unique");
+  for (const account of targetAccounts.accounts || []) {
+    if (account.permissionStatus !== "not_established") issues.push(`${account.company} improperly infers contact permission`);
+    if (account.representationStatus !== "unobserved") issues.push(`${account.company} claims an observation without a versioned baseline`);
+    if (!account.evidenceUrl?.startsWith("https://")) issues.push(`${account.company} lacks a public HTTPS evidence source`);
+    if (account.representationQuestions?.length !== 3) issues.push(`${account.company} must have exactly three versioned baseline queries`);
+  }
+  if (baselineRun.accounts?.length !== 10) issues.push("Representation Gap baseline must include all 10 researched accounts");
+  if (baselineRun.accounts?.flatMap((account) => account.queries || []).length !== 30) issues.push("Representation Gap baseline must contain exactly 30 queries");
+  if (baselineRun.accounts?.some((account) => account.representationStatus !== "unobserved" || account.queries?.some((query) => query.observations?.length))) {
+    issues.push("Prepared Representation Gap baseline contains unverified observations");
+  }
+} else {
+  console.warn("Private Representation Gap fixtures are absent; public GTM and API checks continue. Set STRICT_PRIVATE_FIXTURES=1 in the private validation environment to require them.");
 }
 for (const [objectType, properties] of [["contact", hubspotManifest.contactProperties], ["deal", hubspotManifest.dealProperties]]) {
   const names = properties.map((property) => property.name);
