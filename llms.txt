@@ -43,6 +43,8 @@ Public alternate name: Swell Marketing Agency
 - Evidence Contract guide: https://swellmarketing.xyz/resources/evidence-contract-structured-data/
 - GEO Operating Foundations guide: https://swellmarketing.xyz/resources/geo-operating-foundations/
 - AI Access Decisions guide: https://swellmarketing.xyz/resources/ai-access-decision/
+- Free Representation Readiness Map: https://swellmarketing.xyz/resources/representation-readiness-map/ — an eight-question local worksheet that creates a private inspection list for identity, evidence, access, and buyer decision surfaces; it does not score organizations, retain answers, or predict search or AI outcomes.
+- Machine-Readable for People guide: https://swellmarketing.xyz/resources/machine-readable-for-people/ — a source-led field guide to visible explanation, relevant images, captions, metadata, citations, and review ownership. It does not promise a particular search snippet, image preview, ranking, citation, recommendation, traffic, or commercial outcome.
 - Autonomous digital agency operating guide: https://swellmarketing.xyz/resources/autonomous-digital-agency/
 - Generative engine optimization guide: https://swellmarketing.xyz/resources/generative-engine-optimization/
 - AI visibility measurement guide: https://swellmarketing.xyz/resources/ai-visibility/
