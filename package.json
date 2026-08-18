@@ -1,0 +1,13 @@
+{
+  "name": "swellmarketing-xyz",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "check:gtm": "node scripts/check-gtm-system.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "check:signal": "node scripts/check-signal-quality.mjs",
+    "check": "npm run test && npm run check:gtm && npm run check:links && npm run check:signal"
+  }
+}

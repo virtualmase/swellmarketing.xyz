@@ -55,10 +55,11 @@ if (stageOrders.some((order, index) => index && order <= stageOrders[index - 1])
 
 const offerIds = new Set(model.offers.map((offer) => offer.id));
 if (offerIds.size !== model.offers.length) issues.push("offer IDs are not unique");
-for (const [price, label] of [[1500, "GEO Starter"], [2500, "GEO Growth"], [3500, "GEO Scale"]]) {
+for (const [price, label] of [[2500, "GEO Growth"], [3500, "GEO Scale"]]) {
   if (!pricing.includes(`$${price.toLocaleString()} / month`)) issues.push(`pricing page is missing $${price.toLocaleString()} for ${label}`);
   if (!vapi.model.messages[0].content.includes(`$${price.toLocaleString()}`)) issues.push(`Vapi prompt is missing $${price.toLocaleString()}`);
 }
+if (pricing.includes("$1,500") || vapi.model.messages[0].content.includes("$1,500")) issues.push("retired $1,500 GEO Starter offer remains on a public conversion surface");
 if (!pricing.includes("$2,500 · Swell diagnostic") && !pricing.includes("$2,500")) issues.push("public pricing does not expose the commissioned baseline price");
 if (!vapi.model.messages[0].content.includes("from $2,500")) issues.push("Vapi prompt does not expose the commissioned baseline price");
 

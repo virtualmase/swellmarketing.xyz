@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "service_id": "swell-marketing",
+  "name": "Swell Marketing",
+  "canonical_url": "https://swellmarketing.xyz/",
+  "role": "human-governed-commercial-operations",
+  "status": "production",
+  "authority": {
+    "autonomous_payments": false,
+    "human_approval_required": ["pricing", "scope", "payment", "closed_won"]
+  },
+  "capabilities": ["lead-intake", "representation-diagnostics", "gtm-evidence"],
+  "endpoints": {
+    "lead_intake": "https://swellmarketing.xyz/api/leads",
+    "public_config": "https://swellmarketing.xyz/api/public-config"
+  },
+  "commerce": { "x402": "disabled", "reason": "consultative engagements require written scope and private collection" },
+  "registry": "https://base.arctura.network/network.json"
+}
