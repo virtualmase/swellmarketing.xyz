@@ -2,7 +2,16 @@ import { timingSafeEqual } from "node:crypto";
 import { HubSpotError } from "../lib/hubspot-client.js";
 import { processHubSpotEvent } from "../lib/hubspot-adapter.js";
 
-const ALLOWED_EVENTS = new Set(["lead.requested_contact", "voice.call_completed", "opportunity.qualified"]);
+const ALLOWED_EVENTS = new Set([
+  "lead.requested_contact",
+  "voice.call_completed",
+  "opportunity.qualified",
+  "meeting.booked",
+  "meeting.held",
+  "meeting.no_show",
+  "proposal.sent",
+  "proposal.accepted"
+]);
 
 function json(response, status, body) {
   response.status(status).setHeader("Content-Type", "application/json; charset=utf-8");

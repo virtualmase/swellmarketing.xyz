@@ -43,8 +43,16 @@ const baselineRun = hasPrivateRepresentationFixtures
   : null;
 const envExample = await read(".env.example");
 const { validateExperiments, validateMissionLedger } = await import(path.join(root, "lib/mission-evidence.js"));
-const attributionPages = ["index.html", "services/index.html", "method/index.html", "pricing/index.html", "about/index.html", "resources/index.html", "resources/ai-still-describes-retired-product/index.html", "geo-audit/index.html", "academy/index.html", "roadmap.html", "contact/index.html"];
+const attributionPages = ["index.html", "services/index.html", "method/index.html", "pricing/index.html", "about/index.html", "partners/index.html", "resources/index.html", "resources/ai-still-describes-retired-product/index.html", "geo-audit/index.html", "academy/index.html", "roadmap.html", "contact/index.html"];
 const attributionScript = await read("assets/attribution.js");
+const gtmEventsApi = await read("api/gtm-events.js");
+if (!attributionScript.includes("swell_cta_click") || !attributionScript.includes("/_vercel/insights/script.js")) issues.push("shared attribution does not emit governed CTA events through Vercel Analytics");
+if (!contact.includes("lead_request_saved")) issues.push("contact form does not emit a confirmed lead-save event");
+const diagnostic = await read("geo-audit/index.html");
+if (!diagnostic.includes("diagnostic_completed")) issues.push("Representation Gap diagnostic does not emit a completion event");
+for (const eventType of ["meeting.booked", "meeting.held", "meeting.no_show", "proposal.sent", "proposal.accepted"]) {
+  if (!gtmEventsApi.includes(`\"${eventType}\"`)) issues.push(`authenticated GTM endpoint does not accept ${eventType}`);
+}
 
 const weights = model.qualification.dimensions.reduce((sum, dimension) => sum + dimension.weight, 0);
 if (weights !== 100) issues.push(`qualification weights total ${weights}, expected 100`);
@@ -60,8 +68,9 @@ for (const [price, label] of [[2500, "GEO Growth"], [3500, "GEO Scale"]]) {
   if (!vapi.model.messages[0].content.includes(`$${price.toLocaleString()}`)) issues.push(`Vapi prompt is missing $${price.toLocaleString()}`);
 }
 if (pricing.includes("$1,500") || vapi.model.messages[0].content.includes("$1,500")) issues.push("retired $1,500 GEO Starter offer remains on a public conversion surface");
-if (!pricing.includes("$2,500 · Swell diagnostic") && !pricing.includes("$2,500")) issues.push("public pricing does not expose the commissioned baseline price");
-if (!vapi.model.messages[0].content.includes("from $2,500")) issues.push("Vapi prompt does not expose the commissioned baseline price");
+if (model.offers.some((offer) => offer.id === "managed_foundation" || offer.startingPriceUsdMonthly === 1500)) issues.push("retired GEO Starter remains in the canonical offer model");
+if (model.offers.find((offer) => offer.id === "commissioned_baseline")?.startingPriceUsd) issues.push("privately scoped Representation Baseline has a canonical fixed starting price");
+if (!vapi.model.messages[0].content.includes("privately scoped Representation Baseline")) issues.push("Vapi prompt does not preserve the private Baseline pricing policy");
 
 for (const field of schema.required) {
   if (!new RegExp(`name=["']${field}["']`).test(contact)) issues.push(`contact form is missing required field ${field}`);
@@ -112,6 +121,9 @@ for (const [objectType, properties] of [["contact", hubspotManifest.contactPrope
     if (!property.name.startsWith("swell_")) issues.push(`HubSpot ${objectType} property ${property.name} is outside the Swell namespace`);
     if (property.type === "enumeration" && !property.options?.length) issues.push(`HubSpot enumeration ${property.name} has no options`);
   }
+}
+for (const property of ["swell_meeting_booked_at", "swell_meeting_held_at", "swell_meeting_no_show_at", "swell_proposal_sent_at", "swell_proposal_accepted_at"]) {
+  if (!hubspotManifest.contactProperties.some((candidate) => candidate.name === property && candidate.type === "datetime")) issues.push(`HubSpot manifest is missing funnel timestamp ${property}`);
 }
 if (!hubspotManifest.dealProperties.some((property) => property.name === "swell_event_id" && property.hasUniqueValue === true)) issues.push("HubSpot deal event ID is not unique");
 if (new Set(hubspotManifest.pipeline.stages.map((stage) => stage.key)).size !== hubspotManifest.pipeline.stages.length) issues.push("HubSpot recommended pipeline stage keys are not unique");
@@ -530,7 +542,7 @@ if (!hubspotResult.dealId || hubspot.state.deals.size !== 1) issues.push("HubSpo
 if (hubspot.state.tasks.size !== 2 || !hubspotResult.taskId) issues.push("HubSpot adapter did not create the qualified follow-up task");
 if (hubspotResult.companyId !== [...hubspot.state.companies.keys()][0] || hubspot.state.companies.size !== 1) issues.push("HubSpot adapter duplicated a company for the same domain");
 const deal = [...hubspot.state.deals.values()][0];
-if (deal?.properties?.amount !== "2500" || deal?.properties?.dealstage !== "qualified-stage") issues.push("HubSpot adapter did not map offer value and qualified stage");
+if (deal?.properties?.amount || deal?.properties?.dealstage !== "qualified-stage") issues.push("HubSpot adapter did not preserve private Baseline pricing and the qualified stage");
 
 const optOutVoiceEvent = structuredClone(forwardedVapiEvent);
 optOutVoiceEvent.contact.email = "jamie@northstar.example";

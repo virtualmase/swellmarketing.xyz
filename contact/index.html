@@ -105,19 +105,20 @@
           const node = form.querySelector(`[data-error-for="${field}"]`);
           if (node) node.textContent = message;
         }
-        throw new Error(result.code === 'validation_failed' ? 'Check the highlighted fields.' : result.code === 'challenge_failed' ? 'Please complete the security check and try again.' : 'The request could not be saved. Email masonnguyengeo@gmail.com instead.');
+        throw new Error(result.code === 'validation_failed' ? 'Check the highlighted fields.' : result.code === 'challenge_failed' ? 'Please complete the security check and try again.' : 'The request could not be saved. Email ops@swellmarketing.xyz instead.');
       }
       form.reset();
       form.elements.formStartedAt.value = String(Date.now());
       form.elements.turnstileToken.value = '';
       status.dataset.state = 'success';
       status.textContent = 'Received. We will review the representation gap and reply within one business day.';
+      window.swellTrack?.('lead_request_saved', { page: '/contact/' });
     } catch (error) {
       status.dataset.state = 'error';
-      status.textContent = error.message || 'The request could not be saved. Email masonnguyengeo@gmail.com instead.';
+      status.textContent = error.message || 'The request could not be saved. Email ops@swellmarketing.xyz instead.';
     } finally {
       button.disabled = false;
-      button.textContent = 'Send the request';
+      button.textContent = 'Send the representation gap';
       status.focus();
     }
   });

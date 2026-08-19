@@ -100,11 +100,13 @@
     const data = new FormData(form);
     const firstGap = layers.find(([key]) => data.get(key) !== 'yes');
     const finding = firstGap || ['ready', 'No upstream gap reported', 'Your answers suggest the foundation is present. Verify it with captured evidence, then rank query-level representation gaps by business impact.', '/docs/REPRESENTATION_BASELINE_TEMPLATE.md'];
+    const constraint = firstGap ? ({ entity: 'entity_definition', access: 'crawler_access', evidence: 'evidence', authority: 'corroboration', measurement: 'measurement' }[firstGap[0]]) : 'no_upstream_gap_reported';
     title.textContent = finding[1];
     copy.textContent = finding[2];
     action.href = finding[3];
     action.textContent = firstGap ? 'Open the evidence template' : 'Build the representation baseline';
-    sessionStorage.setItem('swell_first_constraint', firstGap ? ({ entity: 'entity_definition', access: 'crawler_access', evidence: 'evidence', authority: 'corroboration', measurement: 'measurement' }[firstGap[0]]) : 'unclear');
+    sessionStorage.setItem('swell_first_constraint', firstGap ? constraint : 'unclear');
+    window.swellTrack?.('diagnostic_completed', { constraint, page: '/geo-audit/' });
     result.dataset.visible = 'true';
     result.focus();
   });

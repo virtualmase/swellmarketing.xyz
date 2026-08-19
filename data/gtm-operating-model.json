@@ -58,18 +58,9 @@
       "id": "commissioned_baseline",
       "name": "Representation Baseline",
       "type": "paid_diagnostic",
-      "startingPriceUsd": 2500,
       "entryCriteria": "A material representation problem exists and the buyer can supply evidence and priority questions.",
       "exitCriteria": "Versioned query set, observed-answer baseline, evidence gaps, first constraint, and prioritized roadmap are approved.",
       "canonicalUrl": "https://swellmarketing.xyz/geo-audit/"
-    },
-    {
-      "id": "managed_foundation",
-      "name": "GEO Starter",
-      "type": "recurring",
-      "startingPriceUsdMonthly": 1500,
-      "entryCriteria": "A focused entity and technical foundation scope has been defined.",
-      "exitCriteria": "Foundation acceptance criteria are met or the engagement is expanded through documented change control."
     },
     {
       "id": "managed_growth",
