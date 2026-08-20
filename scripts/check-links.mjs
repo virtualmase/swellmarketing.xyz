@@ -6,6 +6,7 @@ import path from "node:path";
 const root = path.resolve(new URL("..", import.meta.url).pathname);
 const ignoredDirectories = new Set([".git", "node_modules"]);
 const localHosts = new Set(["swellmarketing.xyz", "www.swellmarketing.xyz", "local.test"]);
+const managedStoragePrefix = "/manus-storage/";
 
 async function walk(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -130,6 +131,7 @@ for (const file of htmlFiles) {
 
     if (!localHosts.has(url.hostname)) continue;
     if (url.pathname.startsWith("/_vercel/")) continue;
+    if (url.pathname.startsWith(managedStoragePrefix)) continue;
 
     const target = await resolveLocalPath(url.pathname);
     if (!target) {
