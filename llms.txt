@@ -42,6 +42,7 @@ Public alternate name: Swell Marketing Agency
 - Plain-language entry guide: https://swellmarketing.xyz/resources/start-here/
 - Representation Foundations guide: https://swellmarketing.xyz/resources/representation-foundations/
 - Entity-record inspection guide: https://swellmarketing.xyz/resources/entity-record-ai-inspection/ — explains how to clarify the subject, source, scope, relationship, and preferred current record behind public entity claims; it does not promise a search, citation, traffic, ranking, or AI-system outcome.
+- Google AI Search markup guide: https://swellmarketing.xyz/resources/special-markup-google-ai-search/ — explains that Google does not require special AI markup, AI text files, or dedicated Schema.org types for its AI Search features; it does not promise crawling, indexing, a link, citation, traffic, ranking, or a third-party-system outcome.
 - Public-state guide: https://swellmarketing.xyz/resources/live-building-archived/ — explains how to distinguish live, building, conceptual, and archived public material across visible pages and machine-readable records; it does not promise a search, citation, traffic, ranking, or AI-system outcome.
 - Representation Gap guide: https://swellmarketing.xyz/resources/representation-gap-ai-search/
 - Evidence Contract guide: https://swellmarketing.xyz/resources/evidence-contract-structured-data/
