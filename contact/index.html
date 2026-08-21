@@ -33,7 +33,7 @@
       </form>
     </div></section>
   </main>
-  <footer class="site-footer"><div class="shell"><div class="footer-bottom"><span>© 2026 Swell Marketing</span><span><a href="tel:+16197456997">Call (619) 745-6997</a> · <a href="mailto:ops@swellmarketing.xyz">Email Swell</a> · <a href="/privacy/">Privacy</a></span></div></div></footer>
+  <footer class="site-footer"><div class="shell"><div class="footer-bottom"><span>© 2026 Swell Marketing</span><span><a href="tel:+16197456997">Call (619) 745-6997</a> · <a href="mailto:hello@swellmarketing.xyz">Email Swell</a> · <a href="/privacy/">Privacy</a></span></div></div></footer>
 <script>
 (() => {
   const form = document.querySelector('#lead-request-form');
@@ -105,7 +105,7 @@
           const node = form.querySelector(`[data-error-for="${field}"]`);
           if (node) node.textContent = message;
         }
-        throw new Error(result.code === 'validation_failed' ? 'Check the highlighted fields.' : result.code === 'challenge_failed' ? 'Please complete the security check and try again.' : 'The request could not be saved. Email ops@swellmarketing.xyz instead.');
+        throw new Error(result.code === 'validation_failed' ? 'Check the highlighted fields.' : result.code === 'challenge_failed' ? 'Please complete the security check and try again.' : 'The request could not be saved. Email hello@swellmarketing.xyz instead.');
       }
       form.reset();
       form.elements.formStartedAt.value = String(Date.now());
@@ -115,7 +115,7 @@
       window.swellTrack?.('lead_request_saved', { page: '/contact/' });
     } catch (error) {
       status.dataset.state = 'error';
-      status.textContent = error.message || 'The request could not be saved. Email ops@swellmarketing.xyz instead.';
+      status.textContent = error.message || 'The request could not be saved. Email hello@swellmarketing.xyz instead.';
     } finally {
       button.disabled = false;
       button.textContent = 'Send the representation gap';
