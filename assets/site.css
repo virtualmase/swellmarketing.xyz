@@ -240,6 +240,19 @@ a:focus-visible, summary:focus-visible, button:focus-visible, input:focus-visibl
 .callout p { margin: 0; color: var(--muted); }
 
 /* Guides and terminology */
+/* Founder operating note: use the supplied low-key portrait as a quiet Pacific-depth field, with copy protected by an opaque left-side overlay. */
+.founder-hero { position: relative; min-height: 680px; overflow: hidden; background: var(--coast-depth); }
+.founder-hero-image { position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(6,28,46,.98) 0%, rgba(6,28,46,.88) 38%, rgba(6,28,46,.32) 68%, rgba(6,28,46,.14) 100%), url("/assets/images/mason-nguyen-founder-story.webp"); background-position: center, 58% center; background-size: cover; background-repeat: no-repeat; }
+.founder-hero-copy { position: relative; z-index: 1; display: grid; align-content: center; min-height: 680px; max-width: min(calc(100% - 40px), var(--max)); padding-block: 126px 88px; }
+.founder-hero-copy .page-title { max-width: 760px; }
+.founder-hero-copy .page-title em { color: var(--mykonos-sky); }
+.founder-hero-copy .page-lede { max-width: 650px; margin-top: 28px; }
+.founder-source { max-width: 620px; margin: 0 0 28px; color: var(--muted); font-size: .78rem; }
+.founder-source a { color: var(--mykonos-sky); text-decoration: underline; text-underline-offset: 3px; }
+.founder-quote { margin: 36px 0; padding: 26px 30px; border-left: 3px solid var(--lupine); background: rgba(120,102,184,.10); }
+.founder-quote p { margin: 0 0 12px; color: var(--paper); font-size: 1.2rem; line-height: 1.45; }
+.founder-quote cite { color: var(--muted); font-size: .78rem; font-style: normal; }
+.founder-quote cite a { color: var(--mint); }
 .guide-hero .page-title { font-size: clamp(4.4rem,8vw,8rem); }
 .signal-hero { position: relative; overflow: hidden; background: radial-gradient(ellipse at 78% 42%,rgba(169,219,231,.20),transparent 19rem), var(--gradient-current); }
 .signal-hero::after { position: absolute; top: 50%; right: -12rem; width: min(62vw,760px); aspect-ratio: 1; border: 1px solid rgba(169,219,231,.30); border-radius: 50%; box-shadow: 0 0 0 70px rgba(127,214,206,.055),0 0 0 140px rgba(35,143,196,.075),0 0 0 210px rgba(169,219,231,.025); content: ""; transform: translateY(-50%) rotate(-13deg); pointer-events: none; }
@@ -432,6 +445,10 @@ a:focus-visible, summary:focus-visible, button:focus-visible, input:focus-visibl
   .related-guides { grid-template-columns: 1fr; }
   .hero-signal-visual { inset: 0; opacity: .20; }
   .hero-signal-visual::after { background: linear-gradient(90deg, rgba(4,23,37,.90) 0%, rgba(4,23,37,.72) 100%); }
+  .founder-hero, .founder-hero-copy { min-height: 620px; }
+  .founder-hero-image { background-image: linear-gradient(180deg, rgba(6,28,46,.78) 0%, rgba(6,28,46,.92) 58%, rgba(6,28,46,.98) 100%), url("/assets/images/mason-nguyen-founder-story.webp"); background-position: center, 56% center; }
+  .founder-hero-copy { padding-block: 210px 56px; }
+  .founder-quote { padding: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
