@@ -253,6 +253,23 @@ a:focus-visible, summary:focus-visible, button:focus-visible, input:focus-visibl
 .founder-quote p { margin: 0 0 12px; color: var(--paper); font-size: 1.2rem; line-height: 1.45; }
 .founder-quote cite { color: var(--muted); font-size: .78rem; font-style: normal; }
 .founder-quote cite a { color: var(--mint); }
+.author-profile-layout { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(240px,.7fr); gap: clamp(36px,7vw,100px); align-items: end; }
+.author-page-hero { background: radial-gradient(ellipse at 84% 18%,rgba(169,219,231,.12),transparent 22rem), var(--coast-depth); }
+.author-profile-facts { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.author-profile-facts div { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.author-profile-facts span { display: block; margin-bottom: 7px; color: var(--mint); font: .62rem var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.author-profile-facts a, .author-profile-facts p { margin: 0; color: var(--paper-soft); font-size: .9rem; }
+.author-profile-facts a { text-decoration: underline; text-underline-offset: 3px; }
+.author-list { border-top: 1px solid var(--line); }
+.author-list-card { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 36px; align-items: end; padding: 34px 0; border-bottom: 1px solid var(--line); }
+.author-list-card h3 { margin: 10px 0 12px; color: var(--paper); font: 400 clamp(2.4rem,4vw,4.4rem)/.96 var(--display); }
+.author-list-card p { max-width: 720px; margin: 0; color: var(--muted); font-size: .95rem; }
+.author-list-actions { display: grid; justify-items: start; gap: 16px; }
+.about-author-cue { display: grid; grid-template-columns: 126px minmax(0,1fr); gap: 26px; align-items: center; max-width: 780px; margin: 40px 0 0; padding-top: 32px; border-top: 1px solid rgba(6,28,46,.18); }
+.about-author-cue img { width: 126px; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 42%; border-radius: 10px; filter: saturate(.9) contrast(1.05); }
+.about-author-cue h3 { margin: 12px 0 9px; color: var(--ink); font: 400 2rem/1 var(--display); }
+.about-author-cue p { margin: 0 0 14px; color: #536d7d; font-size: .9rem; }
+.about-author-cue .text-link { color: #0c6f9f; }
 .guide-hero .page-title { font-size: clamp(4.4rem,8vw,8rem); }
 .signal-hero { position: relative; overflow: hidden; background: radial-gradient(ellipse at 78% 42%,rgba(169,219,231,.20),transparent 19rem), var(--gradient-current); }
 .signal-hero::after { position: absolute; top: 50%; right: -12rem; width: min(62vw,760px); aspect-ratio: 1; border: 1px solid rgba(169,219,231,.30); border-radius: 50%; box-shadow: 0 0 0 70px rgba(127,214,206,.055),0 0 0 140px rgba(35,143,196,.075),0 0 0 210px rgba(169,219,231,.025); content: ""; transform: translateY(-50%) rotate(-13deg); pointer-events: none; }
@@ -449,6 +466,10 @@ a:focus-visible, summary:focus-visible, button:focus-visible, input:focus-visibl
   .founder-hero-image { background-image: linear-gradient(180deg, rgba(6,28,46,.78) 0%, rgba(6,28,46,.92) 58%, rgba(6,28,46,.98) 100%), url("/assets/images/mason-nguyen-founder-story.webp"); background-position: center, 56% center; }
   .founder-hero-copy { padding-block: 210px 56px; }
   .founder-quote { padding: 22px; }
+  .author-profile-layout, .author-list-card, .about-author-cue { grid-template-columns: 1fr; }
+  .author-list-card { gap: 22px; }
+  .about-author-cue { gap: 18px; }
+  .about-author-cue img { width: 108px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
