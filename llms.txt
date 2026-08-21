@@ -5,7 +5,7 @@
 Canonical website: https://swellmarketing.xyz/
 Organization identifier: https://swellmarketing.xyz/#organization
 Service provider: Mason Nguyen
-Service provider identifier: https://masonnguyengeo.com/#mason-nguyen
+Service provider identifier: https://www.masonnguyengeo.com/#mason-nguyen
 Contact: masonnguyengeo@gmail.com
 Concierge phone: +1-619-745-6997
 Public alternate name: Swell Marketing Agency
@@ -76,7 +76,7 @@ Public alternate name: Swell Marketing Agency
 Mason Nguyen and Swell Marketing are related but distinct entities.
 
 - Mason Nguyen is a Person who services Swell Marketing.
-- Mason's canonical personal website is https://masonnguyengeo.com/.
+- Mason's canonical personal website is https://www.masonnguyengeo.com/.
 - Mason publishes original GEO research, definitions, frameworks, and founder analysis under his own name.
 - Swell Marketing is an Organization that applies research through audits, implementation, managed programs, tools, and education.
 - Mason Nguyen is not an alternate name or sameAs identity for Swell Marketing.
