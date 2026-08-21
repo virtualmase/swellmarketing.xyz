@@ -34,6 +34,8 @@ Public alternate name: Swell Marketing Agency
 - Method and quality gates: https://swellmarketing.xyz/method/
 - Engagements and pricing: https://swellmarketing.xyz/pricing/
 - About Swell and entity boundaries: https://swellmarketing.xyz/about/
+- Authors at Swell: https://swellmarketing.xyz/authors/; identifies named people whose original research and operating notes inform Swell's applied guides, diagnostics, and public tools.
+- Mason Nguyen author profile: https://swellmarketing.xyz/authors/mason-nguyen/; Mason's canonical research remains at https://www.masonnguyengeo.com/. Swell is the applied operating organization and does not claim Mason's personal research identity as its own.
 - Founder operating note: https://swellmarketing.xyz/founder-note/; explains the founder conviction behind Swell's applied work: a public record should carry learning forward through source review, controlled changes, retained evidence, and later observation. Mason Nguyen remains the source author; Swell Marketing applies the operating practice.
 - Request a working session: https://swellmarketing.xyz/contact/
 - Privacy notice: https://swellmarketing.xyz/privacy/
