@@ -123,10 +123,14 @@
     :root {
       --coast-depth: #061c2e;
       --coast-shelf: #0a314a;
+      --pacific-marina: #238fc4;
       --aegean-current: #167da7;
       --mykonos-sky: #a9dbe7;
       --mykonos-stone: #f4f0e6;
       --sea-glass: #7fd6ce;
+      --ultramarine: #3156b8;
+      --ultramarine-hover: #4268cf;
+      --lupine: #7866b8;
       --ink: var(--coast-depth);
       --ink-2: var(--coast-shelf);
       --ink-3: #124662;
@@ -135,11 +139,11 @@
       --muted: #a7c1cb;
       --line: rgba(219, 233, 231, 0.14);
       --line-strong: rgba(219, 233, 231, 0.28);
-      --mint: #c5ef55;
-      --mint-deep: #699b2d;
+      --mint: var(--ultramarine);
+      --mint-deep: #263f91;
       --coral: #eeb293;
       --amber: #ffc15a;
-      --gradient-provenance: linear-gradient(118deg, var(--coast-depth) 0%, var(--coast-shelf) 32%, var(--aegean-current) 64%, var(--mykonos-sky) 125%);
+      --gradient-provenance: linear-gradient(118deg, var(--coast-depth) 0%, var(--pacific-marina) 34%, var(--aegean-current) 66%, var(--mykonos-sky) 125%);
       --display: "Bebas Neue", Impact, sans-serif;
       --body: "DM Sans", system-ui, sans-serif;
       --mono: "Geist Mono", ui-monospace, monospace;
@@ -162,7 +166,7 @@
       overflow-x: hidden;
       background:
         radial-gradient(circle at 84% 8%, rgba(169, 219, 231, 0.15), transparent 30rem),
-        radial-gradient(circle at 10% 50%, rgba(22, 125, 167, 0.17), transparent 32rem),
+        radial-gradient(circle at 10% 50%, rgba(35, 143, 196, 0.18), transparent 32rem),
         linear-gradient(155deg, var(--coast-depth) 0%, #082a42 54%, var(--coast-depth) 100%);
       color: var(--paper-soft);
       font-family: var(--body);
@@ -309,14 +313,14 @@
     .btn-primary {
       border-color: var(--mint);
       background: var(--mint);
-      color: var(--ink);
+      color: var(--paper);
     }
 
     .btn-primary:hover {
-      border-color: #8dffda;
-      background: #8dffda;
-      color: var(--ink);
-      box-shadow: 0 10px 30px rgba(101, 245, 199, 0.2);
+      border-color: var(--ultramarine-hover);
+      background: var(--ultramarine-hover);
+      color: var(--paper);
+      box-shadow: 0 10px 30px rgba(49, 86, 184, 0.28);
     }
 
     .btn-arrow::after {
@@ -682,7 +686,7 @@
     }
 
     .method .eyebrow {
-      color: #147d62;
+      color: var(--lupine);
     }
 
     .method .section-title {
@@ -690,7 +694,7 @@
     }
 
     .method .section-title em {
-      color: #147d62;
+      color: var(--lupine);
     }
 
     .method .section-intro {
@@ -717,13 +721,13 @@
       height: 12px;
       border: 3px solid var(--paper);
       border-radius: 50%;
-      background: #147d62;
-      box-shadow: 0 0 0 1px #147d62;
+      background: var(--pacific-marina);
+      box-shadow: 0 0 0 1px var(--pacific-marina);
       content: "";
     }
 
     .step-num {
-      color: #147d62;
+      color: var(--pacific-marina);
       font-family: var(--mono);
       font-size: 0.66rem;
       font-weight: 600;
@@ -762,8 +766,8 @@
     }
 
     .plan-featured {
-      border-color: rgba(101,245,199,0.55);
-      background: linear-gradient(180deg, rgba(101,245,199,0.10), rgba(10,23,21,0.68));
+      border-color: rgba(35,143,196,0.55);
+      background: linear-gradient(180deg, rgba(35,143,196,0.12), rgba(10,49,74,0.72));
     }
 
     .plan-label {
