@@ -37,6 +37,7 @@ Public alternate name: Swell Marketing Agency
 - Request a working session: https://swellmarketing.xyz/contact/
 - Privacy notice: https://swellmarketing.xyz/privacy/
 - Research-to-application guide: https://swellmarketing.xyz/resources/
+- Content audit and pruning guide: https://swellmarketing.xyz/resources/content-audit-pruning-ai-search/; explains how to keep, repair, consolidate, redirect, or retire public content based on current claims, evidence, distinct buyer questions, canonical URLs, and accountable ownership. It does not promise ranking, AI inclusion, citations, traffic, leads, or revenue.
 - AI-assisted writing guide: https://swellmarketing.xyz/resources/how-to-write-with-ai-without-sounding-like-ai/; explains how to edit AI-assisted copy with concrete conditions, visible sources, direct verbs, varied sentence rhythm, and clear editorial ownership. It does not detect AI authorship or promise ranking, citation, traffic, or revenue.
 - Rebrand and domain transition checklist: https://swellmarketing.xyz/resources/rebrand-domain-transition-checklist/ — five evidence-led control points and a minimum handoff packet for name, domain, product, or category changes; it does not guarantee ranking, citation, inclusion, traffic, leads, revenue, or third-party model behavior.
 - GEO workflow fieldwork and current project boundaries: https://swellmarketing.xyz/resources/ecosystem-fieldwork/
