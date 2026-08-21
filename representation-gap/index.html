@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#061c2e">
+  <title>Representation Gap Viewer. Swell Marketing</title>
+  <meta name="description" content="An illustrative operating artifact showing the gap between an observed answer and the public record required to support it.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://swellmarketing.xyz/representation-gap/">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","@id":"https://swellmarketing.xyz/representation-gap/#page","name":"Representation Gap Viewer","url":"https://swellmarketing.xyz/representation-gap/","description":"An illustrative operating artifact, not a visitor-specific live audit, showing how an observed answer and a public record can diverge.","isPartOf":{"@id":"https://swellmarketing.xyz/#website"},"about":{"@id":"https://swellmarketing.xyz/#organization"}}
+  </script>
+  <style>
+    :root {
+      --viewer-depth: #061c2e;
+      --viewer-depth-raised: #0a314a;
+      --viewer-marina: #238fc4;
+      --viewer-current: #167da7;
+      --viewer-sky: #a9dbe7;
+      --viewer-stone: #f4f0e6;
+      --viewer-muted: #c4d3db;
+      --viewer-ultramarine: #3156b8;
+      --viewer-lupine: #7866b8;
+      --viewer-line: rgba(169,219,231,.25);
+    }
+
+    body.viewer-page {
+      margin: 0;
+      color: var(--viewer-stone);
+      background: var(--viewer-depth);
+    }
+
+    .viewer-page .site-header {
+      position: relative;
+      z-index: 3;
+      background: rgba(6,28,46,.94);
+    }
+
+    .viewer-page .btn-primary {
+      background: var(--viewer-ultramarine);
+      border-color: var(--viewer-ultramarine);
+      color: var(--viewer-stone);
+    }
+
+    .viewer-page .btn-primary:hover,
+    .viewer-page .btn-primary:focus-visible {
+      background: #26499e;
+      border-color: #26499e;
+    }
+
+    .viewer-shell {
+      position: relative;
+      overflow: hidden;
+      min-height: calc(100vh - 78px);
+      padding: clamp(56px, 8vw, 116px) 0 clamp(64px, 8vw, 112px);
+      background:
+        radial-gradient(ellipse at 91% 40%, rgba(35,143,196,.22), transparent 31rem),
+        linear-gradient(115deg, var(--viewer-depth) 0%, var(--viewer-depth) 48%, rgba(10,49,74,.94) 70%, rgba(22,125,167,.56) 100%);
+    }
+
+    .viewer-shell::before {
+      position: absolute;
+      inset: auto 0 0;
+      height: 28%;
+      content: "";
+      opacity: .68;
+      background:
+        linear-gradient(180deg, transparent, rgba(6,28,46,.82)),
+        repeating-linear-gradient(0deg, rgba(169,219,231,.06) 0 1px, transparent 1px 12px);
+      pointer-events: none;
+    }
+
+    .viewer-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .viewer-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 22px;
+      color: var(--viewer-sky);
+      font-family: var(--font-mono, ui-monospace, monospace);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .viewer-eyebrow::before {
+      width: 28px;
+      height: 1px;
+      content: "";
+      background: currentColor;
+    }
+
+    .viewer-title {
+      max-width: 790px;
+      margin: 0;
+      color: var(--viewer-stone);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.65rem, 5.4vw, 5.7rem);
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: .98;
+    }
+
+    .viewer-intro {
+      max-width: 610px;
+      margin: 24px 0 0;
+      color: var(--viewer-muted);
+      font-size: clamp(1rem, 1.4vw, 1.22rem);
+      line-height: 1.55;
+    }
+
+    .viewer-disclosure {
+      display: inline-flex;
+      align-items: center;
+      min-height: 31px;
+      margin: 23px 0 0;
+      padding: 0 13px;
+      border: 1px solid rgba(169,219,231,.26);
+      border-radius: 999px;
+      color: var(--viewer-muted);
+      font-family: var(--font-mono, ui-monospace, monospace);
+      font-size: .67rem;
+      font-weight: 700;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .gap-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 190px minmax(0, 1fr);
+      gap: clamp(18px, 3vw, 42px);
+      align-items: center;
+      margin-top: clamp(44px, 6vw, 76px);
+    }
+
+    .gap-panel {
+      position: relative;
+      min-height: 300px;
+      padding: clamp(24px, 3vw, 38px);
+      border: 1px solid var(--viewer-line);
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(10,49,74,.9), rgba(6,28,46,.8));
+      box-shadow: 0 24px 50px rgba(0,0,0,.16);
+    }
+
+    .gap-panel::after {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      content: "";
+      background: linear-gradient(140deg, rgba(169,219,231,.10), transparent 38%);
+      pointer-events: none;
+    }
+
+    .gap-panel > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .gap-panel-kicker {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 0 0 23px;
+      color: var(--viewer-stone);
+      font-family: var(--font-mono, ui-monospace, monospace);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .gap-panel-number {
+      color: var(--viewer-sky);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.15rem;
+      font-weight: 400;
+      letter-spacing: -.04em;
+    }
+
+    .gap-panel p {
+      max-width: 360px;
+      margin: 0 0 26px;
+      color: var(--viewer-muted);
+      font-size: 1.04rem;
+      line-height: 1.55;
+    }
+
+    .gap-observation-list,
+    .gap-record-list {
+      display: grid;
+      gap: 11px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .gap-observation-list li,
+    .gap-record-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 0 15px;
+      border: 1px solid rgba(169,219,231,.18);
+      border-radius: 9px;
+      background: rgba(6,28,46,.34);
+      color: var(--viewer-muted);
+      font-size: .92rem;
+    }
+
+    .gap-observation-list li::before {
+      display: grid;
+      width: 19px;
+      height: 19px;
+      place-items: center;
+      border: 1px solid rgba(169,219,231,.58);
+      border-radius: 50%;
+      color: var(--viewer-sky);
+      content: "×";
+      font-size: .9rem;
+      line-height: 1;
+    }
+
+    .gap-record-list li::after {
+      display: grid;
+      width: 19px;
+      height: 19px;
+      margin-left: auto;
+      place-items: center;
+      border: 1px solid rgba(169,219,231,.72);
+      border-radius: 50%;
+      color: var(--viewer-sky);
+      content: "✓";
+      font-size: .76rem;
+      line-height: 1;
+    }
+
+    .gap-bridge {
+      position: relative;
+      display: grid;
+      justify-items: center;
+      gap: 15px;
+      text-align: center;
+    }
+
+    .gap-bridge::before,
+    .gap-bridge::after {
+      position: absolute;
+      top: 50%;
+      width: clamp(18px, 3vw, 42px);
+      height: 2px;
+      content: "";
+      background: linear-gradient(90deg, transparent, var(--viewer-ultramarine));
+      box-shadow: 0 0 16px rgba(49,86,184,.8);
+    }
+
+    .gap-bridge::before {
+      right: calc(100% + 1px);
+    }
+
+    .gap-bridge::after {
+      left: calc(100% + 1px);
+      transform: scaleX(-1);
+    }
+
+    .gap-bridge-label {
+      color: var(--viewer-sky);
+      font-family: var(--font-mono, ui-monospace, monospace);
+      font-size: .66rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .gap-bridge-state {
+      padding: 13px 12px;
+      border: 1px solid rgba(120,102,184,.76);
+      border-radius: 8px;
+      background: rgba(45,39,90,.74);
+      color: #ddd6ff;
+      font-family: var(--font-mono, ui-monospace, monospace);
+      font-size: .69rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .gap-bridge-copy {
+      margin: 0;
+      color: var(--viewer-muted);
+      font-size: .82rem;
+      line-height: 1.4;
+    }
+
+    .viewer-conclusion {
+      margin: clamp(38px, 5vw, 62px) 0 0;
+      color: var(--viewer-stone);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 2.45vw, 2.35rem);
+      letter-spacing: -.025em;
+    }
+
+    .viewer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 24px;
+    }
+
+    .viewer-actions .btn:not(.btn-primary) {
+      border-color: rgba(169,219,231,.48);
+      color: var(--viewer-stone);
+    }
+
+    .viewer-actions .btn:not(.btn-primary):hover,
+    .viewer-actions .btn:not(.btn-primary):focus-visible {
+      background: rgba(169,219,231,.12);
+    }
+
+    .viewer-note {
+      max-width: 710px;
+      margin: 27px 0 0;
+      color: var(--viewer-muted);
+      font-size: .88rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 760px) {
+      .viewer-shell {
+        min-height: auto;
+        padding-top: 54px;
+      }
+
+      .viewer-title {
+        font-size: clamp(2.5rem, 13vw, 3.55rem);
+      }
+
+      .gap-stage {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .gap-panel {
+        min-height: 0;
+      }
+
+      .gap-bridge {
+        grid-row: 2;
+        padding: 8px 0;
+      }
+
+      .gap-bridge::before,
+      .gap-bridge::after {
+        top: auto;
+        bottom: calc(100% + 6px);
+        width: 2px;
+        height: 20px;
+        background: linear-gradient(180deg, transparent, var(--viewer-ultramarine));
+      }
+
+      .gap-bridge::before {
+        right: auto;
+        left: calc(50% - 1px);
+      }
+
+      .gap-bridge::after {
+        top: calc(100% + 6px);
+        right: auto;
+        left: calc(50% - 1px);
+        bottom: auto;
+        transform: scaleY(-1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="viewer-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="/" aria-label="Swell Marketing home"><span class="brand-mark">S</span><span class="brand-copy"><span class="brand-name">Swell Marketing</span><span class="brand-tag">GEO growth systems</span></span></a>
+      <nav class="desktop-nav" aria-label="Primary navigation"><a href="/services/">Services</a><a href="/method/">Method</a><a href="/pricing/">Plans</a><a href="/about/">About</a><a href="/academy/">Academy</a></nav>
+      <div class="nav-actions"><a class="btn btn-primary" href="/geo-audit/">Find your first constraint</a><details class="mobile-nav"><summary>Menu</summary><nav class="mobile-nav-menu" aria-label="Mobile navigation"><a href="/services/">Services</a><a href="/method/">Method</a><a href="/pricing/">Plans</a><a href="/about/">About</a><a href="/academy/">Academy</a><a href="/geo-audit/">Find your first constraint</a></nav></details></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="viewer-shell" aria-labelledby="viewer-title">
+      <div class="shell viewer-content">
+        <div class="viewer-eyebrow">The problem, made inspectable</div>
+        <h1 class="viewer-title" id="viewer-title">Where the answer and<br>the record diverge.</h1>
+        <p class="viewer-intro">A representation gap is the distance between what a buyer is told and what the public record can prove.</p>
+        <p class="viewer-disclosure">Illustrative operating artifact · not a live audit</p>
+
+        <div class="gap-stage" aria-label="Illustrative representation gap comparison">
+          <article class="gap-panel">
+            <div class="gap-panel-kicker"><span class="gap-panel-number">01</span>Observed answer</div>
+            <p>A buyer finds a confident answer with no named source.</p>
+            <ul class="gap-observation-list"><li>No source named</li><li>Offer context unclear</li></ul>
+          </article>
+
+          <div class="gap-bridge" aria-label="Missing evidence connection">
+            <div class="gap-bridge-label">The gap</div>
+            <div class="gap-bridge-state">Missing evidence</div>
+            <p class="gap-bridge-copy">Claim, proof, and review context do not connect.</p>
+          </div>
+
+          <article class="gap-panel">
+            <div class="gap-panel-kicker"><span class="gap-panel-number">02</span>Public record</div>
+            <ul class="gap-record-list"><li>Canonical offer page</li><li>Named expert source</li><li>Owner and review date</li></ul>
+          </article>
+        </div>
+
+        <p class="viewer-conclusion">The first constraint is not more content. It is a missing proof connection.</p>
+        <div class="viewer-actions"><a class="btn btn-primary" href="/geo-audit/">Find your first constraint</a><a class="btn" href="/method/">See the method</a></div>
+        <p class="viewer-note">This static example explains Swell’s method. It does not inspect, score, or make a finding about your organization. Use the diagnostic to identify a first constraint from your own answers and evidence.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell"><div class="footer-bottom"><span>© 2026 Swell Marketing</span><span>Illustrative method surface</span></div></div></footer>
+</body>
+</html>

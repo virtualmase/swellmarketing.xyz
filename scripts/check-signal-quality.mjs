@@ -200,6 +200,7 @@ const requiredDiscoveryUrls = [
   "https://swellmarketing.xyz/privacy/",
   "https://swellmarketing.xyz/resources/",
   "https://swellmarketing.xyz/geo-audit/",
+  "https://swellmarketing.xyz/representation-gap/",
   "https://swellmarketing.xyz/roadmap.html",
   ...requiredArtifacts.map((artifact) => `https://swellmarketing.xyz/${artifact}`)
 ];

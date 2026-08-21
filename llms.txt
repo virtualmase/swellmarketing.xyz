@@ -58,6 +58,7 @@ Public alternate name: Swell Marketing Agency
 - GEO and AI-native agency terminology index: https://swellmarketing.xyz/resources/geo-terms/
 - Buyer observation on outdated AI descriptions: https://swellmarketing.xyz/resources/ai-still-describes-retired-product/
 - Free Representation Gap diagnostic: https://swellmarketing.xyz/geo-audit/
+- Representation Gap Viewer: https://swellmarketing.xyz/representation-gap/ — an illustrative public operating artifact that contrasts an observed answer with the record components needed to support it. It is not a visitor-specific live audit, score, or finding.
 - Representation Baseline template: https://swellmarketing.xyz/docs/REPRESENTATION_BASELINE_TEMPLATE.md
 - Evidence Ledger template: https://swellmarketing.xyz/docs/EVIDENCE_LEDGER_TEMPLATE.md
 - Answer Change Log template: https://swellmarketing.xyz/docs/ANSWER_CHANGE_LOG_TEMPLATE.md
