@@ -121,18 +121,25 @@
 
   <style>
     :root {
-      --ink: #07100f;
-      --ink-2: #0a1715;
-      --ink-3: #10221f;
-      --paper: #f3f0e8;
-      --paper-soft: #d8d7cd;
-      --muted: #99a8a2;
-      --line: rgba(216, 215, 205, 0.14);
-      --line-strong: rgba(216, 215, 205, 0.25);
-      --mint: #65f5c7;
-      --mint-deep: #1ca982;
-      --coral: #ff6f59;
+      --coast-depth: #061c2e;
+      --coast-shelf: #0a314a;
+      --aegean-current: #167da7;
+      --mykonos-sky: #a9dbe7;
+      --mykonos-stone: #f4f0e6;
+      --sea-glass: #7fd6ce;
+      --ink: var(--coast-depth);
+      --ink-2: var(--coast-shelf);
+      --ink-3: #124662;
+      --paper: var(--mykonos-stone);
+      --paper-soft: #dbe9e7;
+      --muted: #a7c1cb;
+      --line: rgba(219, 233, 231, 0.14);
+      --line-strong: rgba(219, 233, 231, 0.28);
+      --mint: #c5ef55;
+      --mint-deep: #699b2d;
+      --coral: #eeb293;
       --amber: #ffc15a;
+      --gradient-provenance: linear-gradient(118deg, var(--coast-depth) 0%, var(--coast-shelf) 32%, var(--aegean-current) 64%, var(--mykonos-sky) 125%);
       --display: "Bebas Neue", Impact, sans-serif;
       --body: "DM Sans", system-ui, sans-serif;
       --mono: "Geist Mono", ui-monospace, monospace;
@@ -154,9 +161,9 @@
       min-width: 320px;
       overflow-x: hidden;
       background:
-        radial-gradient(circle at 84% 8%, rgba(101, 245, 199, 0.09), transparent 30rem),
-        radial-gradient(circle at 8% 46%, rgba(255, 111, 89, 0.07), transparent 30rem),
-        var(--ink);
+        radial-gradient(circle at 84% 8%, rgba(169, 219, 231, 0.15), transparent 30rem),
+        radial-gradient(circle at 10% 50%, rgba(22, 125, 167, 0.17), transparent 32rem),
+        linear-gradient(155deg, var(--coast-depth) 0%, #082a42 54%, var(--coast-depth) 100%);
       color: var(--paper-soft);
       font-family: var(--body);
       font-size: 16px;
@@ -323,7 +330,7 @@
       top: 0;
       z-index: 100;
       border-bottom: 1px solid var(--line);
-      background: rgba(7, 16, 15, 0.86);
+      background: rgba(6, 28, 46, 0.86);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
     }
@@ -351,7 +358,7 @@
       border-radius: 50%;
       background:
         linear-gradient(135deg, transparent 44%, var(--ink) 45% 54%, transparent 55%),
-        linear-gradient(135deg, var(--mint), var(--coral));
+        linear-gradient(135deg, var(--mykonos-sky), var(--aegean-current));
       color: transparent;
       box-shadow: 0 0 0 1px rgba(255,255,255,0.13);
     }
@@ -453,6 +460,18 @@
       position: relative;
       overflow: hidden;
       padding: 104px 0 68px;
+      background: var(--gradient-provenance);
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(244,240,230,.05), transparent 28%),
+        radial-gradient(ellipse at 90% 22%, rgba(169,219,231,.23), transparent 26rem),
+        linear-gradient(112deg, transparent 42%, rgba(127,214,206,.07) 70%, transparent 92%);
+      content: "";
+      pointer-events: none;
     }
 
     .hero::after {
@@ -461,11 +480,11 @@
       right: -14vw;
       width: min(50vw, 680px);
       aspect-ratio: 1;
-      border: 1px solid rgba(101,245,199,0.12);
+      border: 1px solid rgba(169,219,231,0.18);
       border-radius: 50%;
       box-shadow:
-        inset 0 0 0 70px rgba(101,245,199,0.018),
-        inset 0 0 0 140px rgba(255,111,89,0.018);
+        inset 0 0 0 70px rgba(127,214,206,0.030),
+        inset 0 0 0 140px rgba(169,219,231,0.022);
       content: "";
       pointer-events: none;
     }
@@ -478,6 +497,32 @@
       gap: 70px;
       align-items: end;
     }
+
+    .hero-provenance {
+      position: absolute;
+      inset: 14% -8% 10% 50%;
+      z-index: 0;
+      overflow: hidden;
+      opacity: 0.86;
+      pointer-events: none;
+    }
+
+    .hero-provenance::before,
+    .hero-provenance::after,
+    .hero-provenance span {
+      position: absolute;
+      display: block;
+      width: 132%;
+      height: 42%;
+      border: 1px solid rgba(169,219,231,.30);
+      border-radius: 50%;
+      content: "";
+      transform: rotate(-17deg);
+    }
+
+    .hero-provenance::before { top: 9%; left: -16%; box-shadow: 0 0 0 38px rgba(127,214,206,.035), 0 0 0 76px rgba(22,125,167,.045); }
+    .hero-provenance::after { top: 42%; left: -4%; border-color: rgba(127,214,206,.26); }
+    .hero-provenance span { top: 72%; left: -22%; border-color: rgba(244,240,230,.18); }
 
     .hero h1 {
       max-width: 920px;
@@ -1169,6 +1214,7 @@
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-provenance" aria-hidden="true"><span></span></div>
       <div class="shell">
         <div class="hero-grid">
           <div>
