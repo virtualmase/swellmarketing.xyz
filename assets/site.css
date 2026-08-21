@@ -25,7 +25,7 @@
   --marina-light: var(--mykonos-sky);
   --coral: #eeb293;
   --amber: #ffc15a;
-  --gradient-provenance: linear-gradient(118deg, var(--coast-depth) 0%, var(--pacific-marina) 34%, var(--aegean-current) 66%, var(--mykonos-sky) 125%);
+  --gradient-provenance: linear-gradient(115deg, var(--coast-depth) 0%, var(--pacific-marina) 38%, var(--aegean-current) 64%, var(--mykonos-sky) 100%);
   --gradient-current: linear-gradient(135deg, rgba(6,28,46,.96) 0%, rgba(10,49,74,.92) 38%, rgba(35,143,196,.62) 68%, rgba(22,125,167,.42) 100%);
 
   /* Semantic roles: components consume a purpose instead of a raw color name. */

@@ -25,6 +25,7 @@ test("Pacific Coast-to-Mykonos tokens define the shared provenance gradient", ()
   }
   assert.match(stylesheet, /--color-action-primary: var\(--ultramarine\)/);
   assert.match(stylesheet, /--color-editorial-signal: var\(--lupine\)/);
+  assert.match(stylesheet, /--gradient-provenance: linear-gradient\(115deg, var\(--coast-depth\) 0%, var\(--pacific-marina\) 38%, var\(--aegean-current\) 64%, var\(--mykonos-sky\) 100%\)/);
   assert.doesNotMatch(stylesheet, /--signal-lime/);
 });
 
@@ -35,5 +36,22 @@ test("homepage uses a decorative provenance graphic without putting claims into 
   assert.match(homepage, /--pacific-marina: #238fc4/);
   assert.match(homepage, /--ultramarine: #3156b8/);
   assert.match(homepage, /--lupine: #7866b8/);
+  assert.match(homepage, /--gradient-provenance: linear-gradient\(115deg, var\(--coast-depth\) 0%, var\(--pacific-marina\) 38%, var\(--aegean-current\) 64%, var\(--mykonos-sky\) 100%\)/);
   assert.match(homepage, /--gradient-provenance/);
+});
+
+test("homepage hero uses a concise evidence-led promise with preserved controlled routes", () => {
+  assert.match(homepage, /Make the public record <span>easy to inspect\.<\/span>/);
+  assert.match(homepage, /Your public pages, entity context, and important claims should agree\./);
+  assert.match(homepage, /href="\/geo-audit\/">Run the free diagnostic<\/a>/);
+  assert.match(homepage, /Request a GEO fit review<\/a>/);
+  assert.doesNotMatch(homepage, /The room remembers/);
+  assert.doesNotMatch(homepage, /brands it can verify\./);
+});
+
+test("hero uses Pacific depth for the reading field and reserves ultramarine for the primary action", () => {
+  assert.match(homepage, /linear-gradient\(115deg, var\(--coast-depth\) 0%, var\(--coast-depth\) 36%, rgba\(35,143,196,.78\) 65%/);
+  assert.match(homepage, /\.hero h1 span \{\s+display: block;\s+color: var\(--paper\);/);
+  assert.match(homepage, /\.hero \.eyebrow \{\s+color: var\(--paper-soft\);/);
+  assert.match(homepage, /\.btn-primary \{\s+border-color: var\(--mint\);\s+background: var\(--mint\);/);
 });

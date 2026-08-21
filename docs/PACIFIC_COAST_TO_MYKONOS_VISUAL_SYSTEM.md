@@ -22,7 +22,7 @@ This is not a travel treatment. The Mediterranean reference is expressed through
 
 ## Gradient and Graphic Rules
 
-The shared `--gradient-provenance` runs through four stops: Pacific Coast depth, Pacific Marina Blue, Aegean current, and Mykonos sky. It must not be placed behind dense body text without a darkening layer. Ultramarine and lupine remain outside the gradient so action hierarchy and editorial provenance stay legible. Hero graphics use procedural contour and current lines only: no maps, landmark silhouettes, flags, travel photography, people, yachts, metrics, or generated proof.
+The shared `--gradient-provenance` follows the supplied guide exactly: `linear-gradient(115deg, #061C2E 0%, #238FC4 38%, #167DA7 64%, #A9DBE7 100%)`. It must not be placed behind dense body text without a darkening layer. Ultramarine and lupine remain outside the gradient so action hierarchy and editorial provenance stay legible. Hero graphics use procedural contour and current lines only: no maps, landmark silhouettes, flags, travel photography, people, yachts, metrics, or generated proof.
 
 The homepage `hero-provenance` graphic is a non-semantic, `aria-hidden` visual field. Its layered current lines establish depth without claiming a location or operational result.
 

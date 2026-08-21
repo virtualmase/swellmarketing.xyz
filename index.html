@@ -143,7 +143,7 @@
       --mint-deep: #263f91;
       --coral: #eeb293;
       --amber: #ffc15a;
-      --gradient-provenance: linear-gradient(118deg, var(--coast-depth) 0%, var(--pacific-marina) 34%, var(--aegean-current) 66%, var(--mykonos-sky) 125%);
+      --gradient-provenance: linear-gradient(115deg, var(--coast-depth) 0%, var(--pacific-marina) 38%, var(--aegean-current) 64%, var(--mykonos-sky) 100%);
       --display: "Bebas Neue", Impact, sans-serif;
       --body: "DM Sans", system-ui, sans-serif;
       --mono: "Geist Mono", ui-monospace, monospace;
@@ -464,16 +464,17 @@
       position: relative;
       overflow: hidden;
       padding: 104px 0 68px;
-      background: var(--gradient-provenance);
+      background:
+        radial-gradient(ellipse at 92% 38%, rgba(169,219,231,.17), transparent 32rem),
+        linear-gradient(115deg, var(--coast-depth) 0%, var(--coast-depth) 36%, rgba(35,143,196,.78) 65%, rgba(22,125,167,.68) 82%, rgba(169,219,231,.58) 100%);
     }
 
     .hero::before {
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(244,240,230,.05), transparent 28%),
-        radial-gradient(ellipse at 90% 22%, rgba(169,219,231,.23), transparent 26rem),
-        linear-gradient(112deg, transparent 42%, rgba(127,214,206,.07) 70%, transparent 92%);
+        linear-gradient(90deg, rgba(6,28,46,.34) 0%, rgba(6,28,46,.10) 62%, transparent 100%),
+        linear-gradient(180deg, rgba(244,240,230,.035), transparent 28%);
       content: "";
       pointer-events: none;
     }
@@ -507,7 +508,7 @@
       inset: 14% -8% 10% 50%;
       z-index: 0;
       overflow: hidden;
-      opacity: 0.86;
+      opacity: 0.52;
       pointer-events: none;
     }
 
@@ -529,7 +530,7 @@
     .hero-provenance span { top: 72%; left: -22%; border-color: rgba(244,240,230,.18); }
 
     .hero h1 {
-      max-width: 920px;
+      max-width: 820px;
       margin: 0;
       color: var(--paper);
       font-family: var(--display);
@@ -542,7 +543,12 @@
 
     .hero h1 span {
       display: block;
-      color: var(--mint);
+      color: var(--paper);
+    }
+
+    .hero .eyebrow {
+      color: var(--paper-soft);
+      text-shadow: 0 1px 18px rgba(6,28,46,.42);
     }
 
     .hero-side {
@@ -551,9 +557,10 @@
 
     .hero-lede {
       margin: 0 0 28px;
-      color: var(--paper-soft);
+      color: var(--paper);
       font-size: clamp(1.02rem, 1.5vw, 1.18rem);
       line-height: 1.7;
+      text-wrap: balance;
     }
 
     .hero-actions {
@@ -564,17 +571,19 @@
 
     .cta-companion {
       margin: 14px 0 0;
-      color: var(--muted);
+      color: var(--paper-soft);
       font-size: 0.84rem;
       line-height: 1.55;
     }
 
     .cta-companion a {
-      color: var(--mint);
+      color: var(--paper);
       font-family: var(--mono);
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.03em;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .cta-companion a:hover {
@@ -600,7 +609,7 @@
 
     .signal-kicker {
       margin-bottom: 7px;
-      color: var(--mint);
+      color: var(--paper-soft);
       font-family: var(--mono);
       font-size: 0.62rem;
       letter-spacing: 0.11em;
@@ -1106,11 +1115,29 @@
       }
 
       .hero {
-        padding-top: 76px;
+        padding: 68px 0 56px;
       }
 
       .hero h1 {
-        font-size: clamp(4.1rem, 20vw, 6.8rem);
+        max-width: 100%;
+        font-size: clamp(3.6rem, 15.5vw, 4.5rem);
+        line-height: 0.88;
+      }
+
+      .hero-provenance {
+        inset: 16% -34% 8% 28%;
+        opacity: 0.38;
+      }
+
+      .hero-lede {
+        max-width: 34rem;
+        font-size: 1rem;
+        line-height: 1.66;
+      }
+
+      .cta-companion {
+        max-width: 34rem;
+        font-size: 0.8rem;
       }
 
       .signal-bar,
@@ -1222,11 +1249,11 @@
       <div class="shell">
         <div class="hero-grid">
           <div>
-            <div class="eyebrow">Generative engine optimization</div>
-            <h1 id="hero-title">The room remembers <span>brands it can verify.</span></h1>
+            <div class="eyebrow">Evidence-led representation</div>
+            <h1 id="hero-title">Make the public record <span>easy to inspect.</span></h1>
           </div>
           <div class="hero-side">
-            <p class="hero-lede">AI answers are already shaping the shortlist. Swell finds where those answers overlook or misrepresent your brand, traces the first broken signal, and builds evidence machines can verify.</p>
+            <p class="hero-lede">Your public pages, entity context, and important claims should agree. Swell maps the first constraint, connects the record to evidence, and gives your team a grounded next decision.</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="/geo-audit/">Run the free diagnostic</a>
               <a class="btn" href="https://meetings-na2.hubspot.com/mason-nguyen?utm_source=swellmarketing.xyz&amp;utm_medium=website&amp;utm_campaign=swell_geo_fit_review__home_hero&amp;utm_content=home_hero">Request a GEO fit review</a>
@@ -1237,16 +1264,16 @@
 
         <div class="signal-bar" aria-label="Swell Marketing capabilities">
           <div class="signal-item">
-            <div class="signal-kicker">01 · Find the leak</div>
-            <div class="signal-copy">See where proof and AI answers disagree</div>
+            <div class="signal-kicker">01 · Inspect the record</div>
+            <div class="signal-copy">See where the public record and current answer diverge</div>
           </div>
           <div class="signal-item">
-            <div class="signal-kicker">02 · Repair the signal</div>
-            <div class="signal-copy">Clarify the entity and publish the evidence</div>
+            <div class="signal-kicker">02 · Strengthen the evidence</div>
+            <div class="signal-copy">Clarify entities, claims, and source connections</div>
           </div>
           <div class="signal-item">
-            <div class="signal-kicker">03 · Check the answer</div>
-            <div class="signal-copy">Track accuracy, inclusion, and citations</div>
+            <div class="signal-kicker">03 · Review the change</div>
+            <div class="signal-copy">Track answers under documented conditions</div>
           </div>
         </div>
       </div>
