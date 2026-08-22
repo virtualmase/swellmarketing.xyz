@@ -22,6 +22,37 @@ function makeResponse() {
   };
 }
 
+test("AURE operator-host preflight is allowed without opening the endpoint to arbitrary origins", async () => {
+  const request = {
+    method: "OPTIONS",
+    headers: {
+      origin: "https://aure.autonomousresourcemanagement.com"
+    }
+  };
+  const response = makeResponse();
+
+  await handler(request, response);
+
+  assert.equal(response.statusCode, 204);
+  assert.equal(response.headers["access-control-allow-origin"], "https://aure.autonomousresourcemanagement.com");
+  assert.equal(response.headers["access-control-allow-methods"], "POST, OPTIONS");
+});
+
+test("untrusted cross-origin preflight is rejected", async () => {
+  const request = {
+    method: "OPTIONS",
+    headers: {
+      origin: "https://example.invalid"
+    }
+  };
+  const response = makeResponse();
+
+  await handler(request, response);
+
+  assert.equal(response.statusCode, 403);
+  assert.equal(response.headers["access-control-allow-origin"], undefined);
+});
+
 test("mocked AURE OMNY inquiry creates an attributed normalized event without a real downstream request", async () => {
   const originalFetch = globalThis.fetch;
   const originalWebhookUrl = process.env.GTM_WEBHOOK_URL;
@@ -94,4 +125,3 @@ test("mocked AURE OMNY inquiry creates an attributed normalized event without a 
     else process.env.GTM_WEBHOOK_SECRET = originalWebhookSecret;
   }
 });
-

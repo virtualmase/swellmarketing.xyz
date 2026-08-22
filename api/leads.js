@@ -2,8 +2,15 @@ import { createHash } from "node:crypto";
 
 const ALLOWED_TIMELINES = new Set(["within_30_days", "within_90_days", "this_year", "exploring"]);
 const ALLOWED_CONSTRAINTS = new Set(["entity_definition", "crawler_access", "evidence", "corroboration", "measurement", "unclear"]);
-const TRUSTED_ORIGINS = new Set(["https://swellmarketing.xyz", "https://www.swellmarketing.xyz"]);
-const AURE_HOSTNAME = "aure.swellmarketing.xyz";
+const TRUSTED_ORIGINS = new Set([
+  "https://swellmarketing.xyz",
+  "https://www.swellmarketing.xyz",
+  "https://aure.autonomousresourcemanagement.com"
+]);
+const AURE_HOSTNAMES = new Set([
+  "aure.swellmarketing.xyz",
+  "aure.autonomousresourcemanagement.com"
+]);
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_BODY_BYTES = 20_000;
 const MIN_FORM_AGE_MS = 2_500;
@@ -46,7 +53,7 @@ function hostname(value) {
 export function isAureOriginated(body) {
   const source = text(body.utmSource, 200).toLowerCase();
   const latestSource = text(body.latestUtmSource, 200).toLowerCase();
-  return source === "aure" || latestSource === "aure" || hostname(body.referrer) === AURE_HOSTNAME || hostname(body.latestReferrer) === AURE_HOSTNAME;
+  return source === "aure" || latestSource === "aure" || AURE_HOSTNAMES.has(hostname(body.referrer)) || AURE_HOSTNAMES.has(hostname(body.latestReferrer));
 }
 
 export function inquiryOriginDetail(body, isAure) {
@@ -75,13 +82,14 @@ function authorizedWebhookHeaders(secret) {
   };
 }
 
-function hasTrustedOrigin(request) {
+function trustedOrigin(request) {
   const origin = header(request, "origin");
-  if (!origin) return false;
+  if (!origin) return "";
   try {
-    return TRUSTED_ORIGINS.has(new URL(origin).origin);
+    const normalized = new URL(origin).origin;
+    return TRUSTED_ORIGINS.has(normalized) ? normalized : "";
   } catch {
-    return false;
+    return "";
   }
 }
 
@@ -145,11 +153,23 @@ export function inferSource(body) {
 }
 
 export default async function handler(request, response) {
+  const allowedOrigin = trustedOrigin(request);
+  if (allowedOrigin) {
+    response.setHeader("Access-Control-Allow-Origin", allowedOrigin);
+    response.setHeader("Vary", "Origin");
+  }
+  if (request.method === "OPTIONS") {
+    if (!allowedOrigin) return json(response, 403, { ok: false, code: "origin_not_allowed" });
+    response.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+    response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    response.setHeader("Access-Control-Max-Age", "86400");
+    return response.status(204).end();
+  }
   if (request.method !== "POST") {
     response.setHeader("Allow", "POST");
     return json(response, 405, { ok: false, code: "method_not_allowed" });
   }
-  if (!hasTrustedOrigin(request)) return json(response, 403, { ok: false, code: "origin_not_allowed" });
+  if (!allowedOrigin) return json(response, 403, { ok: false, code: "origin_not_allowed" });
   if (!isJsonRequest(request)) return json(response, 415, { ok: false, code: "unsupported_media_type" });
 
   const declaredLength = Number(header(request, "content-length") || 0);
