@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 const ALLOWED_TIMELINES = new Set(["within_30_days", "within_90_days", "this_year", "exploring"]);
 const ALLOWED_CONSTRAINTS = new Set(["entity_definition", "crawler_access", "evidence", "corroboration", "measurement", "unclear"]);
 const TRUSTED_ORIGINS = new Set(["https://swellmarketing.xyz", "https://www.swellmarketing.xyz"]);
+const AURE_HOSTNAME = "aure.swellmarketing.xyz";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_BODY_BYTES = 20_000;
 const MIN_FORM_AGE_MS = 2_500;
@@ -32,6 +33,31 @@ function normalizeWebsite(value) {
   } catch {
     return "";
   }
+}
+
+function hostname(value) {
+  try {
+    return new URL(text(value, 1000)).hostname.toLowerCase();
+  } catch {
+    return "";
+  }
+}
+
+export function isAureOriginated(body) {
+  const source = text(body.utmSource, 200).toLowerCase();
+  const latestSource = text(body.latestUtmSource, 200).toLowerCase();
+  return source === "aure" || latestSource === "aure" || hostname(body.referrer) === AURE_HOSTNAME || hostname(body.latestReferrer) === AURE_HOSTNAME;
+}
+
+export function inquiryOriginDetail(body, isAure) {
+  if (!isAure) return "";
+  const campaign = text(body.utmCampaign, 200) || text(body.latestUtmCampaign, 200);
+  const content = text(body.utmContent, 200) || text(body.latestUtmContent, 200);
+  const referringHost = hostname(body.referrer) || hostname(body.latestReferrer);
+  return [campaign && `campaign=${campaign}`, content && `content=${content}`, referringHost && `referrer=${referringHost}`]
+    .filter(Boolean)
+    .join(" | ")
+    .slice(0, 1000);
 }
 
 function json(response, status, body) {
@@ -101,10 +127,11 @@ async function verifyTurnstile(body, request) {
   }
 }
 
-function inferSource(body) {
+export function inferSource(body) {
   const source = text(body.utmSource, 200).toLowerCase();
   const medium = text(body.utmMedium, 200).toLowerCase();
   const referrer = text(body.referrer, 1000).toLowerCase();
+  if (isAureOriginated(body)) return "aure";
   if (medium.includes("paid") || ["cpc", "ppc", "paid_social"].includes(medium)) return "paid";
   if (source.includes("linkedin")) return "linkedin";
   if (source.includes("email") || medium === "email") return "email";
@@ -155,6 +182,8 @@ export default async function handler(request, response) {
   if (turnstile.state === "failed") return json(response, 403, { ok: false, code: "challenge_failed" });
 
   const receivedAt = new Date().toISOString();
+  const aureOriginated = isAureOriginated(body);
+  const origin = aureOriginated ? "aure" : "general";
   const idempotencyInput = `${email}|${website}|${trigger.toLowerCase()}|${receivedAt.slice(0, 13)}`;
   const eventId = `lead_${createHash("sha256").update(idempotencyInput).digest("hex").slice(0, 24)}`;
   const event = {
@@ -185,6 +214,8 @@ export default async function handler(request, response) {
       timeline,
       firstConstraint,
       source: inferSource(body),
+      inquiryOrigin: origin,
+      inquiryOriginDetail: inquiryOriginDetail(body, aureOriginated),
       nextAction: "Review request and respond",
       nextActionAt: new Date(Date.now() + 10 * 60 * 1000).toISOString()
     },

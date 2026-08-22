@@ -47,3 +47,22 @@ test("a new contact gets safe defaults but no inferred consent", () => {
   assert.equal(properties.swell_marketing_consent, undefined);
   assert.equal(properties.swell_do_not_contact, "false");
 });
+
+test("AURE-originated inquiry data persists as a reportable contact property", () => {
+  const properties = contactProperties({
+    eventId: "aure-1",
+    eventType: "lead.requested_contact",
+    occurredAt: "2026-08-22T18:00:00.000Z",
+    sourceSystem: "swellmarketing.xyz",
+    contact: { email: "aure-buyer@example.com" },
+    opportunity: {
+      source: "aure",
+      inquiryOrigin: "aure",
+      inquiryOriginDetail: "campaign=aure_method | content=hero_cta"
+    }
+  }, null, undefined);
+
+  assert.equal(properties.swell_source, "aure");
+  assert.equal(properties.swell_inquiry_origin, "aure");
+  assert.match(properties.swell_inquiry_origin_detail, /hero_cta/);
+});

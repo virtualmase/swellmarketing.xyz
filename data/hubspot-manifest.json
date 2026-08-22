@@ -7,8 +7,10 @@
   },
   "contactProperties": [
     {"name":"swell_last_event_ids","label":"Swell processed event IDs","type":"string","fieldType":"textarea","description":"Recent normalized GTM event IDs used for duplicate protection.","groupName":"contactinformation","hidden":true,"formField":false},
-    {"name":"swell_source","label":"Swell source","type":"enumeration","fieldType":"select","description":"Normalized original lead source.","groupName":"contactinformation","formField":false,"options":["direct","organic_search","organic_ai","referral","partner","mason_research","linkedin","email","event","paid","outbound","unknown"]},
+    {"name":"swell_source","label":"Swell source","type":"enumeration","fieldType":"select","description":"Normalized original lead source.","groupName":"contactinformation","formField":false,"options":["aure","direct","organic_search","organic_ai","referral","partner","mason_research","linkedin","email","event","paid","outbound","unknown"]},
     {"name":"swell_source_detail","label":"Swell source detail","type":"string","fieldType":"text","description":"Raw campaign, referrer, or source detail.","groupName":"contactinformation","formField":false},
+    {"name":"swell_inquiry_origin","label":"Swell inquiry origin","type":"enumeration","fieldType":"select","description":"Named Swell entry point responsible for the inquiry.","groupName":"contactinformation","formField":false,"options":["aure","general"]},
+    {"name":"swell_inquiry_origin_detail","label":"Swell inquiry origin detail","type":"string","fieldType":"text","description":"AURE campaign, content location, or referring host for the inquiry.","groupName":"contactinformation","formField":false},
     {"name":"swell_first_constraint","label":"First representation constraint","type":"enumeration","fieldType":"select","description":"Earliest unresolved Representation Operations layer.","groupName":"contactinformation","formField":false,"options":["entity_definition","crawler_access","evidence","corroboration","measurement","unclear"]},
     {"name":"swell_trigger","label":"Representation trigger","type":"string","fieldType":"textarea","description":"Observed problem in buyer language.","groupName":"contactinformation","formField":false},
     {"name":"swell_commercial_consequence","label":"Commercial consequence","type":"string","fieldType":"textarea","description":"Business consequence stated by the buyer.","groupName":"contactinformation","formField":false},
@@ -31,6 +33,8 @@
   ],
   "dealProperties": [
     {"name":"swell_event_id","label":"Swell source event ID","type":"string","fieldType":"text","description":"Normalized event that created the opportunity.","groupName":"dealinformation","hasUniqueValue":true,"formField":false},
+    {"name":"swell_inquiry_origin","label":"Swell inquiry origin","type":"enumeration","fieldType":"select","description":"Named Swell entry point responsible for the inquiry.","groupName":"dealinformation","formField":false,"options":["aure","general"]},
+    {"name":"swell_inquiry_origin_detail","label":"Swell inquiry origin detail","type":"string","fieldType":"text","description":"AURE campaign, content location, or referring host for the inquiry.","groupName":"dealinformation","formField":false},
     {"name":"swell_first_constraint","label":"First representation constraint","type":"enumeration","fieldType":"select","description":"Earliest unresolved layer.","groupName":"dealinformation","formField":false,"options":["entity_definition","crawler_access","evidence","corroboration","measurement","unclear"]},
     {"name":"swell_trigger","label":"Representation trigger","type":"string","fieldType":"textarea","description":"Observed problem in buyer language.","groupName":"dealinformation","formField":false},
     {"name":"swell_commercial_consequence","label":"Commercial consequence","type":"string","fieldType":"textarea","description":"Business consequence stated by the buyer.","groupName":"dealinformation","formField":false},

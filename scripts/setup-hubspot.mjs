@@ -23,6 +23,18 @@ function propertyPayload(property) {
   };
 }
 
+function addedOptions(existing, property) {
+  if (!property.options?.length || existing?.modificationMetadata?.readOnlyOptions) return [];
+  const present = new Set((existing.options || []).map((option) => option.value));
+  return propertyPayload(property).options.filter((option) => !present.has(option.value));
+}
+
+function mergedOptions(existing, additions) {
+  const current = (existing.options || []).map(({ description, displayOrder, hidden, label, value }) => ({ description, displayOrder, hidden, label, value }));
+  const highestOrder = current.reduce((highest, option) => Math.max(highest, Number(option.displayOrder) || 0), 0);
+  return [...current, ...additions.map((option, index) => ({ ...option, displayOrder: highestOrder + index + 1 }))];
+}
+
 async function request(pathname, options = {}) {
   const response = await fetch(`https://api.hubapi.com${pathname}`, {
     ...options,
@@ -46,6 +58,16 @@ for (const [objectType, properties] of [["contacts", manifest.contactProperties]
   for (const property of properties) {
     const existing = await request(`/crm/properties/${manifest.apiVersion}/${objectType}/${property.name}`);
     if (existing.response.ok) {
+      const additions = addedOptions(existing.body, property);
+      if (additions.length) {
+        const updated = await request(`/crm/properties/${manifest.apiVersion}/${objectType}/${property.name}`, {
+          method: "PATCH",
+          body: JSON.stringify({ options: mergedOptions(existing.body, additions) })
+        });
+        if (!updated.response.ok) throw new Error(`Could not update options for ${objectType}.${property.name}: ${updated.response.status} ${JSON.stringify(updated.body)}`);
+        console.log(`updated ${objectType}.${property.name} options: ${additions.map((option) => option.value).join(", ")}`);
+        continue;
+      }
       console.log(`exists ${objectType}.${property.name}`);
       continue;
     }
