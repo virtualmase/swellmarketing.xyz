@@ -22,11 +22,11 @@ function makeResponse() {
   };
 }
 
-test("AURE operator-host preflight is allowed without opening the endpoint to arbitrary origins", async () => {
+test("AURE intake-host preflight is allowed without opening the endpoint to arbitrary origins", async () => {
   const request = {
     method: "OPTIONS",
     headers: {
-      origin: "https://aure.autonomousresourcemanagement.com"
+      origin: "https://aure.swellmarketing.xyz"
     }
   };
   const response = makeResponse();
@@ -34,7 +34,7 @@ test("AURE operator-host preflight is allowed without opening the endpoint to ar
   await handler(request, response);
 
   assert.equal(response.statusCode, 204);
-  assert.equal(response.headers["access-control-allow-origin"], "https://aure.autonomousresourcemanagement.com");
+  assert.equal(response.headers["access-control-allow-origin"], "https://aure.swellmarketing.xyz");
   assert.equal(response.headers["access-control-allow-methods"], "POST, OPTIONS");
 });
 

@@ -5,7 +5,7 @@ const ALLOWED_CONSTRAINTS = new Set(["entity_definition", "crawler_access", "evi
 const TRUSTED_ORIGINS = new Set([
   "https://swellmarketing.xyz",
   "https://www.swellmarketing.xyz",
-  "https://aure.autonomousresourcemanagement.com"
+  "https://aure.swellmarketing.xyz"
 ]);
 const AURE_HOSTNAMES = new Set([
   "aure.swellmarketing.xyz",
