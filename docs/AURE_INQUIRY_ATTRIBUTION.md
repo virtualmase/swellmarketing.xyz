@@ -35,6 +35,8 @@ The `data/hubspot-manifest.json` file defines the new contact and deal propertie
 
 Run the existing HubSpot setup process against the target portal before relying on the fields in production. Then submit a non-production test through an AURE-tagged link and verify that the contact and, if qualified, associated deal carry the expected `aure` origin and placement detail. Do not use real prospect data for the verification submission.
 
+The production referral URL for the AURE method entry point returned HTTP `200` while preserving `utm_source=aure`, `utm_medium=referral`, `utm_campaign=aure_method`, and its placement value on 22 August 2026. The endpoint and CRM field values still require a non-production submission after the HubSpot property provisioning step.
+
 ## Reference
 
 [1] [HubSpot Developers, “Update a property”](https://developers.hubspot.com/docs/api-reference/legacy/crm/properties/update-property)
